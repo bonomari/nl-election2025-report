@@ -1,0 +1,35 @@
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 2rem;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+h1, h2, h3 {
+  color: #004080;
+}
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+table, th, td {
+  border: 1px solid #ccc;
+}
+th, td {
+  padding: 0.5rem;
+  text-align: left;
+}
+pre {
+  background: #eee;
+  padding: 1rem;
+  overflow-x: auto;
+}
