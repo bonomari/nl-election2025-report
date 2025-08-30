@@ -9,48 +9,128 @@
 <body>
   <header>
     <h1>オランダ総選挙2025 政治動向レポート</h1>
-    <ul>
-  <li><a href="index.html">トップ</a></li>
-  <li><a href="overview.html">概要（Overview）</a></li>
-  <li><a href="weekly.html">定点観測（週報）</a></li>
-  <li><a href="PVV.html">PVV</a></li>
-  <li><a href="GL–PvdA.html">GL–PvdA</a></li>
-  <li><a href="VVD.html">VVD</a></li>
-  <li><a href="NSC.html">NSC</a></li>
-  <li><a href="others-cda-volt-fvd.html">その他（Volt, FvD, CDA）</a></li>
-  <li><a href="about.html">このサイトについて</a></li>
-</ul>
-
+    <nav>
+      <ul>
+        <li><a href="index.html" aria-current="page">トップ</a></li>
+        <li><a href="overview.html">概要（Overview）</a></li>
+        <li><a href="weekly.html">定点観測（週報）</a></li>
+        <li><a href="PVV.html">PVV</a></li>
+        <li><a href="GL–PvdA.html">GL–PvdA</a></li>
+        <li><a href="VVD.html">VVD</a></li>
+        <li><a href="NSC.html">NSC</a></li>
+        <li><a href="others-cda-volt-fvd.html">その他（CDA/Volt/FvD）</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section id="overview">
-      <h2>政治状況の俯瞰（最新：2025年8月）</h2>
-      <p>各党の政策発表・候補者名簿・街頭活動が活発化。<strong>最新情報はページ上部に追記</strong>の運用です。</p>
-      <p><a href="overview.html">→ 詳細（Overviewページ）</a></p>
+    <!-- ヒーロー -->
+    <section id="hero">
+      <h2>長期の俯瞰・週次ログ・政党別の三層で把握できる設計。</h2>
+      <p>トップでは「比較」「直近の要点」「主要導線」を提示します。詳細解説は <a href="overview.html">概要</a>、細粒度の出来事は <a href="weekly.html">週報</a> へ。</p>
     </section>
 
-    <section id="polls">
-      <h2>世論調査動向</h2>
-      <p>主要調査会社の最新データを反映予定。</p>
+    <!-- 争点別・政党スタンス比較（ダイジェスト） -->
+    <section id="party-positions">
+      <h2>争点別・主要政党のスタンス（ダイジェスト）</h2>
+      <p style="margin:.2rem 0 .8rem;color:#6b7280">※ 記号：✔︎ 賛成／✘ 反対／❍ 条件付き・中立。詳細は <a href="overview.html">概要</a> に順次集約。</p>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>政党</th>
+              <th>NATO防衛費<br>(GDP5%)</th>
+              <th>窒素税・増税</th>
+              <th>社会保障削減</th>
+              <th>移民政策</th>
+              <th>気候政策と農業</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="VVD.html">VVD</a></td>
+              <td>✔︎ 推進</td><td>✔︎ 限定容認</td><td>✔︎ 徐々に圧縮</td><td>✔︎ 制限方向</td><td>✔︎ 推進寄り</td><td>経済安定重視</td>
+            </tr>
+            <tr>
+              <td><a href="PVV.html">PVV</a></td>
+              <td>✔︎ 熱心支持</td><td>✘ 反対</td><td>✔︎ 一部容認</td><td>✔︎ 厳格化</td><td>✘ 反対</td><td>反EU傾向</td>
+            </tr>
+            <tr>
+              <td><a href="NSC.html">NSC</a></td>
+              <td>❍ 検討中</td><td>❍ 条件付き支持</td><td>❍ 慎重</td><td>❍ 制限方向</td><td>❍ 中立的</td><td>中道路線模索</td>
+            </tr>
+            <tr>
+              <td><a href="GL–PvdA.html">GL–PvdA</a></td>
+              <td>✘ 反対</td><td>✔︎ 導入推進</td><td>✘ 反対</td><td>✘ 緩和方向</td><td>✔︎ 強く推進</td><td>EU協調</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin:.4rem 0 0;color:#6b7280">出典：アップロードされた比較表の下書きを要約。より精緻な根拠リンクは概要ページに順次整理します。</p>
     </section>
 
-    <section id="weekly">
-      <h2>定点観測（週報）</h2>
-      <ul>
-        <li><a href="weekly.html">最新の週報ページへ（最新週が最上段）</a></li>
+    <!-- 直近の観測サマリ（更新メモのカード化） -->
+    <section id="recent-snapshot">
+      <h2>直近の観測サマリ（7月版）</h2>
+      <ul style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.7rem">
+        <li class="card" style="border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:linear-gradient(180deg,var(--muted),var(--surface))">
+          <h3>世論動向</h3>
+          <p>PVVとGL–PvdAが横並び、VVDは後退傾向。党首間の論争が加速。</p>
+        </li>
+        <li class="card" style="border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:linear-gradient(180deg,var(--muted),var(--surface))">
+          <h3>VVD内情</h3>
+          <p>Yesilgöz 体制への批判が浮上。戦略・連携を巡る論点が焦点化。</p>
+        </li>
+        <li class="card" style="border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:linear-gradient(180deg,var(--muted),var(--surface))">
+          <h3>観測ポイント</h3>
+          <p>8月末〜9月：党首声明・サイト更新、Peil.nl等の支持率変化、各党マニフェスト草案。</p>
+        </li>
+      </ul>
+      <p style="margin:.4rem 0 0;color:#6b7280">※ 詳細ログは <a href="weekly.html">週報</a> にて。</p>
+    </section>
+
+    <!-- 主要導線（カード） -->
+    <section id="quick-links">
+      <h2>主要ページ</h2>
+      <ul id="cards" style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;">
+        <li><a class="card" href="overview.html" style="display:block;padding:1rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--muted),var(--surface));">
+          <h3>概要（Overview）</h3>
+          <p>長期俯瞰・月別アップデート（最新が上）。政策比較の根拠リンクを集約。</p>
+        </a></li>
+        <li><a class="card" href="weekly.html" style="display:block;padding:1rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--muted),var(--surface));">
+          <h3>定点観測（週報）</h3>
+          <p>週→日→テーマの細粒度ログ。最新週はページ先頭から。</p>
+        </a></li>
+        <li><a class="card" href="#parties" style="display:block;padding:1rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--muted),var(--surface));">
+          <h3>政党別</h3>
+          <p>PVV / GL–PvdA / VVD / NSC / その他</p>
+        </a></li>
       </ul>
     </section>
 
+    <!-- 政党別（グリッド） -->
     <section id="parties">
-      <h2>政党別まとめ（議席数順）</h2>
+      <h2>政党別まとめ</h2>
       <ul>
         <li><a href="PVV.html">PVV（自由党）</a></li>
-        <li><a href="GL–PvdA.html">GL–PvdA（緑の左派–労働党連合）</a></li>
+        <li><a href="GL–PvdA.html">GL–PvdA（緑左派–労働党連合）</a></li>
         <li><a href="VVD.html">VVD（人民自由民主党）</a></li>
         <li><a href="NSC.html">NSC（新社会契約）</a></li>
-        <li><a href="others.html">その他（Volt, FvD, CDA）</a></li>
+        <li><a href="others-cda-volt-fvd.html">その他（CDA/Volt/FvD）</a></li>
       </ul>
+    </section>
+
+    <!-- 最近の更新（リンクのみ） -->
+    <section id="updates">
+      <h2>最近の更新</h2>
+      <ul>
+        <li><a href="overview.html#ov-ingest-master">総覧（MD取り込み）を追加</a> ／ <a href="overview.html#ov-prejul">〜7月末まとめを追加</a></li>
+        <li><a href="overview.html#ov-202508">概要：2025年8月の主な動きを更新</a></li>
+        <li><a href="weekly.html#w-2025-0722">週報：2025/07/22の週を追加</a></li>
+      </ul>
+      <p style="margin:.4rem 0 0;color:#6b7280">最終更新：2025-08-30</p>
     </section>
   </main>
 
