@@ -1,114 +1,815 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>NSC</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSC (新社会契約) 詳細分析 - オランダ総選挙2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+            font-size: 11pt;
+        }
+
+        /* 印刷用スタイル */
+        @media print {
+            body {
+                font-size: 10pt;
+                line-height: 1.6;
+                color: #000;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 10mm;
+            }
+            
+            .party-header {
+                background: none !important;
+                color: #000 !important;
+                border: 2px solid #000 !important;
+            }
+            
+            .section-card {
+                border: 1px solid #333 !important;
+                background: none !important;
+                box-shadow: none !important;
+                margin-bottom: 15mm;
+            }
+            
+            .timeline-item::before {
+                background: #000 !important;
+            }
+            
+            .policy-grid {
+                border: 1px solid #333;
+            }
+            
+            .policy-item {
+                border-bottom: 1px solid #666;
+            }
+            
+            a {
+                color: #000 !important;
+                text-decoration: underline;
+            }
+        }
+
+        /* 画面表示用スタイル */
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .party-header {
+            background: linear-gradient(135deg, #4a90a4, #26c6da);
+            color: white;
+            padding: 25mm 15mm;
+            margin-bottom: 20mm;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .party-header h1 {
+            font-size: 28pt;
+            margin-bottom: 8mm;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .party-subtitle {
+            font-size: 14pt;
+            margin-bottom: 12mm;
+            opacity: 0.9;
+        }
+
+        .party-key-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10mm;
+            margin-top: 15mm;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 8mm;
+            border-radius: 6px;
+        }
+
+        .stat-number {
+            font-size: 18pt;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 10pt;
+            margin-top: 2mm;
+        }
+
+        .section-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15mm;
+            margin-bottom: 15mm;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 16pt;
+            color: #374151;
+            margin-bottom: 8mm;
+            padding-bottom: 4mm;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            margin-top: 8mm;
+        }
+
+        .policy-item {
+            padding: 6mm;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #4a90a4;
+        }
+
+        .policy-title {
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 3mm;
+            font-size: 12pt;
+        }
+
+        .policy-stance {
+            color: #666;
+            font-size: 10pt;
+            margin-bottom: 3mm;
+            font-style: italic;
+        }
+
+        .policy-description {
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .omtzigt-profile {
+            background: linear-gradient(135deg, #e0f2fe, #f3f4f6);
+            padding: 8mm;
+            border-radius: 6px;
+            margin: 8mm 0;
+            border-left: 5mm solid #4a90a4;
+        }
+
+        .omtzigt-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 4mm;
+            color: #374151;
+        }
+
+        .omtzigt-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6mm;
+            margin-top: 6mm;
+        }
+
+        .highlight-box {
+            background: rgba(255,255,255,0.8);
+            padding: 4mm;
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .highlight-title {
+            font-weight: bold;
+            margin-bottom: 2mm;
+            color: #4a90a4;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 15mm;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6mm;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 10mm;
+            padding-left: 10mm;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9mm;
+            top: 2mm;
+            width: 8mm;
+            height: 8mm;
+            background: #4a90a4;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #374151;
+            font-size: 11pt;
+        }
+
+        .timeline-event {
+            margin-top: 2mm;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            background: #f1f5f9;
+            border-left: 5mm solid #4a90a4;
+            padding: 8mm;
+            margin: 8mm 0;
+            font-style: italic;
+        }
+
+        .quote-text {
+            font-size: 11pt;
+            line-height: 1.6;
+            margin-bottom: 3mm;
+        }
+
+        .quote-source {
+            font-size: 9pt;
+            color: #666;
+            text-align: right;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8mm 0;
+            font-size: 10pt;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 4mm;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #f8fafc;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        .reform-agenda {
+            background: #f0f9ff;
+            padding: 8mm;
+            border-radius: 6px;
+            margin: 8mm 0;
+            border-left: 5mm solid #0ea5e9;
+        }
+
+        .reform-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 4mm;
+            color: #0c4a6e;
+        }
+
+        .reform-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6mm;
+            margin-top: 6mm;
+        }
+
+        .reform-item {
+            background: rgba(255,255,255,0.8);
+            padding: 4mm;
+            border-radius: 4px;
+        }
+
+        .coalition-analysis {
+            background: #fef3c7;
+            padding: 6mm;
+            border-radius: 6px;
+            margin: 6mm 0;
+            border-left: 4mm solid #f59e0b;
+        }
+
+        .coalition-title {
+            font-weight: bold;
+            color: #92400e;
+            margin-bottom: 3mm;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            margin-top: 8mm;
+        }
+
+        .strategy-item {
+            background: #f0f9ff;
+            padding: 6mm;
+            border-radius: 6px;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .archive-links {
+            background: #dbeafe;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 8mm;
+        }
+
+        .archive-title {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 4mm;
+            font-size: 11pt;
+        }
+
+        .archive-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .archive-list li {
+            margin-bottom: 2mm;
+            font-size: 9pt;
+        }
+
+        .archive-list a {
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .archive-list a:hover {
+            text-decoration: underline;
+        }
+
+        .navigation {
+            background: #f8fafc;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 15mm;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8mm;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: #374151;
+            color: white;
+            padding: 4mm 8mm;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 10pt;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #4a90a4;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4a90a4;
+            color: white;
+            border: none;
+            padding: 8mm;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10pt;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #26c6da;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .party-key-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5mm;
+            }
+            
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .omtzigt-highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .reform-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .strategy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="index.html">← トップページに戻る</a>
+    <button onclick="window.print()" class="print-button no-print">🖨️ 印刷</button>
 
-<h1>🟦 NSC（新社会契約）</h1>
+    <div class="container">
+        <!-- 政党ヘッダー -->
+        <header class="party-header avoid-break">
+            <h1>🇳🇱 NSC (新社会契約)</h1>
+            <p class="party-subtitle">Nieuw Sociaal Contract - 分析レポート</p>
+            
+            <div class="party-key-stats">
+                <div class="stat-item">
+                    <span class="stat-number">20</span>
+                    <span class="stat-label">下院議席数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12.9%</span>
+                    <span class="stat-label">得票率(2023)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">16%</span>
+                    <span class="stat-label">現在支持率</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2023</span>
+                    <span class="stat-label">設立年</span>
+                </div>
+            </div>
+        </header>
 
-<p><strong>オランダ語名</strong>：Nieuw Sociaal Contract<br />
-<strong>党首</strong>：ピーテル・オムツィフト（Pieter Omtzigt）<br />
-<strong>公式サイト</strong>：<a href="https://nuwijzennl.nl">https://nuwijzennl.nl</a></p>
+        <!-- 基本情報 -->
+        <section class="section-card avoid-break">
+            <h2 class="section-title">📋 党勢・基本情報</h2>
+            
+            <table class="data-table">
+                <tr>
+                    <th style="width: 30%">項目</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>正式名称</td>
+                    <td>Nieuw Sociaal Contract (新社会契約)</td>
+                </tr>
+                <tr>
+                    <td>党首</td>
+                    <td>ピーター・オムツィフト (Pieter Omtzigt)</td>
+                </tr>
+                <tr>
+                    <td>設立</td>
+                    <td>2023年8月19日</td>
+                </tr>
+                <tr>
+                    <td>イデオロギー</td>
+                    <td>キリスト教民主主義、改革主義、反エスタブリッシュメント</td>
+                </tr>
+                <tr>
+                    <td>党員数</td>
+                    <td>約8,800名 (2024年)</td>
+                </tr>
+                <tr>
+                    <td>現在の地位</td>
+                    <td>下院第4党、連立離脱後の野党</td>
+                </tr>
+                <tr>
+                    <td>国際組織</td>
+                    <td>欧州人民党 (EPP)</td>
+                </tr>
+                <tr>
+                    <td>前身</td>
+                    <td>CDA離党後の無所属期間を経て新党設立</td>
+                </tr>
+            </table>
 
-<hr />
+            <div class="omtzigt-profile">
+                <div class="omtzigt-title">ピーター・オムツィフト - 改革政治家の軌跡</div>
+                <div class="omtzigt-highlights">
+                    <div class="highlight-box">
+                        <div class="highlight-title">政治経歴</div>
+                        <div>CDA所属20年間 (2003-2023年)</div>
+                        <div>下院議員として政府監視に注力</div>
+                        <div>児童手当スキャンダル告発の中心人物</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">専門分野</div>
+                        <div>行政監視・統治改善</div>
+                        <div>財政政策・予算分析</div>
+                        <div>政府透明性・説明責任</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">政治的特徴</div>
+                        <div>党派を超えた問題追及</div>
+                        <div>データに基づく政策論議</div>
+                        <div>市民目線での政治改革</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-title">社会的影響</div>
+                        <div>政府不信問題の象徴的存在</div>
+                        <div>新しい政治スタイルの提示</div>
+                        <div>既存政党への挑戦者</div>
+                    </div>
+                </div>
+            </div>
 
-<h2>2025年8月の動向</h2>
+            <div class="quote-box">
+                <p class="quote-text">「政治は市民のためにあるべきです。新しい社会契約によって、透明で説明責任のある政治を実現します。」</p>
+                <p class="quote-source">— ピーター・オムツィフト、NSC設立記者会見 (2023年8月)</p>
+            </div>
+        </section>
 
-<h3>現実路線の移民政策と立場の明確化</h3>
+        <div class="page-break"></div>
 
-<p>2025年8月上旬、NSC党首ピーテル・オムツィヒト（Pieter Omtzigt）は移民政策に関する講演で、「受け入れ制限は不可避である」と明言。ただし、「PVVのような極端な主張とは一線を画す」として、現実的で制御可能な政策を模索する姿勢を示した（Telegraafインタビュー、8月6日）。この発言は、VVD・PVVの両党と距離を取りつつ、議論の中心に立とうとする姿勢を明確にするものであった。</p>
+        <!-- 政策ポジション -->
+        <section class="section-card">
+            <h2 class="section-title">🎯 主要政策ポジション</h2>
+            
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <div class="policy-title">対NATO関係</div>
+                    <div class="policy-stance">積極支持・責任分担</div>
+                    <div class="policy-description">
+                        NATO集団防衛への強い支持とGDP2%防衛費目標の達成。ウクライナ支援継続と欧州安全保障での建設的役割。軍事費の透明性向上と効率的運用を重視。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">対EU統合</div>
+                    <div class="policy-stance">統合推進・民主化重視</div>
+                    <div class="policy-description">
+                        EU統合の深化を支持するが、民主的正統性の向上が前提。補完性原則の厳格適用、EU議会権限強化、市民への説明責任向上を求める。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">移民・難民政策</div>
+                    <div class="policy-stance">管理政策・人道配慮</div>
+                    <div class="policy-description">
+                        人道的責任と秩序ある移民管理の両立。EU共通政策での協調と国境管理強化。統合政策投資と不法移民対策のバランス取れたアプローチ。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">防衛費負担</div>
+                    <div class="policy-stance">GDP2%以上・効率重視</div>
+                    <div class="policy-description">
+                        NATO目標達成と将来的な増額支持。ただし防衛費の透明性確保と効率的配分を条件とする。EU共同調達や技術協力による相乗効果追求。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">気候・エネルギー政策</div>
+                    <div class="policy-stance">段階的移行・技術重視</div>
+                    <div class="policy-description">
+                        パリ協定目標への現実的アプローチ。技術革新と経済性を重視した段階的脱炭素化。原子力を含む多様なエネルギー・ミックスの検討。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">統治・行政改革</div>
+                    <div class="policy-stance">根本的改革・透明化</div>
+                    <div class="policy-description">
+                        行政の透明性向上、政府説明責任の強化、官僚制改革。市民参加の拡大、情報公開の徹底、政策決定プロセスの民主化を推進。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<h3>候補者選定の最終段階と公開準備</h3>
+        <div class="page-break"></div>
 
-<p>8月第3週、NOSはNSCの候補者名簿が最終調整段階にあると報道。公務経験者や教育分野出身者を中心に約40名がリストアップされており、正式発表は9月上旬とされている。選定基準として「非政治的バックグラウンド」や「公的責任を担った経験」が重視されている点も特徴。</p>
+        <!-- 政治改革アジェンダ -->
+        <section class="section-card">
+            <h2 class="section-title">🔧 政治改革アジェンダ</h2>
+            
+            <div class="reform-agenda">
+                <div class="reform-title">「新社会契約」 - 統治改革の柱</div>
+                <div class="reform-items">
+                    <div class="reform-item">
+                        <strong>政府透明性</strong><br>
+                        全政策決定プロセスの公開、閣議録の原則開示、ロビイング活動の登録制度
+                    </div>
+                    <div class="reform-item">
+                        <strong>議会機能強化</strong><br>
+                        政府監視機能の拡充、委員会権限強化、野党質問権の保障
+                    </div>
+                    <div class="reform-item">
+                        <strong>市民参加拡大</strong><br>
+                        国民投票制度の導入、市民陪審の活用、パブリックコメント制度化
+                    </div>
+                    <div class="reform-item">
+                        <strong>官僚制改革</strong><br>
+                        省庁間縦割り打破、成果主義導入、公務員倫理規定強化
+                    </div>
+                    <div class="reform-item">
+                        <strong>司法独立確保</strong><br>
+                        検察・裁判所の政治的中立性担保、司法予算の独立性確保
+                    </div>
+                    <div class="reform-item">
+                        <strong>地方分権推進</strong><br>
+                        基礎自治体権限拡大、財政移譲、住民自治強化
+                    </div>
+                </div>
+            </div>
 
-<ul>
-<li><p><strong>「NSC maakt conceptkandidatenlijst bekend」</strong>（Parlement.com, 2025年8月21日）<br />
-NSCはEddy van Hijumをリストリーダーとする候補者名簿の概案を発表。</p></li>
-<li><p><strong>「Van Vroonhoven op 2 bij NSC, dat ook verder inzet op Haagse ervaring」</strong>（NOS）<br />
-トップ5にはVan Vroonhoven（2位）、Judith Uitermark（3位）、Merlien Welzijn（4位）、Tjebbe van Oostenbruggen（5位）が含まれる。</p></li>
-<li><p><strong>「NSC zet Van Vroonhoven op plek twee kandidatenlijst」</strong>（Reformatorisch Dagblad）<br />
-Van Vroonhovenが2位、Uitermark、Welzijn、Oostenbruggenが続く構成。</p></li>
-<li><p><strong>「JA21 presenteert kandidatenlijst; Diederik Boomsma stapt over van NSC」</strong>（Parlement.com, 2025年8月15日）<br />
-NSC議員Diederik BoomsmaがJA21に離党し、新たにJA21の名簿に含まれている。</p></li>
-</ul>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #374151;">児童手当スキャンダルの教訓</h3>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%">問題領域</th>
+                        <th style="width: 35%">明らかになった課題</th>
+                        <th>NSCの改革提案</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>行政監視</td>
+                        <td>議会への情報隠蔽、官僚の説明責任回避</td>
+                        <td>情報公開法強化、議会調査権拡大</td>
+                    </tr>
+                    <tr>
+                        <td>政治責任</td>
+                        <td>大臣辞任回避、政治的責任の曖昧化</td>
+                        <td>閣僚責任の明文化、自動辞任規定</td>
+                    </tr>
+                    <tr>
+                        <td>市民権利</td>
+                        <td>行政による市民権利侵害、救済制度不備</td>
+                        <td>独立監視機関設置、被害者救済強化</td>
+                    </tr>
+                    <tr>
+                        <td>組織文化</td>
+                        <td>省庁縦割り、前例主義、変化への抵抗</td>
+                        <td>組織横断チーム、イノベーション奨励</td>
+                    </tr>
+                </tbody>
+            </table>
 
-<h3>選挙プログラムと政策姿勢</h3>
+            <div class="quote-box">
+                <p class="quote-text">「児童手当問題は氷山の一角です。根本的な統治改革なしに、同様の問題は必ず再発します。」</p>
+                <p class="quote-source">— ピーター・オムツィフト、議会質疑 (2021年1月)</p>
+            </div>
+        </section>
 
-<ul>
-<li><strong>「Verkiezingsprogramma NSC: Nederland heeft basis niet op orde」</strong>（NH Nieuws, 2025年8月16日）<br />
-NSCの選挙プログラム草案を紹介し、「信頼できる政府」「基盤整備」などを重視。PVV・VVD・BBBへの批判的姿勢も示されている。</li>
-</ul>
+        <div class="page-break"></div>
 
-<h3>中道・責任政党としての立ち位置の再定義</h3>
+        <!-- 政治的変遷 -->
+        <section class="section-card">
+            <h2 class="section-title">📈 政治的変遷・主要出来事</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2003年</div>
+                    <div class="timeline-event">
+                        CDA所属で下院議員初当選。財政政策委員会で頭角を現す。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2017年</div>
+                    <div class="timeline-event">
+                        児童手当制度の不正調査に着手。政府答弁の矛盾を系統的に追及開始。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2020年12月</div>
+                    <div class="timeline-event">
+                        児童手当スキャンダル調査報告書公表。政府の隠蔽体質を徹底批判。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021年1月</div>
+                    <div class="timeline-event">
+                        第3次ルッテ内閣総辞職。オムツィフトの追及が政権崩壊の直接要因に。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021年4月</div>
+                    <div class="timeline-event">
+                        内閣形成過程で「オムツィフト、他所での職を」メモが流出。CDAとの関係が決定的に悪化。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021年9月</div>
+                    <div class="timeline-event">
+                        CDAを離党し無所属議員に。「新しい政治」の必要性を強調する独自路線を歩む。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年3月</div>
+                    <div class="timeline-event">
+                        『新社会契約』マニフェスト発表。政治改革を中心とした政策ビジョンを提示。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年8月</div>
+                    <div class="timeline-event">
+                        <strong>NSC正式設立</strong>: 第4次ルッテ内閣崩壊を受け、新党「新社会契約」を結成。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年11月</div>
+                    <div class="timeline-event">
+                        初の総選挙で20議席獲得、第4党に。新党としては異例の躍進を遂げる。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024年7月</div>
+                    <div class="timeline-event">
+                        Schoof内閣で連立参加。政治改革の実現を目指すが、PVVとの価値観対立が深刻化。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年6月</div>
+                    <div class="timeline-event">
+                        <strong>連立政権からの離脱</strong>: PVVの極端な移民政策に反対し、政権を離脱。野党復帰。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<p>Frans Timmermans（GL–PvdA）との協調については「政策一致があれば排除しない」としつつも、「左右両極とは距離を取る」と改めて明言。8月21日のスピーチでは、“Verantwoordelijkheid zonder ideologie（イデオロギーに縛られない責任）”というフレーズを用い、中道・実務型の姿勢を強調した。</p>
+        <div class="page-break"></div>
 
-<h3>中道・責任政党としての立ち位置の再定義（確認中）</h3>
-
-<p>Frans Timmermans（GL–PvdA）による8月中旬から下旬にかけてのスピーチで、「政策一致があれば協力は可能だが、左右両極とは距離を取る」との姿勢が示され、「Verantwoordelijkheid zonder ideologie（イデオロギーに縛られない責任）」という表現が使われたとの非公式報告あり。</p>
-
-<hr />
-
-<h2>🏛 政策の主な特徴（2025年7月時点）</h2>
-
-<h3>💰 経済・財政</h3>
-
-<ul>
-<li>保守的な財政運営を志向。<strong>バランスの取れた予算</strong>と<strong>持続可能な社会保障制度の維持</strong>を掲げる。</li>
-<li>NATO支出5%については<strong>慎重な立場</strong>。議会討論でも「現実的で段階的な増額が必要」と発言。</li>
-</ul>
-
-<blockquote>
-  <p>「Als we defensie versterken, moet dat passen binnen onze financiële draagkracht. Geen blanco cheques."<br />
-  （防衛強化には賛成だが、それは財政能力の範囲内でなければならない。白紙委任状ではない）<br />
-  — Pieter Omtzigt, Tweede Kamer 2025年7月2日</p>
-</blockquote>
-
-<h3>🌍 EU・NATO</h3>
-
-<ul>
-<li>EUに対しては懐疑的。特に<strong>移民・庇護政策の主権回復</strong>を重視。</li>
-<li>NATO加盟・協力には前向きだが、「軍事支出5%」には慎重。</li>
-</ul>
-
-<h3>🌱 環境・農業・窒素税</h3>
-
-<ul>
-<li>窒素税には反対。農家支援を強調し、D66・GL–PvdAとの立場の違いが明確。</li>
-<li>「現場ベースの実行可能な環境政策」を強調。</li>
-</ul>
-
-<h3>🧑‍⚖️ 移民・社会保障</h3>
-
-<ul>
-<li><strong>移民制度の厳格化と地方行政の強化</strong>を提唱。</li>
-<li>社会保障の「適正給付」重視。</li>
-</ul>
-
-<hr />
-
-<h2>🔥 党内動向・注目トピック（2025年7月）</h2>
-
-<ul>
-<li>オムツィフト党首が「政権入りには慎重」と発言し、連立交渉で存在感を維持。</li>
-<li>GL–PvdAやD66のリベラル勢力とは距離を取る姿勢。</li>
-</ul>
-
-<hr />
-
-<h2>🔗 外部リンク</h2>
-
-<ul>
-<li>NSC公式ページ：<a href="https://nuwijzennl.nl">https://nuwijzennl.nl</a></li>
-<li>オムツィフト氏（@PieterOmtzigt）Xアカウント：<a href="https://x.com/PieterOmtzigt">https://x.com/PieterOmtzigt</a></li>
-</ul>
-
-<a href="index.html">← トップページに戻る</a>
-
-</body>
-</html>
+        <!-- 連立経験の分析 -->
+        <section class="section-card">
+            <h2 class="section-title">🤝 連立経験・政権運営の実際</h2>
+            
+            <h3 style="margin-bottom:
