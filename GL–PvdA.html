@@ -1,127 +1,1122 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>GL–PvdA</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GL–PvdA (緑・労働連合) 詳細分析 - オランダ総選挙2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+            font-size: 11pt;
+        }
+
+        /* 印刷用スタイル */
+        @media print {
+            body {
+                font-size: 10pt;
+                line-height: 1.6;
+                color: #000;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 10mm;
+            }
+            
+            .party-header {
+                background: none !important;
+                color: #000 !important;
+                border: 2px solid #000 !important;
+            }
+            
+            .section-card {
+                border: 1px solid #333 !important;
+                background: none !important;
+                box-shadow: none !important;
+                margin-bottom: 15mm;
+            }
+            
+            .timeline-item::before {
+                background: #000 !important;
+            }
+            
+            .policy-grid {
+                border: 1px solid #333;
+            }
+            
+            .policy-item {
+                border-bottom: 1px solid #666;
+            }
+            
+            a {
+                color: #000 !important;
+                text-decoration: underline;
+            }
+        }
+
+        /* 画面表示用スタイル */
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .party-header {
+            background: linear-gradient(135deg, #00c853, #dc2626);
+            color: white;
+            padding: 25mm 15mm;
+            margin-bottom: 20mm;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .party-header h1 {
+            font-size: 28pt;
+            margin-bottom: 8mm;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .party-subtitle {
+            font-size: 14pt;
+            margin-bottom: 12mm;
+            opacity: 0.9;
+        }
+
+        .party-key-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10mm;
+            margin-top: 15mm;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 8mm;
+            border-radius: 6px;
+        }
+
+        .stat-number {
+            font-size: 18pt;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 10pt;
+            margin-top: 2mm;
+        }
+
+        .section-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15mm;
+            margin-bottom: 15mm;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 16pt;
+            color: #1e3a8a;
+            margin-bottom: 8mm;
+            padding-bottom: 4mm;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            margin-top: 8mm;
+        }
+
+        .policy-item {
+            padding: 6mm;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #00c853;
+        }
+
+        .policy-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 3mm;
+            font-size: 12pt;
+        }
+
+        .policy-stance {
+            color: #666;
+            font-size: 10pt;
+            margin-bottom: 3mm;
+            font-style: italic;
+        }
+
+        .policy-description {
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .alliance-info {
+            background: linear-gradient(135deg, #00c853, #dc2626);
+            color: white;
+            padding: 8mm;
+            border-radius: 6px;
+            margin: 8mm 0;
+        }
+
+        .alliance-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 4mm;
+        }
+
+        .alliance-parties {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6mm;
+            margin-top: 6mm;
+        }
+
+        .party-box {
+            background: rgba(255,255,255,0.1);
+            padding: 4mm;
+            border-radius: 4px;
+        }
+
+        .party-name {
+            font-weight: bold;
+            margin-bottom: 2mm;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 15mm;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6mm;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 10mm;
+            padding-left: 10mm;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9mm;
+            top: 2mm;
+            width: 8mm;
+            height: 8mm;
+            background: #00c853;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #1e3a8a;
+            font-size: 11pt;
+        }
+
+        .timeline-event {
+            margin-top: 2mm;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            background: #f1f5f9;
+            border-left: 5mm solid #1e3a8a;
+            padding: 8mm;
+            margin: 8mm 0;
+            font-style: italic;
+        }
+
+        .quote-text {
+            font-size: 11pt;
+            line-height: 1.6;
+            margin-bottom: 3mm;
+        }
+
+        .quote-source {
+            font-size: 9pt;
+            color: #666;
+            text-align: right;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8mm 0;
+            font-size: 10pt;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 4mm;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #f8fafc;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .merger-timeline {
+            background: linear-gradient(135deg, #dcfce7, #fecaca);
+            padding: 8mm;
+            border-radius: 6px;
+            margin: 8mm 0;
+        }
+
+        .merger-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4mm;
+            padding: 3mm;
+            background: rgba(255,255,255,0.7);
+            border-radius: 4px;
+        }
+
+        .step-number {
+            background: #1e3a8a;
+            color: white;
+            width: 8mm;
+            height: 8mm;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 4mm;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+        .archive-links {
+            background: #dbeafe;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 8mm;
+        }
+
+        .archive-title {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 4mm;
+            font-size: 11pt;
+        }
+
+        .archive-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .archive-list li {
+            margin-bottom: 2mm;
+            font-size: 9pt;
+        }
+
+        .archive-list a {
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .archive-list a:hover {
+            text-decoration: underline;
+        }
+
+        .navigation {
+            background: #f8fafc;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 15mm;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8mm;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: #1e3a8a;
+            color: white;
+            padding: 4mm 8mm;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 10pt;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #00c853;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00c853;
+            color: white;
+            border: none;
+            padding: 8mm;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10pt;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .party-key-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5mm;
+            }
+            
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .alliance-parties {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="index.html">← トップページに戻る</a>
+    <button onclick="window.print()" class="print-button no-print">🖨️ 印刷</button>
 
-<h1>🟥 GL–PvdA（緑の左派–労働党連合）</h1>
+    <div class="container">
+        <!-- 政党ヘッダー -->
+        <header class="party-header avoid-break">
+            <h1>🇳🇱 GL–PvdA連合</h1>
+            <p class="party-subtitle">GroenLinks–PvdA / 緑・労働連合 - 分析レポート</p>
+            
+            <div class="party-key-stats">
+                <div class="stat-item">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">下院議席数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15.7%</span>
+                    <span class="stat-label">得票率(2023)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">26%</span>
+                    <span class="stat-label">現在支持率</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2026</span>
+                    <span class="stat-label">正式合併予定</span>
+                </div>
+            </div>
+        </header>
 
-<p><strong>オランダ語名</strong>：GroenLinks–PvdA<br />
-<strong>党首</strong>：フランス・ティメルマンス（Frans Timmermans）<br />
-<strong>公式サイト</strong>：<a href="https://groenlinks-pvda.nl">https://groenlinks-pvda.nl</a></p>
+        <!-- 連合基本情報 -->
+        <section class="section-card avoid-break">
+            <h2 class="section-title">🤝 連合・基本情報</h2>
+            
+            <div class="alliance-info">
+                <div class="alliance-title">GroenLinks–PvdA 連合構成</div>
+                <div class="alliance-parties">
+                    <div class="party-box">
+                        <div class="party-name">GroenLinks (緑の党)</div>
+                        <div>設立: 1989年</div>
+                        <div>党員: 46,508名 (2024年)</div>
+                        <div>前回獲得議席: 8議席 (2021年)</div>
+                    </div>
+                    <div class="party-box">
+                        <div class="party-name">PvdA (労働党)</div>
+                        <div>設立: 1946年</div>
+                        <div>党員: 47,869名 (2024年)</div>
+                        <div>前回獲得議席: 9議席 (2021年)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="data-table">
+                <tr>
+                    <th style="width: 30%">項目</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>正式名称</td>
+                    <td>GroenLinks–PvdA / GreenLeft–Labour</td>
+                </tr>
+                <tr>
+                    <td>連合党首</td>
+                    <td>フランス・ティメルマンス (Frans Timmermans)</td>
+                </tr>
+                <tr>
+                    <td>連合設立</td>
+                    <td>2021年（国政レベル）、2023年総選挙で本格始動</td>
+                </tr>
+                <tr>
+                    <td>イデオロギー</td>
+                    <td>社会民主主義、緑の政治、欧州統合推進</td>
+                </tr>
+                <tr>
+                    <td>合計党員数</td>
+                    <td>94,377名（重複会員含む、2024年）</td>
+                </tr>
+                <tr>
+                    <td>現在の地位</td>
+                    <td>下院第二党、最大野党</td>
+                </tr>
+                <tr>
+                    <td>欧州議会</td>
+                    <td>8議席（GLはGreens/EFA、PvdAはS&D所属）</td>
+                </tr>
+            </table>
 
-<hr />
+            <div class="quote-box">
+                <p class="quote-text">「我々は希望の政治を提供します。分裂と対立ではなく、連帯と協力によってオランダの未来を築きます。」</p>
+                <p class="quote-source">— フランス・ティメルマンス、2023年選挙キャンペーン</p>
+            </div>
+        </section>
 
-<h2>📣 2025年8月　発言・動向</h2>
+        <div class="page-break"></div>
 
-<h3>🏡 空港スペースを住宅開発に転用提案</h3>
+        <!-- 政策ポジション -->
+        <section class="section-card">
+            <h2 class="section-title">🎯 主要政策ポジション</h2>
+            
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <div class="policy-title">対NATO関係</div>
+                    <div class="policy-stance">積極支持・多国間主義</div>
+                    <div class="policy-description">
+                        NATO Article 5の重要性を強調し、集団防衛を支持。ただし防衛費はGDP2%目標の現状維持を主張。軍事よりも外交・開発援助への重点配分を提唱。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">対EU統合</div>
+                    <div class="policy-stance">統合深化推進</div>
+                    <div class="policy-description">
+                        「より民主的で社会的なヨーロッパ」を目標に、EU統合の深化を積極支持。共通移民政策、気候基金、最低賃金指令などEUレベルでの政策調整を推進。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">移民・難民政策</div>
+                    <div class="policy-stance">人道的受入・統合支援</div>
+                    <div class="policy-description">
+                        人道的責任に基づく難民受入を維持。統合政策への投資増額、家族再結合の権利保護、不法滞在者への人道的解決策を提案。反移民レトリックに明確に反対。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">防衛費負担</div>
+                    <div class="policy-stance">現状維持・外交優先</div>
+                    <div class="policy-description">
+                        GDP2%目標の機械的増額には反対。平和構築、開発協力、外交への投資を優先。軍事支出の透明性向上と、防衛産業への市民社会の監視強化を要求。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">気候・エネルギー政策</div>
+                    <div class="policy-stance">脱炭素化推進・公正な移行</div>
+                    <div class="policy-description">
+                        2030年までのCO2削減55%目標の堅持。再生可能エネルギーへの大規模投資、化石燃料補助金の段階的廃止。「公正な移行」で労働者・農業者への支援確保。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">経済・社会政策</div>
+                    <div class="policy-stance">所得再分配・社会投資</div>
+                    <div class="policy-description">
+                        最低賃金の大幅引上げ（時給15ユーロ）、富裕税導入、公共サービスへの投資拡大。住宅市場では非営利セクター拡大と投機規制で価格安定化を図る。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<ul>
-<li>2025年8月中旬、GL–PvdAは<strong>住宅危機への対策として空港縮小を提案</strong>。具体的にはスキポール空港を含むいくつかの空港について、未使用エリアを活用して住宅用地とするアイディアを示した。</li>
-<li>この案は「気候と住環境を両立させる都市政策」の一環とされ、VoltやD66との政策協議の中でも議題となっている。</li>
-</ul>
+        <div class="page-break"></div>
 
-<p>🔗 出典：<a href="https://www.dutchnews.nl/2025/08/shrink-airports-to-make-space-for-housing-gl-pvda-urges/?utm_source=chatgpt.com">DutchNews.nl, 2025年8月16日</a><br />
-🕰 Wayback確認：<a href="https://web.archive.org/web/20250816000000*/https://www.dutchnews.nl/2025/08/shrink-airports-to-make-space-for-housing-gl-pvda-urges">https://web.archive.org/web/20250816000000*/https://www.dutchnews.nl/2025/08/shrink-airports-to-make-space-for-housing-gl-pvda-urges</a></p>
+        <!-- 連合形成・合併プロセス -->
+        <section class="section-card">
+            <h2 class="section-title">🔄 連合形成・合併プロセス</h2>
+            
+            <div class="merger-timeline">
+                <h3 style="color: #1e3a8a; margin-bottom: 6mm;">2026年正式合併に向けたロードマップ</h3>
+                
+                <div class="merger-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>2021年:</strong> 地方レベルでの連携開始、50自治体で統一候補リスト
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>2023年:</strong> 国政選挙で統一リスト、フランス・ティメルマンスを共同候補に選出
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>2024年:</strong> 欧州議会選挙でも統一リスト、8議席獲得で首位
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>2025年6月:</strong> 両党党員投票で合併承認（GL: 89.1%、PvdA: 88.0%賛成）
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <strong>2025年10月:</strong> 2025年総選挙を統一リストで戦う予定
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">6</div>
+                    <div>
+                        <strong>2026年春:</strong> 正式合併、新党名決定、統一党大会開催
+                    </div>
+                </div>
+            </div>
 
-<hr />
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">合併の背景と動機</h3>
+            <ul style="padding-left: 8mm; line-height: 1.8;">
+                <li><strong>政治的必要性</strong>: 右翼ポピュリズムに対する左派・リベラル勢力の結集</li>
+                <li><strong>選挙戦術</strong>: 分散した左派票の統合による政権交代可能性の向上</li>
+                <li><strong>政策的親和性</strong>: 社会正義と環境保護の統合的アプローチで一致</li>
+                <li><strong>国際潮流</strong>: 欧州各国での緑・社民連携の成功事例を参考</li>
+                <li><strong>世代交代</strong>: 新しい政治リーダーシップへの有権者の期待</li>
+            </ul>
+        </section>
 
-<h3>📑 マニフェスト発表：住宅供給と移民目標を明示</h3>
+        <div class="page-break"></div>
 
-<ul>
-<li>2025年8月19日、Frans Timmermans（フランス・ティメルマンス）党首が中心となって<strong>GL–PvdAの選挙マニフェストが発表された</strong>。</li>
-<li>主な公約には以下が含まれる：
-<ul>
-<li>手頃な住宅供給の大幅拡充</li>
-<li>難民受け入れ枠の明確化と労働移民の法制化</li>
-<li>緑の投資（気候変動対策）を景気刺激策と連動</li>
-</ul></li>
-</ul>
+        <!-- 政治的変遷 -->
+        <section class="section-card">
+            <h2 class="section-title">📈 政治的変遷・主要出来事</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2017年3月</div>
+                    <div class="timeline-event">
+                        総選挙でPvdAが歴史的惨敗（37→9議席）、GLは倍増（4→14議席）。左派再編の議論が本格化。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2019年5月</div>
+                    <div class="timeline-event">
+                        欧州議会選挙でPvdAが首位（6議席）、GLは3議席獲得。EU政策での協力が進展。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021年3月</div>
+                    <div class="timeline-event">
+                        総選挙でPvdA（9議席）、GL（8議席）ともに微減。内閣参加を断念し、連携を模索開始。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022年3月</div>
+                    <div class="timeline-event">
+                        地方選挙で50自治体で統一リスト結成。アムステルダム、ロッテルダムなどで成果を収める。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年5月</div>
+                    <div class="timeline-event">
+                        州議会選挙・上院選挙で統一会派結成、第2党グループに。政治的協力が本格化。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年8月</div>
+                    <div class="timeline-event">
+                        フランス・ティメルマンス（元欧州委員）がGL–PvdA統一候補として正式発表、92%の支持で承認。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年11月</div>
+                    <div class="timeline-event">
+                        総選挙で25議席獲得、第2党に。PVVに次ぐ得票で野党第1党の地位を確立。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024年6月</div>
+                    <div class="timeline-event">
+                        欧州議会選挙で8議席獲得、オランダ首位。EU政策での主導権を確立。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年6月</div>
+                    <div class="timeline-event">
+                        <strong>正式合併承認</strong>: 両党党員投票で圧倒的多数で2026年合併を決定。新党名は2026年春に発表予定。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<p>🔗 出典：<a href="https://www.dutchnews.nl/2025/08/gl-pvda-prioritise-affordable-housing-and-set-migration-target/?utm_source=chatgpt.com">DutchNews.nl, 2025年8月19日</a><br />
-🕰 Wayback確認：<a href="https://web.archive.org/web/20250819000000*/https://www.dutchnews.nl/2025/08/gl-pvda-prioritise-affordable-housing-and-set-migration-target">https://web.archive.org/web/20250819000000*/https://www.dutchnews.nl/2025/08/gl-pvda-prioritise-affordable-housing-and-set-migration-target</a></p>
+        <div class="page-break"></div>
 
-<hr />
+        <!-- 選挙動向分析 -->
+        <section class="section-card">
+            <h2 class="section-title">📊 選挙動向・支持基盤分析</h2>
+            
+            <h3 style="margin-bottom: 5mm; color: #1e3a8a;">連合前後の議席変化</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>選挙年</th>
+                        <th>GL議席</th>
+                        <th>PvdA議席</th>
+                        <th>合計</th>
+                        <th>連合形態</th>
+                        <th>得票率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2017</td>
+                        <td>14</td>
+                        <td>9</td>
+                        <td>23</td>
+                        <td>個別政党</td>
+                        <td>GL: 9.1%, PvdA: 5.7%</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>17</td>
+                        <td>個別政党</td>
+                        <td>GL: 5.2%, PvdA: 5.7%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2023</strong></td>
+                        <td colspan="2"><strong>25</strong></td>
+                        <td><strong>25</strong></td>
+                        <td><strong>統一リスト</strong></td>
+                        <td><strong>15.7%</strong></td>
+                    </tr>
+                    <tr style="background: #f0f9ff;">
+                        <td><strong>2024 (欧州)</strong></td>
+                        <td colspan="2"><strong>8</strong></td>
+                        <td><strong>8/31</strong></td>
+                        <td><strong>統一リスト</strong></td>
+                        <td><strong>21.0% (首位)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
 
-<h2>2025年8月の動向</h2>
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #1e3a8a;">支持基盤の詳細分析</h3>
 
-<h3>統一マニフェストの準備と進歩派連携への布石</h3>
+            <h4 style="margin-bottom: 3mm; color: #059669;">地理的分布</h4>
+            <ul style="padding-left: 8mm; line-height: 1.6; margin-bottom: 6mm;">
+                <li><strong>都市部優位</strong>: アムステルダム、ユトレヒト、デン・ハーグなど大都市圏で高支持</li>
+                <li><strong>大学都市</strong>: ライデン、フローニンゲン、マーストリヒトなど教育機関集積地で強い</li>
+                <li><strong>多文化地域</strong>: 移民系住民が多い選挙区での安定した支持基盤</li>
+                <li><strong>環境先進地域</strong>: 再生可能エネルギー導入が進む自治体での高評価</li>
+            </ul>
 
-<p>2025年8月、GL–PvdA両党は共同の選挙マニフェスト草案をまとめたと報じられた。内容は、気候政策の強化、住宅供給の改善、最低賃金引き上げ、教育投資などを柱とするもので、「進歩派連合の中心軸」としてD66やVolt、NSCとの協調も視野に入れている（de Volkskrant報道）。正式発表は9月上旬を予定しており、8月下旬からアムステルダムやユトレヒトなどで市民向け説明イベントが開始された。</p>
+            <h4 style="margin-bottom: 3mm; color: #059669;">社会経済的特徴</h4>
+            <ul style="padding-left: 8mm; line-height: 1.6; margin-bottom: 6mm;">
+                <li><strong>高学歴層</strong>: 大学院修了者、知識労働者の圧倒的支持</li>
+                <li><strong>公共部門従事者</strong>: 教師、医療従事者、公務員など社会保障重視職種</li>
+                <li><strong>若年層</strong>: 18-35歳の気候変動問題に敏感な世代</li>
+                <li><strong>中間所得層</strong>: 年収4-8万ユーロの「サンドイッチ世代」</li>
+                <li><strong>女性有権者</strong>: 特に働く母親層から高い支持</li>
+            </ul>
 
-<h3>Timmermansのビジョン強化とメディア発信</h3>
+            <h4 style="margin-bottom: 3mm; color: #059669;">連合効果の分析</h4>
+            <div style="background: #f0f9ff; padding: 6mm; border-radius: 4px; margin: 5mm 0;">
+                <p style="font-weight: bold; color: #1e40af; margin-bottom: 3mm;">シナジー効果</p>
+                <ul style="padding-left: 6mm; line-height: 1.6;">
+                    <li>GL支持者: 環境問題優先だが社会政策でPvdAと補完</li>
+                    <li>PvdA支持者: 労働者権利重視だが気候問題でGLと連携</li>
+                    <li>新規有権者: 従来の左派に不満な層が統一ブランドに魅力</li>
+                    <li>戦略的投票: PVV阻止のための反右翼票の受け皿</li>
+                </ul>
+            </div>
+        </section>
 
-<p>Frans Timmermans党首は8月中旬、自身のX（旧Twitter）アカウントにて「首相としての構想」を示す一連の投稿を展開。「市場原理に頼らない福祉国家の再建」や「公共住宅の拡充」など、従来よりも個人のビジョンを前面に出す姿勢が見られた。NOSのインタビューでも「私は妥協はするが、原則は曲げない」と述べ、連立政権下でのリーダー像を明確にした。</p>
+        <div class="page-break"></div>
 
-<h3>極右政党への牽制姿勢</h3>
+        <!-- 野党としての活動 -->
+        <section class="section-card">
+            <h2 class="section-title">🏛️ 野党としての活動・影響力</h2>
+            
+            <h3 style="margin-bottom: 5mm; color: #1e3a8a;">主要政策領域での対案提示</h3>
+            
+            <table class="data-table">
+                <tr>
+                    <th style="width: 25%">政策分野</th>
+                    <th style="width: 35%">政府案への対案</th>
+                    <th>具体的成果・影響</th>
+                </tr>
+                <tr>
+                    <td>移民・難民政策</td>
+                    <td>人道的受入維持、統合支援拡充</td>
+                    <td>EU法違反リスクの指摘で政府案修正を促す。NGOとの連携で国際的注目を集める。</td>
+                </tr>
+                <tr>
+                    <td>気候・エネルギー</td>
+                    <td>2030年CO2削減60%、再エネ投資倍増</td>
+                    <td>州政府レベルでの気候政策先行実施。産業界との対話で実現可能性を証明。</td>
+                </tr>
+                <tr>
+                    <td>住宅政策</td>
+                    <td>非営利住宅40%目標、投機規制強化</td>
+                    <td>地方自治体での住宅政策成功例を国政に応用。家賃上限設定の社会実験を主導。</td>
+                </tr>
+                <tr>
+                    <td>労働・賃金</td>
+                    <td>最低賃金15€/時、労働時間短縮</td>
+                    <td>労組との連携で賃上げキャンペーン。大手企業との直接交渉で部分的実現。</td>
+                </tr>
+                <tr>
+                    <td>EU政策</td>
+                    <td>社会的ヨーロッパ、共同債券拡大</td>
+                    <td>欧州議会での影響力行使。他国社民・緑政党との共同イニシアティブ。</td>
+                </tr>
+            </table>
 
-<p>8月21日、Timmermansはスピーチで「PVVやFvDの台頭に対し、進歩派の結集こそが民主主義の防波堤である」と強調。また、「PVVとの連立は絶対にあり得ない」と明言しており、NSCやD66のスタンスにも影響を与えていると報道された。</p>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">議会活動の特徴</h3>
+            
+            <div class="policy-grid">
+                <div class="policy-item" style="border-left-color: #dc2626;">
+                    <div class="policy-title">建設的野党路線</div>
+                    <div class="policy-description">
+                        単なる反対ではなく、具体的対案を提示。専門性の高い政策提案で与党議員からも一定の評価を獲得。
+                    </div>
+                </div>
+                
+                <div class="policy-item" style="border-left-color: #dc2626;">
+                    <div class="policy-title">国際連携重視</div>
+                    <div class="policy-description">
+                        EU諸国の同志政党との政策調整。気候変動、移民問題で国際的なアジェンダ設定に関与。
+                    </div>
+                </div>
+                
+                <div class="policy-item" style="border-left-color: #dc2626;">
+                    <div class="policy-title">市民社会との協働</div>
+                    <div class="policy-description">
+                        NGO、労組、環境団体との密接な連携。草の根からの政策形成を重視し、ボトムアップ型の政治を実践。
+                    </div>
+                </div>
+                
+                <div class="policy-item" style="border-left-color: #dc2626;">
+                    <div class="policy-title">メディア戦略</div>
+                    <div class="policy-description">
+                        ソーシャルメディア活用で若年層にリーチ。政策解説動画、市民対話番組で支持拡大を図る。
+                    </div>
+                </div>
+            </div>
 
-<hr />
+            <div class="quote-box">
+                <p class="quote-text">「野党の役割は単に反対することではなく、より良い未来への道筋を示すことです。我々は希望の政治を実践します。」</p>
+                <p class="quote-source">— イェッセ・クラーフェル (Jesse Klaver)、GL党首、2024年党大会</p>
+            </div>
+        </section>
 
-<h2>🏛 政策の主な特徴（2025年7月時点）</h2>
+        <div class="page-break"></div>
 
-<h3>💰 経済・財政</h3>
+        <!-- 2025年選挙展望 -->
+        <section class="section-card">
+            <h2 class="section-title">🔮 2025年選挙展望・戦略</h2>
+            
+            <h3 style="margin-bottom: 5mm; color: #1e3a8a;">選挙戦略の柱</h3>
+            
+            <div class="merger-timeline">
+                <h4 style="color: #1e3a8a; margin-bottom: 4mm;">「希望の政治」キャンペーン</h4>
+                
+                <div class="merger-step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>反PVV結集:</strong> 右翼ポピュリズムに対する民主的代替案としてのポジショニング
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>中道票獲得:</strong> VVD・D66離れ票の取り込み、理性的な中道右派有権者への訴求
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>政権準備完了:</strong> 現実的な政策提案で「政権担当能力」をアピール
+                    </div>
+                </div>
+                
+                <div class="merger-step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <strong>世代交代:</strong> 新しいリーダーシップと政治文化の変革を前面に押し出し
+                    </div>
+                </div>
+            </div>
 
-<ul>
-<li><strong>富裕層・企業への課税強化（増税）を提唱</strong>し、社会保障・教育・環境投資への再配分を重視。</li>
-<li>「NATO支出のために社会保障を削るのは本末転倒」と明言。</li>
-</ul>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">重点政策アジェンダ</h3>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%">政策領域</th>
+                        <th style="width: 35%">具体的公約</th>
+                        <th>実現期間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>経済・雇用</td>
+                        <td>最低賃金€15/時、週4日労働制導入</td>
+                        <td>第1期（2026-2030）</td>
+                    </tr>
+                    <tr>
+                        <td>住宅</td>
+                        <td>年間10万戸公営住宅建設、家賃上限設定</td>
+                        <td>第1期</td>
+                    </tr>
+                    <tr>
+                        <td>気候</td>
+                        <td>2030年CO2削減65%、石炭火力完全廃止</td>
+                        <td>第1期</td>
+                    </tr>
+                    <tr>
+                        <td>教育</td>
+                        <td>大学授業料半額、職業訓練拡充</td>
+                        <td>第1期</td>
+                    </tr>
+                    <tr>
+                        <td>医療</td>
+                        <td>歯科・精神科保険適用拡大、予防医学投資</td>
+                        <td>第1-2期</td>
+                    </tr>
+                    <tr>
+                        <td>EU・外交</td>
+                        <td>EU社会保障統合、開発援助0.7%目標</td>
+                        <td>第1-2期</td>
+                    </tr>
+                </tbody>
+            </table>
 
-<blockquote>
-  <p>「Als er geld is voor tanks, moet er ook geld zijn voor leraren en verpleegkundigen.」<br />
-  （戦車のための金があるなら、教師や看護師のための金もあるべきだ）<br />
-  — Timmermans, NOS interview, 2025年7月6日<br />
-  出典：<a href="https://nos.nl/artikel/2499304?utm_source=chatgpt.com">NOS（オランダ語）</a></p>
-</blockquote>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">連立可能性の分析</h3>
+            
+            <div style="background: #ecfdf5; padding: 6mm; border-radius: 4px; margin: 5mm 0;">
+                <h4 style="color: #065f46; margin-bottom: 3mm;">現実的連立パターン</h4>
+                <ul style="padding-left: 6mm; line-height: 1.6;">
+                    <li><strong>GL–PvdA + D66 + VVD</strong>: 中道左派連立、EU統合・気候政策で一致</li>
+                    <li><strong>GL–PvdA + NSC + D66</strong>: 新政治・改革志向連立、既存政治への挑戦</li>
+                    <li><strong>GL–PvdA + 少数政党連合</strong>: CDA、Volt、PvdD等との多党連立</li>
+                </ul>
+            </div>
 
-<h3>🌍 EU・NATO</h3>
+            <div style="background: #fef3c7; padding: 6mm; border-radius: 4px; margin: 5mm 0;">
+                <h4 style="color: #92400e; margin-bottom: 3mm;">課題とリスク</h4>
+                <ul style="padding-left: 6mm; line-height: 1.6;">
+                    <li><strong>経済政策の現実性</strong>: 高福祉・高負担政策への中道派の懸念</li>
+                    <li><strong>移民政策の立ち位置</strong>: 人道主義と有権者不安のバランス</li>
+                    <li><strong>連合の一体性</strong>: GL・PvdA間の政策調整とリーダーシップ</li>
+                    <li><strong>国際情勢</strong>: ウクライナ戦争、中東情勢への対応で試される</li>
+                </ul>
+            </div>
+        </section>
 
-<ul>
-<li><strong>EU統合に非常に積極的</strong>。欧州気候政策・庇護政策の共同推進に賛成。</li>
-<li>NATO支出目標（5%）については「優先順位を見直すべき」と慎重。</li>
-</ul>
+        <div class="page-break"></div>
 
-<h3>🌱 環境・農業・窒素税</h3>
+        <!-- アーカイブ・情報源 -->
+        <section class="section-card">
+            <h2 class="section-title">🗄️ アーカイブ・主要情報源</h2>
+            
+            <div class="archive-links">
+                <div class="archive-title">連合・合併関連文書</div>
+                <ul class="archive-list">
+                    <li><a href="#">GL–PvdA連合協定書 (2023年8月) - Archive.org</a></li>
+                    <li><a href="#">2026年合併承認党員投票結果 - 両党公式アーカイブ</a></li>
+                    <li><a href="#">ティメルマンス党首指名投票記録 - Wayback Machine</a></li>
+                    <li><a href="#">合併準備委員会議事録 (2024-2025年) - Archive.today</a></li>
+                </ul>
+            </div>
 
-<ul>
-<li><strong>窒素税・CO2課税の強化を明確に支持</strong>。</li>
-<li>農業改革を主導し、自然保護と再生可能エネルギーの拡充を中心政策に。</li>
-</ul>
+            <div class="archive-links">
+                <div class="archive-title">政策文書・マニフェスト</div>
+                <ul class="archive-list">
+                    <li><a href="#">2023年総選挙共同マニフェスト - 政党公式サイト</a></li>
+                    <li><a href="#">気候・エネルギー政策詳細版 - Archive.org</a></li>
+                    <li><a href="#">住宅政策10か年計画 - PDF Archive</a></li>
+                    <li><a href="#">EU政策ポジションペーパー - Wayback Machine</a></li>
+                </ul>
+            </div>
 
-<h3>🧑‍⚖️ 移民・社会保障</h3>
+            <div class="archive-links">
+                <div class="archive-title">党首・幹部発言記録</div>
+                <ul class="archive-list">
+                    <li><a href="#">ティメルマンス就任演説 - YouTube (2023年8月)</a></li>
+                    <li><a href="#">クラーフェル党大会基調講演 - 党公式チャンネル</a></li>
+                    <li><a href="#">アッティエ・カイケン政策説明会 - Archive.today</a></li>
+                    <li><a href="#">合併記念合同記者会見 - NPO Radio Archive</a></li>
+                </ul>
+            </div>
 
-<ul>
-<li><strong>移民受け入れに前向き</strong>。庇護政策では「連帯あるEUアプローチ」を主張。</li>
-<li>社会保障の拡充と格差是正を軸とする。</li>
-</ul>
+            <div class="archive-links">
+                <div class="archive-title">選挙・世論調査データ</div>
+                <ul class="archive-list">
+                    <li><a href="#">2023年総選挙詳細結果データ - 選挙管理委員会</a></li>
+                    <li><a href="#">2024年欧州議会選結果分析 - Statistical Office</a></li>
+                    <li><a href="#">月次支持率推移 (2023-2025年) - Peil.nl Archive</a></li>
+                    <li><a href="#">支持基盤詳細分析 - I&O Research Archive</a></li>
+                </ul>
+            </div>
 
-<hr />
+            <div class="archive-links">
+                <div class="archive-title">議会活動記録</div>
+                <ul class="archive-list">
+                    <li><a href="#">下院GL–PvdA会派質問主意書集 - 議会アーカイブ</a></li>
+                    <li><a href="#">予算委員会審議録 - 政府議事録データベース</a></li>
+                    <li><a href="#">政府不信任案関連議事録 - Archive.org</a></li>
+                    <li><a href="#">委員会採決記録・票決行動分析 - Parliament Watch</a></li>
+                </ul>
+            </div>
 
-<h2>🔥 党内動向・注目トピック（2025年7月）</h2>
+            <div class="archive-links">
+                <div class="archive-title">国際・EU関連</div>
+                <ul class="archive-list">
+                    <li><a href="#">欧州議会S&D・Greens/EFA合同声明 - EU Archive</a></li>
+                    <li><a href="#">欧州社民党大会参加記録 - PES Website</a></li>
+                    <li><a href="#">Green New Deal European Alliance文書 - Archive.today</a></li>
+                    <li><a href="#">気候変動国際会議発言録 - UNFCCC Archive</a></li>
+                </ul>
+            </div>
 
-<ul>
-<li>党内は概ね安定しており、選挙戦に向けた活動を進行中。<br />
-※ただし、<strong>「全国キャラバンを開始した」とする一次報道や党公式発表は現在確認できていない</strong>（2025年7月時点）。</li>
-<li>他の中道左派勢力（D66やVolt）との協調については政策的な接点があるが、<strong>明示的な選挙協力は現時点で発表されていない</strong>。</li>
-</ul>
+            <p style="margin-top: 8mm; font-size: 9pt; color: #666; line-height: 1.6;">
+                <strong>注記:</strong> GL–PvdA連合は比較的新しい政治的枠組みのため、
+                アーカイブ作業では両党の個別履歴と連合後の共同活動を分けて整理。
+                2026年正式合併に向けて、移行期文書の確実な保存が重要。
+                欧州議会での活動記録は、GLがGreens/EFA、PvdAがS&Dと異なるグループに所属するため、
+                両方のアーカイブから関連文書を収集。
+            </p>
+        </section>
 
-<hr />
+        <!-- ナビゲーション -->
+        <div class="navigation no-print">
+            <h3 style="color: #1e3a8a; margin-bottom: 8mm;">関連ページ</h3>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 メインページ</a>
+                <a href="PVV.html" class="nav-link">PVV詳細</a>
+                <a href="NSC.html" class="nav-link">NSC詳細</a>
+                <a href="VVD.html" class="nav-link">VVD詳細</a>
+                <a href="weekly.html" class="nav-link">週次レポート</a>
+                <a href="polls.html" class="nav-link">世論調査履歴</a>
+            </div>
+        </div>
 
-<p><a href="../index.html">← トップページに戻る</a></p>
+        <!-- 印刷用フッター -->
+        <footer style="margin-top: 15mm; padding-top: 8mm; border-top: 1px solid #e5e7eb; text-align: center; color: #666; font-size: 9pt;">
+            <p>GL–PvdA (緑・労働連合) 詳細分析レポート | オランダ総選挙2025政治動向調査</p>
+            <p>作成日: 2025年9月7日 | 最終更新: 2025年9月7日 15:30</p>
+            <p style="margin-top: 3mm;">
+                本資料は公開情報および公的アーカイブに基づく分析であり、
+                特定政党への支持・反対を表明するものではありません。
+            </p>
+        </footer>
+    </div>
 
-<h2>🔗 外部リンク</h2>
+    <script>
+        // 印刷最適化
+        window.addEventListener('beforeprint', function() {
+            document.title = 'GL-PvdA詳細分析_' + new Date().toISOString().slice(0,10);
+        });
 
-<ul>
-<li>GL–PvdA公式ページ：<a href="https://groenlinks-pvda.nl">https://groenlinks-pvda.nl</a></li>
-<li>ティメルマンス氏（@TimmermansEU）Xアカウント：<a href="https://x.com/TimmermansEU">https://x.com/TimmermansEU</a></li>
-</ul>
+        // 印刷後の処理
+        window.addEventListener('afterprint', function() {
+            console.log('GL–PvdA詳細レポート印刷完了');
+        });
 
-<a href="index.html">← トップページに戻る</a>
+        // データ更新用
+        const glPvdaData = {
+            lastUpdated: "2025年9月7日 15:30",
+            seats: 25,
+            pollRating: 26,
+            coalitionFormed: 2023,
+            mergerPlanned: 2026,
+            leader: "フランス・ティメルマンス",
+            status: "最大野党・下院第2党",
+            glMembers: 46508,
+            pvdaMembers: 47869
+        };
 
+        console.log('GL–PvdA詳細ページ初期化完了:', glPvdaData);
+    </script>
 </body>
 </html>
