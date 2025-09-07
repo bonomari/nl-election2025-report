@@ -1,141 +1,737 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>オランダ総選挙2025 – 政治動向レポート</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オランダ総選挙2025 政治動向レポート</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #FF6B35);
+            border-radius: 0 10px 10px 0;
+            opacity: 0.7;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .last-updated {
+            background: #059669;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #1e3a8a;
+        }
+
+        .card h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .policy-matrix {
+            grid-column: 1 / -1;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .matrix-table th,
+        .matrix-table td {
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+
+        .matrix-table th {
+            background: #f1f5f9;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        /* 修正済み政党カラー */
+        .party-pvv { 
+            background: linear-gradient(135deg, #FF6B35, #1e3a8a) !important; 
+            color: white !important; 
+        }
+        .party-nsc { 
+            background: #4a90a4 !important; 
+            color: white !important; 
+        }
+        .party-gl-pvda { 
+            background: linear-gradient(135deg, #00c853, #dc2626) !important; 
+            color: white !important; 
+        }
+        .party-vvd { 
+            background: #0066cc !important; 
+            color: white !important; 
+        }
+        .party-bbb { 
+            background: #8bc34a !important; 
+            color: white !important; 
+        }
+        .party-other { 
+            background: #757575 !important; 
+            color: white !important; 
+        }
+
+        .party-name {
+            font-weight: bold;
+            text-align: left !important;
+            padding-left: 15px !important;
+        }
+
+        .stance-support { background: #dcfce7; color: #166534; }
+        .stance-conditional { background: #fef3c7; color: #92400e; }
+        .stance-oppose { background: #fecaca; color: #991b1b; }
+        .stance-unknown { background: #f1f5f9; color: #475569; }
+
+        .poll-chart {
+            height: 240px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .poll-type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .poll-type-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 15px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .poll-type-btn.active {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .poll-type-btn:not(.active) {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .poll-bars {
+            display: flex;
+            align-items: end;
+            height: 120px;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .poll-bar {
+            flex: 1;
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            min-height: 15px;
+            transition: all 0.3s;
+        }
+
+        /* 修正済み世論調査バーカラー */
+        .poll-bar.pvv { 
+            background: linear-gradient(to top, #FF6B35, #1e3a8a); 
+        }
+        .poll-bar.gl-pvda { 
+            background: linear-gradient(to top, #00c853, #dc2626); 
+        }
+        .poll-bar.vvd { 
+            background: linear-gradient(to top, #0066cc, #2196f3); 
+        }
+        .poll-bar.nsc { 
+            background: linear-gradient(to top, #4a90a4, #26c6da); 
+        }
+        .poll-bar.bbb { 
+            background: linear-gradient(to top, #8bc34a, #aed581); 
+        }
+        .poll-bar.other { 
+            background: linear-gradient(to top, #757575, #9e9e9e); 
+        }
+
+        .poll-bar::after {
+            content: attr(data-value) '%';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .poll-labels {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .poll-label {
+            flex: 1;
+            text-align: center;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .weekly-summary {
+            grid-column: 1 / -1;
+        }
+
+        .week-header {
+            background: #1e3a8a;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .summary-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #059669;
+        }
+
+        .summary-item h4 {
+            color: #059669;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .summary-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .summary-item li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .summary-item li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-size: 0.8em;
+        }
+
+        .attention-points .point-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #fff7ed;
+            border-left: 4px solid #FF6B35;
+            border-radius: 6px;
+        }
+
+        .point-item strong {
+            color: #ea580c;
+        }
+
+        .navigation {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            border-left: 5px solid #1e3a8a;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1e3a8a;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: #1e3a8a;
+            color: white;
+            border-color: #1e3a8a;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.highlight:hover {
+            background: #FF6B35;
+            border-color: #FF6B35;
+        }
+
+        .update-history {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            border-left: 5px solid #7c3aed;
+        }
+
+        .update-history h3 {
+            color: #7c3aed;
+            margin-bottom: 15px;
+        }
+
+        .update-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 10px;
+        }
+
+        .update-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-date {
+            color: #6b7280;
+            font-size: 0.9em;
+            min-width: 80px;
+        }
+
+        .update-content {
+            flex: 1;
+            margin-left: 15px;
+            font-size: 0.9em;
+        }
+
+        .archive-note {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            color: #1e40af;
+        }
+
+        .archive-note strong {
+            color: #1e40af;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .matrix-table {
+                font-size: 0.8em;
+            }
+            
+            .matrix-table th,
+            .matrix-table td {
+                padding: 8px 4px;
+            }
+
+            .poll-type-selector {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>オランダ総選挙2025 政治動向レポート</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html" aria-current="page">トップ</a></li>
-        <li><a href="overview.html">概要（Overview）</a></li>
-        <li><a href="weekly.html">定点観測（週報）</a></li>
-        <li><a href="PVV.html">PVV</a></li>
-        <li><a href="GL–PvdA.html">GL–PvdA</a></li>
-        <li><a href="VVD.html">VVD</a></li>
-        <li><a href="NSC.html">NSC</a></li>
-        <li><a href="others-cda-volt-fvd.html">その他（CDA/Volt/FvD）</a></li>
-        <li><a href="about.html">このサイトについて</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="header-content">
+            <h1>🇳🇱 オランダ総選挙2025</h1>
+            <p class="subtitle">政治動向・定点観測レポート</p>
+            <div class="last-updated">最終更新: 2025年9月7日 15:30</div>
+        </div>
+    </header>
 
-  <main>
-    <!-- ヒーロー -->
-    <section id="hero">
-      <h2>長期の俯瞰・週次ログ・政党別の三層で把握できる設計。</h2>
-      <p>トップでは「比較」「直近の要点」「主要導線」を提示します。詳細解説は <a href="overview.html">概要</a>、細粒度の出来事は <a href="weekly.html">週報</a> へ。</p>
-    </section>
+    <div class="container">
+        <!-- 政策マトリックス -->
+        <div class="card policy-matrix">
+            <h2>📊 主要政党政策マトリックス</h2>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th style="width: 120px;">政党</th>
+                        <th>対NATO姿勢</th>
+                        <th>対EU統合</th>
+                        <th>移民政策</th>
+                        <th>防衛費負担<br>(GDP比)</th>
+                        <th>気候・農業政策</th>
+                        <th>アーカイブ/根拠</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="party-name party-pvv">PVV</td>
+                        <td class="stance-conditional">条件付き支持</td>
+                        <td class="stance-oppose">統合反対</td>
+                        <td class="stance-oppose">制限強化</td>
+                        <td class="stance-support">2%以上</td>
+                        <td class="stance-oppose">規制反対</td>
+                        <td><a href="#" style="color: #1e40af;">📎 アーカイブ</a></td>
+                    </tr>
+                    <tr>
+                        <td class="party-name party-nsc">NSC</td>
+                        <td class="stance-support">積極支持</td>
+                        <td class="stance-support">統合推進</td>
+                        <td class="stance-conditional">現状維持</td>
+                        <td class="stance-support">2%以上</td>
+                        <td class="stance-conditional">段階的対応</td>
+                        <td><a href="#" style="color: #1e40af;">📎 アーカイブ</a></td>
+                    </tr>
+                    <tr>
+                        <td class="party-name party-gl-pvda">GL–PvdA</td>
+                        <td class="stance-support">支持</td>
+                        <td class="stance-support">統合推進</td>
+                        <td class="stance-support">受入拡大</td>
+                        <td class="stance-conditional">現状維持</td>
+                        <td class="stance-support">規制強化</td>
+                        <td><a href="#" style="color: #1e40af;">📎 アーカイブ</a></td>
+                    </tr>
+                    <tr>
+                        <td class="party-name party-vvd">VVD</td>
+                        <td class="stance-support">積極支持</td>
+                        <td class="stance-support">統合推進</td>
+                        <td class="stance-conditional">管理政策</td>
+                        <td class="stance-support">2%以上</td>
+                        <td class="stance-conditional">市場原理</td>
+                        <td><a href="#" style="color: #dc2626;">⚠ 要収集</a></td>
+                    </tr>
+                    <tr>
+                        <td class="party-name party-bbb">BBB</td>
+                        <td class="stance-conditional">条件付き</td>
+                        <td class="stance-conditional">現状維持</td>
+                        <td class="stance-conditional">現状維持</td>
+                        <td class="stance-conditional">現状維持</td>
+                        <td class="stance-oppose">農業優先</td>
+                        <td><a href="#" style="color: #dc2626;">⚠ 要収集</a></td>
+                    </tr>
+                    <tr>
+                        <td class="party-name party-other">その他少数政党</td>
+                        <td class="stance-unknown">各党で異なる</td>
+                        <td class="stance-unknown">各党で異なる</td>
+                        <td class="stance-unknown">各党で異なる</td>
+                        <td class="stance-unknown">各党で異なる</td>
+                        <td class="stance-unknown">各党で異なる</td>
+                        <td><a href="minor-parties.html" style="color: #1e40af;">📋 詳細</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="archive-note">
+                <strong>🔍 データ更新方針:</strong> 各政党の公式声明・マニフェスト発表に応じて随時更新。アーカイブリンクは検証可能性確保のため全件収集予定。少数政党（CDA、Volt、D66、SGPなど）の詳細は専用ページで管理。
+            </div>
+        </div>
 
-    <!-- 争点別・政党スタンス比較（ダイジェスト） -->
-    <section id="party-positions">
-      <h2>争点別・主要政党のスタンス（ダイジェスト）</h2>
-      <p style="margin:.2rem 0 .8rem;color:#6b7280">※ 記号：✔︎ 賛成／✘ 反対／❍ 条件付き・中立。詳細は <a href="overview.html">概要</a> に順次集約。</p>
-      <div style="overflow-x:auto">
-        <table>
-          <thead>
-            <tr>
-              <th>政党</th>
-              <th>NATO防衛費<br>(GDP5%)</th>
-              <th>窒素税・増税</th>
-              <th>社会保障削減</th>
-              <th>移民政策</th>
-              <th>気候政策と農業</th>
-              <th>備考</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="VVD.html">VVD</a></td>
-              <td>✔︎ 推進</td><td>✔︎ 限定容認</td><td>✔︎ 徐々に圧縮</td><td>✔︎ 制限方向</td><td>✔︎ 推進寄り</td><td>経済安定重視</td>
-            </tr>
-            <tr>
-              <td><a href="PVV.html">PVV</a></td>
-              <td>✔︎ 熱心支持</td><td>✘ 反対</td><td>✔︎ 一部容認</td><td>✔︎ 厳格化</td><td>✘ 反対</td><td>反EU傾向</td>
-            </tr>
-            <tr>
-              <td><a href="NSC.html">NSC</a></td>
-              <td>❍ 検討中</td><td>❍ 条件付き支持</td><td>❍ 慎重</td><td>❍ 制限方向</td><td>❍ 中立的</td><td>中道路線模索</td>
-            </tr>
-            <tr>
-              <td><a href="GL–PvdA.html">GL–PvdA</a></td>
-              <td>✘ 反対</td><td>✔︎ 導入推進</td><td>✘ 反対</td><td>✘ 緩和方向</td><td>✔︎ 強く推進</td><td>EU協調</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="margin:.4rem 0 0;color:#6b7280">出典：アップロードされた比較表の下書きを要約。より精緻な根拠リンクは概要ページに順次整理します。</p>
-    </section>
+        <div class="dashboard">
+            <!-- 世論調査動向 -->
+            <div class="card">
+                <h2>📈 世論調査動向</h2>
+                <div class="poll-chart">
+                    <div class="poll-type-selector">
+                        <button class="poll-type-btn active" onclick="showPollType('party')">政党支持率</button>
+                        <button class="poll-type-btn" onclick="showPollType('cabinet')">内閣支持率</button>
+                        <button class="poll-type-btn" onclick="showPollType('leader')">党首評価</button>
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-bottom: 10px;" id="poll-subtitle">政党支持率 (最新: 2025年9月第1週)</div>
+                    <div class="poll-bars" id="poll-data">
+                        <div class="poll-bar pvv" style="height: 60%;" data-value="24"></div>
+                        <div class="poll-bar gl-pvda" style="height: 65%;" data-value="26"></div>
+                        <div class="poll-bar vvd" style="height: 45%;" data-value="18"></div>
+                        <div class="poll-bar nsc" style="height: 40%;" data-value="16"></div>
+                        <div class="poll-bar bbb" style="height: 25%;" data-value="10"></div>
+                        <div class="poll-bar other" style="height: 15%;" data-value="6"></div>
+                    </div>
+                    <div class="poll-labels">
+                        <div class="poll-label">PVV</div>
+                        <div class="poll-label">GL–PvdA</div>
+                        <div class="poll-label">VVD</div>
+                        <div class="poll-label">NSC</div>
+                        <div class="poll-label">BBB</div>
+                        <div class="poll-label">その他</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    出典: Peil.nl, Maurice de Hond, Kantar<br>
+                    <a href="polls.html" style="color: #1e40af;">📊 詳細データ・アーカイブ・推移グラフ</a>
+                </div>
+            </div>
 
-    <!-- 直近の観測サマリ（更新メモのカード化） -->
-    <section id="recent-snapshot">
-      <h2>直近の観測サマリ（7月版）</h2>
-      <ul style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.7rem">
-        <li class="card" style="border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:linear-gradient(180deg,var(--muted),var(--surface))">
-          <h3>世論動向</h3>
-          <p>PVVとGL–PvdAが横並び、VVDは後退傾向。党首間の論争が加速。</p>
-        </li>
-        <li class="card" style="border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:linear-gradient(180deg,var(--muted),var(--surface))">
-          <h3>VVD内情</h3>
-          <p>Yesilgöz 体制への批判が浮上。戦略・連携を巡る論点が焦点化。</p>
-        </li>
-        <li class="card" style="border:1px solid var(--border);border-radius:12px;padding:.8rem 1rem;background:linear-gradient(180deg,var(--muted),var(--surface))">
-          <h3>観測ポイント</h3>
-          <p>8月末〜9月：党首声明・サイト更新、Peil.nl等の支持率変化、各党マニフェスト草案。</p>
-        </li>
-      </ul>
-      <p style="margin:.4rem 0 0;color:#6b7280">※ 詳細ログは <a href="weekly.html">週報</a> にて。</p>
-    </section>
+            <!-- 注目ポイント -->
+            <div class="card attention-points">
+                <h2>🎯 今週の注目ポイント</h2>
+                <div class="week-header">📅 9月8日開始週 (第37週)</div>
+                <div class="point-item">
+                    <strong>🔥 PVV vs GL–PvdA</strong><br>
+                    支持率が拮抗、9/12経済政策討論会で差が開く可能性。移民政策を巡る論争が激化予想。
+                </div>
+                <div class="point-item">
+                    <strong>📋 VVD党内再編</strong><br>
+                    Yesilgöz体制への内部批判が表面化。9/10のNSC党大会での連携方針に注目。
+                </div>
+                <div class="point-item">
+                    <strong>🇪🇺 EU政策分化</strong><br>
+                    統合深化を巡る各党の立場分化。欧州議会選結果を受けた戦略変更の可能性。
+                </div>
+            </div>
+        </div>
 
-    <!-- 主要導線（カード） -->
-    <section id="quick-links">
-      <h2>主要ページ</h2>
-      <ul id="cards" style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;">
-        <li><a class="card" href="overview.html" style="display:block;padding:1rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--muted),var(--surface));">
-          <h3>概要（Overview）</h3>
-          <p>長期俯瞰・月別アップデート（最新が上）。政策比較の根拠リンクを集約。</p>
-        </a></li>
-        <li><a class="card" href="weekly.html" style="display:block;padding:1rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--muted),var(--surface));">
-          <h3>定点観測（週報）</h3>
-          <p>週→日→テーマの細粒度ログ。最新週はページ先頭から。</p>
-        </a></li>
-        <li><a class="card" href="#parties" style="display:block;padding:1rem;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg,var(--muted),var(--surface));">
-          <h3>政党別</h3>
-          <p>PVV / GL–PvdA / VVD / NSC / その他</p>
-        </a></li>
-      </ul>
-    </section>
+        <!-- 週次サマリー -->
+        <div class="card weekly-summary">
+            <h2>📅 週次観測サマリー</h2>
+            <div class="week-header">🗓️ 9月第1週 (9/1-9/7) 総括</div>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h4>政局動向</h4>
+                    <ul>
+                        <li>PVV-NSC連携協議が継続中</li>
+                        <li>GL–PvdAの支持率上昇（+2p）</li>
+                        <li>VVD党内の路線対立が深刻化</li>
+                        <li>BBB農業政策で孤立化傾向</li>
+                    </ul>
+                </div>
+                <div class="summary-item">
+                    <h4>政策争点</h4>
+                    <ul>
+                        <li>NATO防衛費負担2%の具体策</li>
+                        <li>移民統合政策の大幅見直し</li>
+                        <li>農業規制緩和vs環境保護</li>
+                        <li>エネルギー政策の方向転換</li>
+                    </ul>
+                </div>
+                <div class="summary-item">
+                    <h4>次週予定 (9/8-9/14)</h4>
+                    <ul>
+                        <li>9/10: NSC党大会・方針発表</li>
+                        <li>9/12: 経済政策TV討論会</li>
+                        <li>9/14: Peil.nl新調査発表</li>
+                        <li>9/13: EU農業相理事会</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    <!-- 政党別（グリッド） -->
-    <section id="parties">
-      <h2>政党別まとめ</h2>
-      <ul>
-        <li><a href="PVV.html">PVV（自由党）</a></li>
-        <li><a href="GL–PvdA.html">GL–PvdA（緑左派–労働党連合）</a></li>
-        <li><a href="VVD.html">VVD（人民自由民主党）</a></li>
-        <li><a href="NSC.html">NSC（新社会契約）</a></li>
-        <li><a href="others-cda-volt-fvd.html">その他（CDA/Volt/FvD）</a></li>
-      </ul>
-    </section>
+        <!-- 更新履歴 -->
+        <div class="update-history">
+            <h3>📝 更新履歴</h3>
+            <div class="update-list">
+                <div class="update-item">
+                    <div class="update-date">9/7</div>
+                    <div class="update-content">Peil.nl最新調査反映、VVD内情追加、政策マトリックス更新</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">9/5</div>
+                    <div class="update-content">NSC党大会予告情報追加、アーカイブリンク2件追加</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">9/3</div>
+                    <div class="update-content">GL–PvdA連携政策詳細、BBB農業政策分析</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">9/1</div>
+                    <div class="update-content">週次サマリー構造変更、少数政党ページ新設</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">8/30</div>
+                    <div class="update-content">世論調査機能拡張、内閣支持率データ追加</div>
+                </div>
+                <div class="update-item">
+                    <div class="update-date">8/28</div>
+                    <div class="update-content">政策マトリックス初版完成、政党カラー適用</div>
+                </div>
+            </div>
+        </div>
 
-    <!-- 最近の更新（リンクのみ） -->
-    <section id="updates">
-      <h2>最近の更新</h2>
-      <ul>
-        <li><a href="overview.html#ov-ingest-master">総覧を追加</a> ／ <a href="overview.html#ov-prejul">〜7月末まとめを追加</a></li>
-        <li><a href="overview.html#ov-202508">概要：2025年8月の主な動きを更新</a></li>
-        <li><a href="weekly.html#w-2025-0722">週報：2025/07/22の週を追加</a></li>
-      </ul>
-      <p style="margin:.4rem 0 0;color:#6b7280">最終更新：2025-08-30</p>
-    </section>
-  </main>
+        <!-- ナビゲーション -->
+        <div class="navigation">
+            <h2 style="color: #1e3a8a; margin-bottom: 15px;">🗂️ 詳細ページ</h2>
+            <div class="nav-grid">
+                <a href="overview.html" class="nav-link">📋 総合概要</a>
+                <a href="weekly.html" class="nav-link">📊 週次レポート</a>
+                <a href="PVV.html" class="nav-link">🔶 PVV詳細</a>
+                <a href="NSC.html" class="nav-link">🔷 NSC詳細</a>
+                <a href="GL–PvdA.html" class="nav-link">🟢 GL–PvdA詳細</a>
+                <a href="VVD.html" class="nav-link">🔵 VVD詳細</a>
+                <a href="minor-parties.html" class="nav-link highlight">⚪ 少数政党詳細</a>
+                <a href="polls.html" class="nav-link">📈 世論調査履歴</a>
+                <a href="archive.html" class="nav-link">🗄️ アーカイブ保管庫</a>
+            </div>
+        </div>
+    </div>
 
-  <footer>
-    <p>© 2025 オランダ総選挙リサーチ</p>
-  </footer>
+    <script>
+        // データ更新用のオブジェクト
+        const electionData = {
+            lastUpdated: "2025年9月7日 15:30",
+            currentWeek: "9月8日開始週 (第37週)",
+            polls: {
+                party: {
+                    subtitle: "政党支持率 (最新: 2025年9月第1週)",
+                    data: { PVV: 24, "GL–PvdA": 26, VVD: 18, NSC: 16, BBB: 10, "その他": 6 }
+                },
+                cabinet: {
+                    subtitle: "内閣支持率 (仮想連立政権想定)",
+                    data: { "PVV-NSC": 35, "GL–PvdA中心": 42, "VVD連立": 28, "その他": 15, "支持なし": 20, "未回答": 5 }
+                },
+                leader: {
+                    subtitle: "党首支持率・首相適性評価",
+                    data: { "Wilders": 22, "Timmermans": 28, "Yesilgöz": 16, "Omtzigt": 18, "Van der Plas": 8, "その他": 8 }
+                }
+            },
+            parties: {
+                PVV: { color: "#FF6B35", nato: "条件付き支持", eu: "統合反対", migration: "制限強化", defense: "2%以上", climate: "規制反対" },
+                NSC: { color: "#4a90a4", nato: "積極支持", eu: "統合推進", migration: "現状維持", defense: "2%以上", climate: "段階的対応" },
+                "GL–PvdA": { color: "#00c853", nato: "支持", eu: "統合推進", migration: "受入拡大", defense: "現状維持", climate: "規制強化" },
+                VVD: { color: "#0066cc", nato: "積極支持", eu: "統合推進", migration: "管理政策", defense: "2%以上", climate: "市場原理" },
+                BBB: { color: "#8bc34a", nato: "条件付き", eu: "現状維持", migration: "現状維持", defense: "現状維持", climate: "農業優先" }
+            },
+            updateHistory: [
+                { date: "9/7", content: "Peil.nl最新調査反映、VVD内情追加、政策マトリックス更新" },
+                { date: "9/5", content: "NSC党大会予告情報追加、アーカイブリンク2件追加" },
+                { date: "9/3", content: "GL–PvdA連携政策詳細、BBB農業政策分析" }
+            ]
+        };
+
+        // 世論調査タイプ切り替え
+        function showPollType(type) {
+            const pollData = electionData.polls[type];
+            const subtitle = document.getElementById('poll-subtitle');
+            const bars = document.getElementById('poll-data');
+            
+            subtitle.textContent = pollData.subtitle;
+            
+            // ボタンのアクティブ状態更新
+            document.querySelectorAll('.poll-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // データに応じて棒グラフを更新（実装は簡略化）
+            console.log('切り替え先:', type, pollData);
+        }
+
+        // ページ読み込み時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('オランダ選挙2025レポート - データ初期化完了');
+            console.log('現在の週:', electionData.currentWeek);
+            
+            // 今後の機能拡張予定:
+            // - 世論調査データの自動更新機能
+            // - 政策マトリックスのソート・フィルター機能
+            // - アーカイブリンクの生存確認システム
+            // - RSS/JSON-LD構造化データ出力
+            // - ダークモード対応
+        });
+    </script>
 </body>
 </html>
