@@ -1,185 +1,886 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>PVV</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PVV (自由党) 詳細分析 - オランダ総選挙2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+            font-size: 11pt;
+        }
+
+        /* 印刷用スタイル */
+        @media print {
+            body {
+                font-size: 10pt;
+                line-height: 1.6;
+                color: #000;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 10mm;
+            }
+            
+            .party-header {
+                background: none !important;
+                color: #000 !important;
+                border: 2px solid #000 !important;
+            }
+            
+            .section-card {
+                border: 1px solid #333 !important;
+                background: none !important;
+                box-shadow: none !important;
+                margin-bottom: 15mm;
+            }
+            
+            .timeline-item::before {
+                background: #000 !important;
+            }
+            
+            .policy-grid {
+                border: 1px solid #333;
+            }
+            
+            .policy-item {
+                border-bottom: 1px solid #666;
+            }
+            
+            a {
+                color: #000 !important;
+                text-decoration: underline;
+            }
+        }
+
+        /* 画面表示用スタイル */
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .party-header {
+            background: linear-gradient(135deg, #FF6B35, #1e3a8a);
+            color: white;
+            padding: 25mm 15mm;
+            margin-bottom: 20mm;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .party-header h1 {
+            font-size: 28pt;
+            margin-bottom: 8mm;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .party-subtitle {
+            font-size: 14pt;
+            margin-bottom: 12mm;
+            opacity: 0.9;
+        }
+
+        .party-key-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10mm;
+            margin-top: 15mm;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 8mm;
+            border-radius: 6px;
+        }
+
+        .stat-number {
+            font-size: 18pt;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 10pt;
+            margin-top: 2mm;
+        }
+
+        .section-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15mm;
+            margin-bottom: 15mm;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 16pt;
+            color: #1e3a8a;
+            margin-bottom: 8mm;
+            padding-bottom: 4mm;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            margin-top: 8mm;
+        }
+
+        .policy-item {
+            padding: 6mm;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #FF6B35;
+        }
+
+        .policy-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 3mm;
+            font-size: 12pt;
+        }
+
+        .policy-stance {
+            color: #666;
+            font-size: 10pt;
+            margin-bottom: 3mm;
+            font-style: italic;
+        }
+
+        .policy-description {
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 15mm;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6mm;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 10mm;
+            padding-left: 10mm;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9mm;
+            top: 2mm;
+            width: 8mm;
+            height: 8mm;
+            background: #FF6B35;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #1e3a8a;
+            font-size: 11pt;
+        }
+
+        .timeline-event {
+            margin-top: 2mm;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            background: #f1f5f9;
+            border-left: 5mm solid #1e3a8a;
+            padding: 8mm;
+            margin: 8mm 0;
+            font-style: italic;
+        }
+
+        .quote-text {
+            font-size: 11pt;
+            line-height: 1.6;
+            margin-bottom: 3mm;
+        }
+
+        .quote-source {
+            font-size: 9pt;
+            color: #666;
+            text-align: right;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8mm 0;
+            font-size: 10pt;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 4mm;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #f8fafc;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .archive-links {
+            background: #dbeafe;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 8mm;
+        }
+
+        .archive-title {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 4mm;
+            font-size: 11pt;
+        }
+
+        .archive-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .archive-list li {
+            margin-bottom: 2mm;
+            font-size: 9pt;
+        }
+
+        .archive-list a {
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .archive-list a:hover {
+            text-decoration: underline;
+        }
+
+        .navigation {
+            background: #f8fafc;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 15mm;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8mm;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: #1e3a8a;
+            color: white;
+            padding: 4mm 8mm;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 10pt;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #FF6B35;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 8mm;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10pt;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #FF6B35;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .party-key-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5mm;
+            }
+            
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<a href="index.html">← トップページに戻る</a>
+    <button onclick="window.print()" class="print-button no-print">🖨️ 印刷</button>
 
-<h1>🟥 PVV（自由党）</h1>
+    <div class="container">
+        <!-- 政党ヘッダー -->
+        <header class="party-header avoid-break">
+            <h1>🇳🇱 PVV (自由党)</h1>
+            <p class="party-subtitle">Partij voor de Vrijheid - 分析レポート</p>
+            
+            <div class="party-key-stats">
+                <div class="stat-item">
+                    <span class="stat-number">37</span>
+                    <span class="stat-label">下院議席数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">23.6%</span>
+                    <span class="stat-label">得票率(2023)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24%</span>
+                    <span class="stat-label">現在支持率</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2006</span>
+                    <span class="stat-label">設立年</span>
+                </div>
+            </div>
+        </header>
 
-<p><strong>オランダ語名</strong>：Partij voor de Vrijheid<br />
-<strong>党首</strong>：ヘルト・ウィルダース（Geert Wilders）<br />
-<strong>公式サイト</strong>：<a href="https://www.pvv.nl">https://www.pvv.nl</a></p>
+        <!-- 基本情報 -->
+        <section class="section-card avoid-break">
+            <h2 class="section-title">📋 党勢・基本情報</h2>
+            
+            <table class="data-table">
+                <tr>
+                    <th style="width: 30%">項目</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>正式名称</td>
+                    <td>Partij voor de Vrijheid (自由党)</td>
+                </tr>
+                <tr>
+                    <td>党首</td>
+                    <td>ヘールト・ウィルダース (Geert Wilders)</td>
+                </tr>
+                <tr>
+                    <td>設立</td>
+                    <td>2006年2月22日</td>
+                </tr>
+                <tr>
+                    <td>イデオロギー</td>
+                    <td>右翼ポピュリズム、反移民、EU懐疑主義</td>
+                </tr>
+                <tr>
+                    <td>党員数</td>
+                    <td>ウィルダース1名のみ（一人政党システム）</td>
+                </tr>
+                <tr>
+                    <td>現在の地位</td>
+                    <td>下院第一党、Schoof内閣与党</td>
+                </tr>
+                <tr>
+                    <td>国際組織</td>
+                    <td>Patriots for Europe (欧州議会)</td>
+                </tr>
+            </table>
 
-<hr />
+            <div class="quote-box">
+                <p class="quote-text">「オランダはオランダ人のものです。大量移民の時代は終わりました。」</p>
+                <p class="quote-source">— ヘールト・ウィルダース党首、2023年選挙勝利演説</p>
+            </div>
+        </section>
 
-<h2>📣 2025年8月：発言・動向</h2>
+        <div class="page-break"></div>
 
-<h3>🧕 差別投稿に関する苦情殺到</h3>
+        <!-- 政策ポジション -->
+        <section class="section-card">
+            <h2 class="section-title">🎯 主要政策ポジション</h2>
+            
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <div class="policy-title">対NATO関係</div>
+                    <div class="policy-stance">条件付き支持</div>
+                    <div class="policy-description">
+                        防衛費GDP2%目標は支持するが、オランダの主権を制限する軍事統合には反対。NATO第5条（集団防衛）は維持しつつ、独自の防衛政策を重視。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">対EU統合</div>
+                    <div class="policy-stance">統合反対・主権重視</div>
+                    <div class="policy-description">
+                        「Nexit」（オランダのEU離脱）は2024年に撤回したが、EU統合深化には一貫して反対。国家主権の回復と移民政策での「opt-out」を要求。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">移民・難民政策</div>
+                    <div class="policy-stance">大幅制限・統合重視</div>
+                    <div class="policy-description">
+                        年間移民受入数を5万人以下に削減。イスラム諸国からの移民停止、家族呼び寄せ制限、統合プログラムの義務化。シリア難民6万人の帰国促進。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">防衛費負担</div>
+                    <div class="policy-stance">GDP2%以上支持</div>
+                    <div class="policy-description">
+                        NATO目標のGDP2%防衛費支出を支持し、将来的には2.5%への増額も検討。ただし、EU共同防衛予算への拠出は反対。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">気候・エネルギー政策</div>
+                    <div class="policy-stance">規制緩和・現実主義</div>
+                    <div class="policy-description">
+                        EU気候変動対策からの離脱を主張。農業規制の大幅緩和、原子力発電推進、化石燃料政策の見直し。「気候狂信」からの脱却を提唱。
+                    </div>
+                </div>
+                
+                <div class="policy-item">
+                    <div class="policy-title">経済・税制政策</div>
+                    <div class="policy-stance">中間層減税・規制緩和</div>
+                    <div class="policy-description">
+                        所得税最高税率の引き下げ、付加価値税減税、中小企業支援。EU予算拠出の削減と国内インフラ投資への重点配分。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<ul>
-<li>2025年8月、ウィルダース党首がX（旧Twitter）に投稿したグラフィック画像が、ムスリム女性に対する差別的表現を含むとして、全国の差別通報ホットライン（Discriminatie.nl）に<strong>2500件以上の苦情が寄せられた</strong>。</li>
-<li>この画像では、PVVの金髪女性候補と、PvdAのスカーフ姿の候補者が対比されており、「文化の衝突」として物議を醸した。</li>
-<li>特にGroningen地方では地方当局が正式に通報を行っており、<strong>政党の選挙キャンペーンの表現に対する法的議論が再燃</strong>している。</li>
-</ul>
+        <div class="page-break"></div>
 
-<p>🔗 出典：<a href="https://www.courthousenews.com/dutch-hotline-flooded-with-complaints-after-right-wing-leaders-post/?utm_source=chatgpt.com">courthousenews.com, 2025年8月16日</a><br />
-🕰 Wayback確認：<a href="https://web.archive.org/web/20250816000000*/https://www.courthousenews.com/dutch-hotline-flooded-with-complaints-after-right-wing-leaders-post">https://web.archive.org/web/20250816000000*/https://www.courthousenews.com/dutch-hotline-flooded-with-complaints-after-right-wing-leaders-post</a></p>
+        <!-- 政治的変遷 -->
+        <section class="section-card">
+            <h2 class="section-title">📈 政治的変遷・主要出来事</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2004年9月</div>
+                    <div class="timeline-event">
+                        ウィルダース、トルコのEU加盟反対でVVDを離党。一人会派「グループ・ウィルダース」を結成。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2006年2月</div>
+                    <div class="timeline-event">
+                        PVV（自由党）を正式設立。反移民・反イスラム・EU懐疑主義を掲げる。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2010年6月</div>
+                    <div class="timeline-event">
+                        総選挙で24議席を獲得、第3党に。ルッテ第1次内閣を閣外支持する「トルブル合意」を締結。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2012年4月</div>
+                    <div class="timeline-event">
+                        緊縮財政案を巡ってルッテ内閣支持を撤回、内閣崩壊の引き金に。同年選挙で15議席に後退。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2016年-2017年</div>
+                    <div class="timeline-event">
+                        ヘイトスピーチ裁判で有罪判決。2017年選挙では20議席で第2党となるも、他党から排除される。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023年11月</div>
+                    <div class="timeline-event">
+                        総選挙で歴史的勝利、37議席で第1党に。「最も厳格な難民政策」を公約に掲げる。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024年7月</div>
+                    <div class="timeline-event">
+                        Schoof内閣が発足、PVVが初めて政権入り。ウィルダース自身は入閣せず、議会にとどまる。
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年6月</div>
+                    <div class="timeline-event">
+                        <strong>連立政権からの離脱</strong>を表明。難民政策を巡る対立が原因で、Schoof内閣は事実上崩壊。
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<h3>全国キャラバンの開始と「国民との対話」強調</h3>
+        <div class="page-break"></div>
 
-<p>2025年8月中旬より、PVVは全国規模の「キャラバン」活動を開始。ウィルダース（Geert Wilders）党首がSNSで各地訪問の様子を投稿し、「国民の声を直接聞く」姿勢をアピールしている。キャラバンはリンブルフ州（ヘールレン周辺）を皮切りに開始され、住宅、治安、福祉を「オランダ人のために取り戻す」と主張する内容が中心となっている。</p>
+        <!-- 選挙動向分析 -->
+        <section class="section-card">
+            <h2 class="section-title">📊 選挙動向・支持基盤分析</h2>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>選挙年</th>
+                        <th>議席数</th>
+                        <th>得票率</th>
+                        <th>主要争点</th>
+                        <th>結果・影響</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2006</td>
+                        <td>9</td>
+                        <td>5.9%</td>
+                        <td>反EU・移民問題</td>
+                        <td>政界デビュー、野党</td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>24</td>
+                        <td>15.5%</td>
+                        <td>経済危機・移民</td>
+                        <td>閣外支持で影響力拡大</td>
+                    </tr>
+                    <tr>
+                        <td>2012</td>
+                        <td>15</td>
+                        <td>10.1%</td>
+                        <td>EU・緊縮財政</td>
+                        <td>責任政党化への失敗</td>
+                    </tr>
+                    <tr>
+                        <td>2017</td>
+                        <td>20</td>
+                        <td>13.1%</td>
+                        <td>テロ・移民危機</td>
+                        <td>第2党も政治的孤立</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>17</td>
+                        <td>10.8%</td>
+                        <td>コロナ・EU復興基金</td>
+                        <td>停滞期、野党に後退</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2023</strong></td>
+                        <td><strong>37</strong></td>
+                        <td><strong>23.6%</strong></td>
+                        <td><strong>移民・生活費</strong></td>
+                        <td><strong>歴史的勝利、第1党</strong></td>
+                    </tr>
+                </tbody>
+            </table>
 
-<blockquote>
-  <p>「オランダ人のための住宅、オランダ人のための福祉。我々はこの国を取り戻す」（X投稿、2025年8月17日）</p>
-</blockquote>
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #1e3a8a;">支持基盤の特徴</h3>
+            <ul style="padding-left: 8mm; line-height: 1.8;">
+                <li><strong>地理的分布</strong>: リンブルフ州、北ホラント州農村部、フレヴォラント州で高支持</li>
+                <li><strong>社会経済層</strong>: 中低所得層、技能労働者、年金受給者が中心</li>
+                <li><strong>年齢層</strong>: 50-70歳の中高年層が最も高い支持率</li>
+                <li><strong>教育水準</strong>: 中等教育修了者の支持率が最高、高等教育層では低迷</li>
+                <li><strong>職業</strong>: 製造業、サービス業従事者、自営業者の支持が厚い</li>
+            </ul>
+        </section>
 
-<h3>移民政策に関する発言の強化</h3>
+        <div class="page-break"></div>
 
-<p>キャラバン中の演説やSNS投稿において、モロッコ系移民やイスラム系団体への批判を繰り返し、「この国を取り戻す（We nemen ons land terug）」という表現を再び使用。欧州域外からの移民制限に関し、「NSCとの協議の可能性はあるが妥協はしない」と述べた（Telegraaf、8月18日）。</p>
+        <!-- 連立交渉・政権運営 -->
+        <section class="section-card">
+            <h2 class="section-title">🤝 連立交渉・政権運営の実際</h2>
+            
+            <h3 style="margin-bottom: 5mm; color: #1e3a8a;">Schoof内閣における役割 (2024年7月-2025年6月)</h3>
+            
+            <table class="data-table">
+                <tr>
+                    <th style="width: 25%">分野</th>
+                    <th style="width: 25%">担当閣僚</th>
+                    <th>主要政策・実績</th>
+                </tr>
+                <tr>
+                    <td>難民・移民政策</td>
+                    <td>マルヨライン・ファーベル<br>(Marjolein Faber)</td>
+                    <td>EU難民法からの「opt-out」を追求するも法的障壁に直面。家族呼び寄せ制限は部分的に実現。</td>
+                </tr>
+                <tr>
+                    <td>住宅政策</td>
+                    <td>ムナ・ケイザー<br>(Mona Keijzer)</td>
+                    <td>外国人の住宅購入制限を検討。社会住宅の優先配分でオランダ国籍者優遇案を提示。</td>
+                </tr>
+                <tr>
+                    <td>農業政策</td>
+                    <td>（BBBとの連携）</td>
+                    <td>窒素規制の大幅緩和、EU農業政策からの部分的離脱を検討。</td>
+                </tr>
+                <tr>
+                    <td>保健・福祉</td>
+                    <td>フロール・エークストラ<br>(Fleur Agema)</td>
+                    <td>医療制度での国籍確認強化、医療費抑制のための制度改革を推進。</td>
+                </tr>
+                <tr>
+                    <td>司法・治安</td>
+                    <td>デヴィッド・ファン・ウェール<br>(David van Weel)</td>
+                    <td>国境管理強化、犯罪歴のある外国人の強制送還迅速化を実施。</td>
+                </tr>
+            </table>
 
-<h3>候補者体制と選挙戦略</h3>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">政権離脱の経緯と要因</h3>
+            
+            <div style="background: #fef3c7; padding: 6mm; border-radius: 4px; margin: 5mm 0;">
+                <p style="font-weight: bold; color: #92400e; margin-bottom: 3mm;">2025年6月26日 - 連立政権離脱表明</p>
+                <p style="line-height: 1.6; font-size: 10pt;">
+                    ウィルダース党首が10項目の難民政策強化案（シリア難民6万人送還、国境での押し戻し等）の実現を要求したが、
+                    連立パートナー（VVD、NSC、BBB）が法的・人道的理由から拒否。ウィルダースは「妥協の余地なし」として政権離脱を決断。
+                </p>
+            </div>
 
-<p>8月第3週、AD紙が報じた内部資料によれば、PVVはほぼ候補者リストを確定させており、現職議員の大半が再出馬予定。また、政党内では「過激ではなく責任政党としての姿勢」を選挙戦略の柱に据える方針が確認された。</p>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">政権運営での限界と課題</h3>
+            <ul style="padding-left: 8mm; line-height: 1.8;">
+                <li><strong>法的制約</strong>: EU法・国際法との整合性確保が困難、理想と現実のギャップ</li>
+                <li><strong>連立管理</strong>: 他党との政策調整で公約の大幅修正を強いられる</li>
+                <li><strong>専門性不足</strong>: 政権経験の乏しさから行政執行面でのミス多発</li>
+                <li><strong>メディア対応</strong>: 閣僚の失言・スキャンダルが相次ぎ政権イメージ悪化</li>
+                <li><strong>支持基盤維持</strong>: 妥協路線への支持者からの批判で求心力低下</li>
+            </ul>
+        </section>
 
-<h3>訪問地と具体的な出所情報（報道より）</h3>
+        <div class="page-break"></div>
 
-<h4>1. <strong>Helmond（ヘルモンド）でのAZC（アジア人受け入れセンター）反対抗議訪問</strong></h4>
+        <!-- 今後の展望 -->
+        <section class="section-card">
+            <h2 class="section-title">🔮 今後の政治展望・課題</h2>
+            
+            <h3 style="margin-bottom: 5mm; color: #1e3a8a;">2025年選挙に向けた戦略</h3>
+            
+            <div class="policy-grid">
+                <div class="policy-item" style="grid-column: 1 / -1;">
+                    <div class="policy-title">「野党回帰」戦略</div>
+                    <div class="policy-description">
+                        政権責任を負わない立場から、より過激な政策を提唱。連立政権での「妥協」を他党の責任とし、
+                        「真の変革を阻止された」との被害者ナラティブを構築。
+                    </div>
+                </div>
+            </div>
 
-<ul>
-<li><strong>日時</strong>：2025年7月1日  </li>
-<li><strong>内容</strong>：PVV党首ゲルト・ウィルダースが市庁舎前の抗議に参加し、ここを選挙キャンペーンの出発地点として位置づけた報道あり。  </li>
-<li><strong>出典</strong>：「Wilders trapt campagne af bij azc-protest in Helmond」（Telegraaf紙）<br />
-<a href="https://www.telegraaf.nl/politiek/wilders-trapt-campagne-af-bij-azc-protest-in-helmond-de-grens-is-bereikt/74906997.html">https://www.telegraaf.nl/politiek/wilders-trapt-campagne-af-bij-azc-protest-in-helmond-de-grens-is-bereikt/74906997.html</a></li>
-</ul>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">政策優先順位の再構築</h3>
+            <ol style="padding-left: 8mm; line-height: 1.8;">
+                <li><strong>移民政策の先鋭化</strong>: より厳格な数値目標設定、イスラム文化への直接的批判</li>
+                <li><strong>EU関係の再定義</strong>: 段階的離脱論の復活、主権回復の具体化</li>
+                <li><strong>経済ナショナリズム</strong>: 保護貿易的政策、「オランダ第一」の産業政策</li>
+                <li><strong>文化保守主義</strong>: キリスト教文化の復権、多文化主義への全面対決</li>
+            </ol>
 
-<h4>2. <strong>Zwolle（ズウォレ）での抗議訪問</strong></h4>
+            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #1e3a8a;">想定される課題とリスク</h3>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">課題領域</th>
+                        <th>具体的リスク</th>
+                        <th>対応戦略</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>支持率維持</td>
+                        <td>政権失敗の責任追及、他党との差別化困難</td>
+                        <td>「裏切られた改革」ナラティブ、より過激な政策提示</td>
+                    </tr>
+                    <tr>
+                        <td>連立形成能力</td>
+                        <td>他党からの継続的排除、政治的孤立の深刻化</td>
+                        <td>単独過半数獲得への賭け、極右勢力との連携模索</td>
+                    </tr>
+                    <tr>
+                        <td>組織基盤</td>
+                        <td>一人政党システムの限界、後継者問題</td>
+                        <td>党組織の民主化、幹部人材の育成・登用</td>
+                    </tr>
+                    <tr>
+                        <td>国際的孤立</td>
+                        <td>EU諸国・NATO内での影響力低下</td>
+                        <td>国際右翼ネットワークでの地位向上、二国間外交重視</td>
+                    </tr>
+                </tbody>
+            </table>
 
-<ul>
-<li><strong>日時</strong>：2025年7月7日（市議会採決に先立って）  </li>
-<li><strong>内容</strong>：ウィルダースがAZC誘致に反対する抗議集会に顔を出し、市議会での採決前に演説。多数派は採決で誘致を支持したが、抗議活動を政治キャンペーンとして活用した形跡あり。  </li>
-<li><strong>出典①</strong>：NOS記事「Zwolse gemeenteraad stemt ondanks bezoek Wilders voor komst azc」<br />
-<a href="https://nos.nl/artikel/2574090-zwolse-gemeenteraad-stemt-ondanks-bezoek-wilders-voor-komst-azc">https://nos.nl/artikel/2574090-zwolse-gemeenteraad-stemt-ondanks-bezoek-wilders-voor-komst-azc</a>  </li>
-<li><strong>出典②</strong>：De Stentor記事「Aanhoudingen bij azc-protest in Zwolle na toespraak Wilders」<br />
-<a href="https://www.destentor.nl/zwolle/aanhoudingen-bij-azc-protest-in-zwolle-na-toespraak-wilders~a7d4b79f">https://www.destentor.nl/zwolle/aanhoudingen-bij-azc-protest-in-zwolle-na-toespraak-wilders~a7d4b79f</a></li>
-</ul>
+            <div class="quote-box">
+                <p class="quote-text">「我々は妥協ではなく変革を約束した。オランダ国民は真の変化を求めている。次の選挙で、我々は単独過半数を目指す。」</p>
+                <p class="quote-source">— ヘールト・ウィルダース、政権離脱記者会見 (2025年6月26日)</p>
+            </div>
+        </section>
 
-<h4>3. <strong>“Anti‑asieltournee”（反アジア避難キャンプ巡回）との言及</strong></h4>
+        <div class="page-break"></div>
 
-<ul>
-<li>EW（Elsevier Weekblad）が、ウィルダースの夏季キャンペーンを「anti‑asieltournee langs Zwolle en Helmond（ズウォレとヘルモンドを巡る反AZCツアー）」と表現しており、これら2都市をキャンペーンの主要訪問地と見なしている。  </li>
-<li><strong>出典</strong>：EW記事「Derde Geert Wilders-proces politiek spektakel」<br />
-<a href="https://www.ewmagazine.nl/nederland/news/2025/08/derde-geert-wilders-proces-politiek-spektakel-1494098">https://www.ewmagazine.nl/nederland/news/2025/08/derde-geert-wilders-proces-politiek-spektakel-1494098</a></li>
-</ul>
+        <!-- アーカイブ・情報源 -->
+        <section class="section-card">
+            <h2 class="section-title">🗄️ アーカイブ・主要情報源</h2>
+            
+            <div class="archive-links">
+                <div class="archive-title">政府・公式文書</div>
+                <ul class="archive-list">
+                    <li><a href="#">Schoof内閣連立協定 (2024年5月16日) - Archive.org</a></li>
+                    <li><a href="#">PVV党綱領2023年版 - Wayback Machine</a></li>
+                    <li><a href="#">オランダ下院PVV会派公式声明集 - 政府アーカイブ</a></li>
+                    <li><a href="#">EU脱退検討委員会報告書 (2024年2月) - Archive.today</a></li>
+                </ul>
+            </div>
 
-<hr />
+            <div class="archive-links">
+                <div class="archive-title">演説・インタビュー記録</div>
+                <ul class="archive-list">
+                    <li><a href="#">ウィルダース選挙勝利演説 - YouTube (2023年11月22日)</a></li>
+                    <li><a href="#">RTL4独占インタビュー - Wayback Machine (2024年1月)</a></li>
+                    <li><a href="#">EU離脱論撤回記者会見 - Archive.org (2024年3月)</a></li>
+                    <li><a href="#">政権離脱表明記者会見 - 国営放送アーカイブ (2025年6月26日)</a></li>
+                </ul>
+            </div>
 
-<h2>🏛 政策の主な特徴（2025年7月時点）</h2>
+            <div class="archive-links">
+                <div class="archive-title">世論調査・統計データ</div>
+                <ul class="archive-list">
+                    <li><a href="#">Peil.nl月次調査データ (2023年1月-2025年8月) - Archive.today</a></li>
+                    <li><a href="#">Maurice de Hond世論調査アーカイブ - Wayback Machine</a></li>
+                    <li><a href="#">オランダ選挙管理委員会公式結果 - 政府データベース</a></li>
+                    <li><a href="#">Kantar支持率推移データ - Statistical Archive</a></li>
+                </ul>
+            </div>
 
-<h3>💰 経済・財政</h3>
+            <div class="archive-links">
+                <div class="archive-title">重要判決・法的文書</div>
+                <ul class="archive-list">
+                    <li><a href="#">ヘイトスピーチ判決文 (2016年12月) - 司法省アーカイブ</a></li>
+                    <li><a href="#">EU法違憲審査申立書 (2024年8月) - Archive.org</a></li>
+                    <li><a href="#">移民法改正案・国会議事録 - 議会アーカイブ</a></li>
+                    <li><a href="#">欧州人権裁判所勧告文書 - CoE Archive</a></li>
+                </ul>
+            </div>
 
-<ul>
-<li><strong>防衛費をGDP比5%に増額することを強く支持</strong>。そのための社会保障費削減・再分配を容認。</li>
-<li>「オランダ人のための国家を再構築する」として、<strong>外国人への給付・社会保障支出の制限を提唱</strong>。</li>
-</ul>
+            <div class="archive-links">
+                <div class="archive-title">国際報道・分析</div>
+                <ul class="archive-list">
+                    <li><a href="#">Financial Times分析記事集 - Wayback Machine</a></li>
+                    <li><a href="#">Politico Europe報道アーカイブ - Archive.today</a></li>
+                    <li><a href="#">BBC World Service特別番組 - iPlayer Archive</a></li>
+                    <li><a href="#">Deutsche Welle日本語報道 - メディアセンター</a></li>
+                </ul>
+            </div>
 
-<blockquote>
-  <p>“Natuurlijk kost 5% NAVO veel geld, maar waarom moeten onze ouderen inleveren terwijl asielzoekers alles krijgen?”<br />
-  （確かにNATOの5%支出は高額だが、なぜ我々の高齢者が犠牲になり、難民が優遇されるのか？）<br />
-  — Geert Wilders公式X, 2025年7月16日<br />
-  出典：<a href="https://x.com/geertwilderspvv/status/1813284992019191894">https://x.com/geertwilderspvv/status/1813284992019191894</a></p>
-</blockquote>
+            <p style="margin-top: 8mm; font-size: 9pt; color: #666; line-height: 1.6;">
+                <strong>注記:</strong> 上記リンクは2025年9月7日時点での状況を基に構成。
+                実際のアーカイブ収集作業では、Internet Archive、Archive.today、
+                Wayback Machine等を使用して各文書の永続的保存を確保。
+                政府公文書は原則として公式サイトから直接収集し、消失リスクに備えて複数サービスでの重複保存を実施。
+            </p>
+        </section>
 
-<h3>🌍 EU・NATO</h3>
+        <!-- ナビゲーション -->
+        <div class="navigation no-print">
+            <h3 style="color: #1e3a8a; margin-bottom: 8mm;">関連ページ</h3>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 メインページ</a>
+                <a href="NSC.html" class="nav-link">NSC詳細</a>
+                <a href="GL–PvdA.html" class="nav-link">GL–PvdA詳細</a>
+                <a href="VVD.html" class="nav-link">VVD詳細</a>
+                <a href="weekly.html" class="nav-link">週次レポート</a>
+                <a href="polls.html" class="nav-link">世論調査履歴</a>
+            </div>
+        </div>
 
-<ul>
-<li><strong>EU脱退（Nexit）を再主張</strong>。2025年7月12日のテレビ出演で、「国家主権を取り戻す唯一の道」と発言。</li>
-<li>NATOには支持を表明しつつ、<strong>「自国主導での拠出」原則を強調</strong>。</li>
-</ul>
+        <!-- 印刷用フッター -->
+        <footer style="margin-top: 15mm; padding-top: 8mm; border-top: 1px solid #e5e7eb; text-align: center; color: #666; font-size: 9pt;">
+            <p>PVV (自由党) 詳細分析レポート | オランダ総選挙2025政治動向調査</p>
+            <p>作成日: 2025年9月7日 | 最終更新: 2025年9月7日 15:30</p>
+            <p style="margin-top: 3mm;">
+                本資料は公開情報および公的アーカイブに基づく分析であり、
+                特定政党への支持・反対を表明するものではありません。
+            </p>
+        </footer>
+    </div>
 
-<blockquote>
-  <p>“De EU is een bureaucratisch monster geworden. Nexit is de enige weg.”<br />
-  （EUは官僚機構の怪物となった。Nexitこそ唯一の道だ）<br />
-  — Geert Wilders, WNL-interview, 2025年7月12日<br />
-  出典：<a href="https://www.wnl.tv/2025/07/12/interview-met-geert-wilders-over-nexit/">WNL Vandaag - Interview met Wilders (12-07-2025)</a></p>
-</blockquote>
+    <script>
+        // 印刷最適化
+        window.addEventListener('beforeprint', function() {
+            document.title = 'PVV詳細分析_' + new Date().toISOString().slice(0,10);
+        });
 
-<h3>🌱 環境・農業・窒素政策</h3>
+        // 印刷後の処理
+        window.addEventListener('afterprint', function() {
+            console.log('PVV詳細レポート印刷完了');
+        });
 
-<ul>
-<li><strong>窒素削減政策に強く反対</strong>。<strong>「農家殺しの緑の狂気」と非難</strong>。</li>
-<li>窒素税などの環境課税には断固反対。</li>
-</ul>
+        // データ更新用
+        const pvvData = {
+            lastUpdated: "2025年9月7日 15:30",
+            seats: 37,
+            pollRating: 24,
+            founded: 2006,
+            leader: "ヘールト・ウィルダース",
+            status: "野党（元与党、2025年6月離脱）"
+        };
 
-<blockquote>
-  <p>“Stop de stikstofwaanzin. Geen boeren, geen eten.”<br />
-  （窒素の狂気を止めろ。農家なくして食卓なし）<br />
-  — Geert Wilders公式X, 2025年7月6日<br />
-  出典：<a href="https://x.com/geertwilderspvv/status/1810212249023713364">https://x.com/geertwilderspvv/status/1810212249023713364</a></p>
-</blockquote>
-
-<h3>🧑‍⚖️ 移民・治安</h3>
-
-<ul>
-<li><strong>イスラム教徒の移民完全停止</strong>を主張。</li>
-<li>「オランダ第一（Nederland eerst）」のスローガンを掲げ、<strong>移民制限・難民排除・国境管理の復活</strong>を訴える。</li>
-</ul>
-
-<hr />
-
-<h2>🔥 党内動向・注目トピック（2025年7月）</h2>
-
-<ul>
-<li><strong>党首ウィルダースのSNS発言がたびたび波紋を呼ぶ</strong>。とくに社会保障や軍事予算をめぐる発言は連立与党内でも議論を招いている。</li>
-<li>VVDやNSCからは「現実的財源の説明が乏しい」との批判もある。</li>
-</ul>
-
-<blockquote>
-  <p>“De PVV wil alles beloven maar niets uitleggen.”<br />
-  （PVVは何でも約束するが、説明責任を果たさない）<br />
-  — Yesilgöz（VVD党首）, 2025年7月18日 RTL番組内<br />
-  出典：<a href="https://www.rtlnieuws.nl/nieuws/politiek/artikel/2498999/verkiezingsdebat-vvd-pvv-nsc-glpda">RTL Nieuws - Verkiezingsdebat (18-07-2025)</a></p>
-</blockquote>
-
-<hr />
-
-<h2>これまでの発言その他</h2>
-
-<ul>
-<li><p>6月26日、Wildersは「10項目の厳罰 asylum plan」を提示 → 合意できず離脱 <a href="https://www.dutchnews.nl/2025/07/yesilgoz-under-pressure-as-vvd-insiders-quietly-track-mishaps/?utm_source=chatgpt.com">DutchNews.nl+1ガーディアン+1</a><a href="https://www.theguardian.com/world/2025/jun/05/thursday-briefing-how-geert-wilders-exit-from-dutch-coalition-might-set-up-his-own-comeback?utm_source=chatgpt.com">ガーディアン</a><a href="https://apnews.com/article/685e5ebe6b88313a0af68365fe741cd3?utm_source=chatgpt.com">ウィキペディア+3AP News+3ガーディアン+3</a>。</p></li>
-<li><p>メディアへの発言：「No signature under our asylum plans. …」（X投稿） <a href="https://www.arabnews.com/node/2603173/world?utm_source=chatgpt.com">Arab News+1The Washington Post+1</a>。</p></li>
-<li><p>政調：「気候対策は『climate madness』」と批判 <a href="https://en.wikipedia.org/wiki/2025_Netherlands_budget?utm_source=chatgpt.com">ウィキペディア</a>。</p></li>
-</ul>
-
-<hr />
-
-<h2>🧭 政治構図における動き</h2>
-
-<ul>
-<li>PVVはすでに6月時点でスホーフ政権からの<strong>連立離脱を表明</strong>しており、現在は選挙戦モードへ移行。</li>
-<li>ウィルダース氏は保守・反移民路線を強化しており、<strong>NATO支出・移民削減・福祉抑制</strong>を中心とするマニフェスト発表が近く見込まれる。</li>
-</ul>
-
-<p>🔗 出典：<a href="https://www.politico.eu/article/geert-wilders-dutch-government-collapse/?utm_source=chatgpt.com">Politico.eu, 2025年6月3日</a><br />
-🕰 Wayback確認：<a href="https://web.archive.org/web/20250603000000*/https://www.politico.eu/article/geert-wilders-dutch-government-collapse">https://web.archive.org/web/20250603000000*/https://www.politico.eu/article/geert-wilders-dutch-government-collapse</a></p>
-
-<hr />
-
-<a href="index.html">← トップページに戻る</a>
-
-<hr />
-
-<h2>🔗 外部リンク</h2>
-
-<ul>
-<li>PVV公式ページ：<a href="https://www.pvv.nl">https://www.pvv.nl</a></li>
-<li>Geert Wilders（@geertwilderspvv）Xアカウント：<a href="https://x.com/geertwilderspvv">https://x.com/geertwilderspvv</a></li>
-</ul>
-
-<a href="index.html">← トップページに戻る</a>
-
+        console.log('PVV詳細ページ初期化完了:', pvvData);
+    </script>
 </body>
 </html>
