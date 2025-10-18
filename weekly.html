@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>週次観測ログ | オランダ総選挙2025</title>
+    <title>オランダ総選挙2025 政治動向レポート</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -27,73 +27,108 @@
         }
         h2 {
             color: #34495e;
-            margin-top: 40px;
+            margin-top: 30px;
             border-left: 4px solid #3498db;
             padding-left: 15px;
         }
         h3 {
             color: #555;
-            margin-top: 25px;
-            background-color: #ecf0f1;
-            padding: 10px 15px;
-            border-radius: 4px;
+            margin-top: 20px;
         }
-        .week-entry {
-            margin-bottom: 40px;
-            padding: 20px;
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            margin-top: -10px;
+            margin-bottom: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
             background-color: #f9f9f9;
-            border-left: 4px solid #95a5a6;
-            border-radius: 4px;
         }
-        .poll-update {
-            background-color: #e8f4f8;
+        .poll-data {
+            background-color: #ecf0f1;
             padding: 15px;
             border-radius: 5px;
             margin: 15px 0;
-            border-left: 4px solid #3498db;
         }
-        .event-highlight {
+        .poll-data strong {
+            color: #2c3e50;
+        }
+        .event-box {
             background-color: #fff3cd;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
             border-left: 4px solid #ffc107;
-        }
-        .controversy {
-            background-color: #f8d7da;
             padding: 15px;
-            border-radius: 5px;
             margin: 15px 0;
-            border-left: 4px solid #dc3545;
+        }
+        .coalition-box {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
         }
         ul {
             line-height: 1.8;
         }
-        .nav-back {
-            background-color: #34495e;
-            padding: 10px 20px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .nav-back a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .nav-back a:hover {
-            text-decoration: underline;
-        }
-        .date-tag {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            font-weight: bold;
-        }
-        .source-note {
+        .note {
             font-size: 0.85em;
             color: #666;
             font-style: italic;
-            margin-top: 10px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .nav-links {
+            background-color: #34495e;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            color: white;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        .update-log {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        .party-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .party-list a {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            display: block;
+            text-align: center;
+        }
+        .party-list a:hover {
+            background-color: #d5dbdb;
+            text-decoration: none;
         }
         .timestamp {
             text-align: right;
@@ -107,304 +142,176 @@
 </head>
 <body>
     <div class="container">
-        <div class="nav-back">
-            <a href="index.html">← トップページに戻る</a>
+        <h1>オランダ総選挙2025 政治動向レポート</h1>
+        <p class="subtitle">長期の俯瞰・週次ログ・政党別の三層で把握できる設計。</p>
+
+        <h2>争点別・主要政党のスタンス（ダイジェスト）</h2>
+        <p class="note">※ 記号：✔︎ 賛成／✘ 反対／❍ 条件付き・中立。詳細は <a href="overview.html">概要</a> に順次集約。</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>政党</th>
+                    <th>NATO防衛費<br>(GDP5%)</th>
+                    <th>窒素税・増税</th>
+                    <th>社会保障削減</th>
+                    <th>移民政策</th>
+                    <th>気候政策と農業</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="PVV.html">PVV</a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="NSC.html">NSC</a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="GL–PvdA.html">GL–PvdA</a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">出典：アップロードされた比較表の下書きを要約。より精緻な根拠リンクは概要ページに順次整理します。</p>
+
+        <h2>直近の観測サマリ（10月版）</h2>
+
+        <h3>世論動向（10月中旬・選挙2週間前）</h3>
+        
+        <div class="poll-data">
+            <h4>議席予測の変化</h4>
+            <ul>
+                <li><strong>PVV（Wilders）</strong>: 31～35議席 — 依然最大政党だが、2023年選挙（37議席）から減少</li>
+                <li><strong>CDA（Bontenbal）</strong>: 22～26議席 — 2023年（5議席）から劇的上昇、第2党に浮上</li>
+                <li><strong>GL–PvdA（Timmermans）</strong>: 21～25議席 — 第3党、安定した支持を維持</li>
+                <li><strong>VVD（Yeşilgöz）</strong>: 12～16議席 — 現有24議席から大幅後退</li>
+                <li><strong>D66</strong>: 12～15議席 — 微増傾向</li>
+                <li><strong>JA21</strong>: 12～13議席 — 現有1議席から急伸</li>
+                <li><strong>NSC</strong>: 議席ゼロの可能性 — 2023年（20議席）から消滅の危機</li>
+            </ul>
         </div>
 
-        <h1>週次観測ログ</h1>
-        <p>オランダ総選挙2025に向けた時系列の動向記録。8月末の夏季休会明けから選挙当日まで。</p>
-
-        <h2>10月（選挙直前期）</h2>
-
-        <div class="week-entry">
-            <h3><span class="date-tag">10月14日週</span> 選挙2週間前</h3>
-            
-            <div class="event-highlight">
-                <h4>Wildersの選挙活動中断</h4>
-                <ul>
-                    <li><strong>10月10日</strong>：ベルギーでテロ組織が摘発され、Wildersが標的リストに含まれていたことが判明</li>
-                    <li>オランダ当局（NCTV）は「残存脅威なし」と確認するも、Wildersは選挙活動を一時中断</li>
-                    <li>他党から「討論回避の戦略では」との疑念も。PVVはわずか1ページのマニフェストで、討論での追及を避けたい思惑があるとの観測</li>
-                </ul>
-            </div>
-
-            <div class="poll-update">
-                <h4>世論調査（EenVandaag/Verian, 10月11-14日実施）</h4>
-                <ul>
-                    <li><strong>PVV</strong>: 31議席（前回比-1）</li>
-                    <li><strong>GL-PvdA</strong>: 25議席（+2）</li>
-                    <li><strong>CDA</strong>: 23議席（安定）</li>
-                    <li><strong>D66</strong>: 2週間で3議席増</li>
-                    <li><strong>VVD</strong>: 14議席（安定）</li>
-                    <li><strong>JA21</strong>: 13議席（6週間前から+4、急伸続く）</li>
-                    <li><strong>有権者の48%がまだ投票先未定</strong>、特にVVD・D66・CDA支持者</li>
-                </ul>
-            </div>
+        <div class="poll-data">
+            <h4>注目トレンド</h4>
+            <ul>
+                <li>CDA党首Henri Bontenbalが「将来の首相候補」として急速に支持拡大。冷静で公正な姿勢が評価される</li>
+                <li>VVD党首Dilan Yeşilgözへの党内信頼度が6月の77%→8月31%に急落</li>
+                <li><strong>有権者の50%がまだ投票先未定。特にVVDとD66の支持者が迷っている</strong></li>
+            </ul>
         </div>
 
-        <div class="week-entry">
-            <h3><span class="date-tag">10月7日週</span> 選挙3週間前</h3>
-            
-            <div class="poll-update">
-                <h4>世論調査統合（Peilingwijzer）</h4>
-                <ul>
-                    <li><strong>PVV</strong>: 31-35議席</li>
-                    <li><strong>CDA</strong>: 22-26議席（第2党）</li>
-                    <li><strong>GL-PvdA</strong>: 21-25議席（第3党）</li>
-                    <li><strong>VVD</strong>: 12-16議席</li>
-                    <li><strong>D66</strong>: 12-15議席</li>
-                    <li><strong>NSC</strong>: 議席ゼロの可能性大</li>
-                </ul>
-            </div>
+        <h3>重大イベント</h3>
 
-            <div class="event-highlight">
-                <h4>主要トピック</h4>
-                <ul>
-                    <li><strong>10月6日</strong>：Meta（Facebook/Instagram）での政治広告が禁止開始。直前の1ヶ月でFvDとD66が最も広告費を投入</li>
-                    <li>住宅問題、移民、医療が有権者の最優先事項として確認される</li>
-                    <li>連立形成には最低4党が必要との見通しが定着</li>
-                </ul>
-            </div>
+        <div class="event-box">
+            <h4>Wildersの選挙活動中断（10月10日）</h4>
+            <ul>
+                <li>ベルギーでテロ組織が摘発され、Wildersが標的リストに含まれていたことが判明</li>
+                <li>オランダ当局は「残存脅威なし」と発表したが、Wildersは選挙活動を一時中断</li>
+                <li>他党からは「討論回避の戦略では」との疑念も浮上。ワイルダースは1ページのマニフェストのみで、閣僚の適性や連立崩壊の責任について追及を避けている可能性</li>
+            </ul>
         </div>
 
-        <h2>9月（選挙戦本格化）</h2>
-
-        <div class="week-entry">
-            <h3><span class="date-tag">9月第1週</span> 選挙2ヶ月前</h3>
-            
-            <div class="poll-update">
-                <h4>世論調査（Ipsos I&O, 9月4日発表）</h4>
-                <ul>
-                    <li><strong>PVV</strong>: 30議席（20%）</li>
-                    <li><strong>CDA</strong>: 25議席（2006年以来の第2位）</li>
-                    <li><strong>GL-PvdA</strong>: 23議席（微減）</li>
-                    <li><strong>VVD</strong>: 15議席（現有24議席から-9）</li>
-                </ul>
-                <p class="source-note">CDAが「誠実で信頼できる、安定した中道政党」として評価される。Bontenbal党首の人気が主因。</p>
-            </div>
-
-            <div class="event-highlight">
-                <h4>選挙戦の状況</h4>
-                <ul>
-                    <li>正式な選挙戦はまだ開始していない段階</li>
-                    <li>世論調査専門家Tom Louwerse：「すべてが流動的。多くの有権者がまだ確信を持てていない」</li>
-                    <li>在外オランダ市民135,424人が投票登録（過去最高、2023年比+25%）</li>
-                </ul>
-            </div>
+        <div class="event-box">
+            <h4>Wildersの論争的行動</h4>
+            <ul>
+                <li>8月：ヘッドスカーフ着用女性vs.金髪若年女性を比較する差別的ツイートで2,500件以上の苦情</li>
+                <li>夏季：ヘルモント、ズウォレなど地元の亡命センター反対抗議に参加、選挙戦の中心テーマに</li>
+            </ul>
         </div>
 
-        <div class="week-entry">
-            <h3><span class="date-tag">9月20日</span> 移民反対デモで暴動</h3>
-            
-            <div class="controversy">
-                <h4>ハーグでの暴力事件</h4>
-                <ul>
-                    <li>26歳のインフルエンサー「Els de droite（右派のEls）」が組織した移民反対デモが暴徒化</li>
-                    <li>高速道路封鎖、警察車両放火、6人のジャーナリストが襲撃される</li>
-                    <li>全政党党首がデモと暴力を非難</li>
-                    <li>組織者はWildersの支持者として知られる</li>
-                </ul>
-                <p class="source-note">オランダだけでなく欧州全体で見られる危機の象徴的事件として報道される。</p>
-            </div>
+        <div class="event-box">
+            <h4>連立崩壊の経緯</h4>
+            <ul>
+                <li><strong>6月3日</strong>：PVVが亡命政策の実施遅延を理由に連立離脱 → Schoof内閣辞任</li>
+                <li><strong>8月23日</strong>：NSCもガザ戦争に関するイスラエル制裁問題で連立離脱</li>
+            </ul>
         </div>
 
-        <h2>8月（夏季休会明け・選挙戦準備）</h2>
+        <h3>連立形成の見通し</h3>
 
-        <div class="week-entry">
-            <h3><span class="date-tag">8月末</span> 議会再開と選挙戦始動</h3>
-            
-            <div class="poll-update">
-                <h4>世論調査（8月末発表）</h4>
-                <ul>
-                    <li><strong>PVV</strong>: 33議席（依然最大政党）</li>
-                    <li><strong>GL-PvdA</strong>: 26議席</li>
-                    <li><strong>CDA</strong>: 23議席（急伸）</li>
-                    <li><strong>VVD</strong>: 15議席（24議席から大幅減）</li>
-                    <li>Yeşilgözへの党内信頼度が31%に低下（6月は77%）</li>
-                </ul>
-            </div>
-
-            <div class="event-highlight">
-                <h4>主要な動き</h4>
-                <ul>
-                    <li><strong>8月23日</strong>：NSCが連立を離脱。ガザ戦争に関するイスラエル制裁問題が理由</li>
-                    <li>Caspar Veldkamp外相（NSC）が辞任。より厳しい対イスラエル措置を求めたが他の連立党から支持を得られず</li>
-                    <li>全NSC閣僚が退任、暫定首相Schoofが新閣僚任命を検討</li>
-                </ul>
-            </div>
-
-            <div class="controversy">
-                <h4>Wildersの差別的ツイート問題</h4>
-                <ul>
-                    <li>金髪の若い女性とPVV、ヘッドスカーフ着用の年配女性と労働党を比較する画像をツイート</li>
-                    <li>「選択はあなた次第 29/10」との文言（選挙日への言及）</li>
-                    <li>差別苦情ホットラインに2,500件以上の苦情、ナチスプロパガンダとの比較も</li>
-                    <li>イスラム団体も正式に苦情申し立て</li>
-                </ul>
-            </div>
+        <div class="coalition-box">
+            <h4>困難な状況</h4>
+            <ul>
+                <li>GL/PvdA、VVD、CDAがPVVとの連立を明確に拒否</li>
+                <li>安定政権には最低4党が必要だが、組み合わせが困難</li>
+                <li>Wildersは少数政権も視野に首相就任を希望</li>
+            </ul>
         </div>
 
-        <div class="week-entry">
-            <h3><span class="date-tag">8月11日</span> Yeşilgöz、Douwe Bob問題で正式謝罪</h3>
-            
-            <div class="controversy">
-                <h4>Douwe Bob論争の決着</h4>
-                <ul>
-                    <li>Yeşilgözが正式に謝罪：「反ユダヤ主義と決めつけるべきではなかった。誤りだった」</li>
-                    <li>問題のツイートを削除</li>
-                    <li>Douwe Bobの名誉毀損訴訟が取り下げ（和解成立）</li>
-                    <li>和解内容は秘密保持契約により非公開</li>
-                </ul>
-                <p class="source-note">この問題がVVD支持率低下の主要因の一つとなった。</p>
-            </div>
+        <div class="coalition-box">
+            <h4>VVDの立場</h4>
+            <ul>
+                <li>Yeşilgözは「Wildersは2012年と同様、またも逃げ出した」と痛烈批判</li>
+                <li>中道右派連立（D66、BBB、CDA、JA21含む）を志向</li>
+                <li>ただし左派（GL/PvdA）との連立も完全には排除せず</li>
+            </ul>
         </div>
 
-        <h2>7月（選挙3ヶ月前）</h2>
-
-        <div class="week-entry">
-            <h3><span class="date-tag">7月末</span> CDAが第2党に浮上</h3>
-            
-            <div class="poll-update">
-                <h4>世論調査（Ipsos I&O, 7月30日発表）</h4>
-                <ul>
-                    <li><strong>PVV</strong>: 27議席（2023年の37議席から-10）</li>
-                    <li><strong>CDA</strong>: 24議席（2023年の5議席から+19、GL-PvdAと同率2位）</li>
-                    <li><strong>GL-PvdA</strong>: 24議席</li>
-                    <li><strong>VVD</strong>: 20議席</li>
-                    <li><strong>D66</strong>: 12議席（2023年の9議席から+3）</li>
-                    <li><strong>JA21</strong>: 7議席（2023年の1議席から+6）</li>
-                    <li><strong>NSC</strong>: 議席ゼロの見込み（2023年は20議席）</li>
-                    <li><strong>BBB</strong>: 支持率半減</li>
-                </ul>
-            </div>
-
-            <div class="event-highlight">
-                <h4>CDA躍進の背景</h4>
-                <ul>
-                    <li>Henri Bontenbal党首（42歳）が「将来の首相」として人気獲得</li>
-                    <li>「明確で公正」な姿勢が評価される</li>
-                    <li>政界入り4年の「新鮮な顔」</li>
-                    <li>論争的な亡命法案に法的・道徳的理由から反対を表明し、支持拡大</li>
-                    <li>元VVD支持者：「CDAには落ち着きがある」</li>
-                </ul>
-            </div>
+        <div class="coalition-box">
+            <h4>D66とGL/PvdAの立場</h4>
+            <ul>
+                <li><strong>D66</strong>：右派連立を拒否、左右を含む「国民統合政府」を提案</li>
+                <li><strong>GL/PvdA</strong>：Timmermans党首が首相就任を強く希望（2023年選挙でも目指したが実現せず）</li>
+            </ul>
         </div>
 
-        <div class="week-entry">
-            <h3><span class="date-tag">7月13日</span> VVD内部の不満表面化</h3>
-            
-            <div class="controversy">
-                <h4>Yeşilgöz党首への批判</h4>
-                <ul>
-                    <li>約270人のVVDメンバーによるWhatsAppグループが、Yeşilgözの「30の戦略的失敗」をリスト化</li>
-                    <li>あるメンバーは「悲観に満ちたグループ」と表現</li>
-                    <li>批判の焦点：
-                        <ul>
-                            <li>PVVへの姿勢が揺れ動いている</li>
-                            <li>Douwe Bob問題の対応</li>
-                            <li>ポピュリスト的手法</li>
-                        </ul>
-                    </li>
-                    <li>元党幹部Klaas Dijkhoff：「つながりを求めるべきだった。怒りマシンを動かすのではなく」</li>
-                    <li>ただし党幹部は「党首交代の可能性はゼロ」と断言</li>
-                </ul>
-            </div>
+        <h3>観測ポイント</h3>
+
+        <h4>10月29日まで</h4>
+        <ul>
+            <li>Wilders選挙活動再開の有無と影響</li>
+            <li>未決定層50%の動向（特にVVD・D66支持者）</li>
+            <li>討論でのBontenbal（CDA）とTimmermans（GL/PvdA）のパフォーマンス</li>
+        </ul>
+
+        <h4>選挙後</h4>
+        <ul>
+            <li>連立交渉（複雑化は必至、2023年選挙後は223日を要した）</li>
+            <li>Wildersの首相就任可能性（現実的には低い）</li>
+            <li>CDA中心の連立、または左右大連立の可能性</li>
+        </ul>
+
+        <p style="background-color: #e8f4f8; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <strong>※ 6月の連立崩壊から現在までの詳細な時系列ログは <a href="weekly.html" style="color: #2980b9; font-weight: bold;">週次観測ログ</a> をご覧ください。</strong>
+        </p>
+
+        <h2>主要ページ</h2>
+        <div class="nav-links">
+            <a href="overview.html">概要・全体俯瞰</a>
+            <a href="weekly.html">週次観測ログ</a>
         </div>
 
-        <div class="week-entry">
-            <h3><span class="date-tag">7月初旬</span> Douwe Bob事件</h3>
-            
-            <div class="controversy">
-                <h4>反ユダヤ主義疑惑と脅迫</h4>
-                <ul>
-                    <li><strong>6月29日</strong>：歌手Douwe Bobがアムステルダムのユダヤ系子供向けサッカー大会で演奏を拒否
-                        <ul>
-                            <li>会場に「シオニスト的なポスター」があったと主張</li>
-                            <li>政治・宗教的表現をしないという事前合意に反すると説明</li>
-                        </ul>
-                    </li>
-                    <li><strong>直後</strong>：Yeşilgözが「純粋なユダヤ人への憎悪」とXで非難</li>
-                    <li><strong>7月2日</strong>：Douwe Bobが深刻な脅迫を受け、家族とともにオランダ出国
-                        <ul>
-                            <li>警察が緊急保護を推奨</li>
-                            <li>38歳のAmsterdam Defence Force（ADF）代表Bob T.が逮捕される</li>
-                        </ul>
-                    </li>
-                    <li><strong>7月2日</strong>：Yeşilgöz、謝罪を拒否。「私の発言は正しい」</li>
-                    <li><strong>8月6日</strong>：Douwe Bobが名誉毀損で提訴</li>
-                    <li><strong>8月11日</strong>：和解・Yeşilgözが正式謝罪</li>
-                </ul>
-                <p class="source-note">この一連の出来事がVVD支持率に大きな打撃。EenVandaag世論調査では、VVD支持者の半数しかYeşilgözを支持せず（6月の77%から50%に低下）。「VVDがPVV-liteになっている」との批判も。</p>
-            </div>
+        <h2>政党別まとめ</h2>
+        <div class="party-list">
+            <a href="PVV.html">PVV（自由党）</a>
+            <a href="GL–PvdA.html">GL–PvdA（緑の党・労働党）</a>
+            <a href="CDA.html">CDA（キリスト教民主同盟）</a>
+            <a href="VVD.html">VVD（自由民主国民党）</a>
+            <a href="NSC.html">NSC（新社会契約）</a>
         </div>
 
-        <h2>6月（連立崩壊・選挙決定）</h2>
-
-        <div class="week-entry">
-            <h3><span class="date-tag">6月12日</span> GL-PvdA正式統合へ</h3>
-            
-            <div class="event-highlight">
-                <h4>左派連合の強化</h4>
-                <ul>
-                    <li>労働党（PvdA）とGroenLinksが再び統一候補リストで参加することを合意</li>
-                    <li>2026年に正式合併予定</li>
-                    <li>Frans Timmermans（元欧州委員会副委員長）が再び党首として首相を目指す</li>
-                    <li>エネルギー、住宅、公共投資に焦点</li>
-                    <li>課題：伝統的に全ての政策で一致していたわけではない両党の統合</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="week-entry">
-            <h3><span class="date-tag">6月3日</span> 連立崩壊</h3>
-            
-            <div class="event-highlight">
-                <h4>Schoofシ内閣の終焉</h4>
-                <ul>
-                    <li>Wildersが「史上最も厳格な」亡命政策の実施が遅いとして10項目プランを提示：
-                        <ul>
-                            <li>亡命希望者への国境閉鎖</li>
-                            <li>犯罪で有罪判決を受けた二重国籍者の国外追放</li>
-                            <li>シリア難民の本国送還（もはや「危険な国」ではないとの判断）</li>
-                            <li>家族呼び寄せの禁止</li>
-                            <li>受け入れセンター閉鎖</li>
-                            <li>EU亡命割当の停止</li>
-                        </ul>
-                    </li>
-                    <li>VVD、NSC、BBBが「実行不可能」「法的に無効」として拒否</li>
-                    <li>Wildersが連立から離脱、緊急会議はわずか数分で決裂</li>
-                    <li>Schoof首相が国王に内閣総辞職を提出</li>
-                    <li><strong>10月29日</strong>の前倒し選挙が決定（本来は2028年3月予定だった）</li>
-                </ul>
-            </div>
-
-            <div class="controversy">
-                <h4>各党の反応</h4>
-                <ul>
-                    <li><strong>Yeşilgöz（VVD）</strong>：「2012年と同じ。またも臆病者のように逃げ出した。Wildersは自ら政権から排除された」</li>
-                    <li><strong>Nicolien van Vroonhoven（NSC）</strong>：「この時点で政権を倒すのは無責任」</li>
-                    <li><strong>Wilders</strong>：「Schoofは不適格。最大党PVVが提案した厳格な亡命政策への署名を拒否するなら首相失格」</li>
-                    <li><strong>Timmermans（GL-PvdA）</strong>：できるだけ早い選挙実施を要求</li>
-                </ul>
-                <p class="source-note">2012年にもWildersは緊縮策をめぐってRutte連立政権から離脱した前歴あり。今回で2度目。</p>
-            </div>
-        </div>
-
-        <div class="week-entry">
-            <h3><span class="date-tag">背景</span> Schoof内閣とは</h3>
-            
-            <div class="event-highlight">
-                <h4>2024年7月2日発足</h4>
-                <ul>
-                    <li>2023年11月22日総選挙から223日の交渉期間を経て成立</li>
-                    <li>独立系の公務員Dick Schoofが首相（Wildersは首相就任を断念）</li>
-                    <li>4党連立：PVV（37議席）、VVD（24議席）、NSC（20議席）、BBB</li>
-                    <li>実験的な構成：閣僚の50%がテクノクラート、50%が党所属</li>
-                    <li>当初から共通ビジョンの欠如が指摘されていた</li>
-                    <li>移民問題が政治議論の中心となり、グリーン移行や住宅政策が停滞</li>
-                    <li>EU関連でも問題：8億ユーロの再軍備計画への反対票（創設メンバーとして異例）、対イスラエル政策での不一致</li>
-                </ul>
-            </div>
+        <div class="update-log">
+            <h3>最近の更新</h3>
+            <p><strong>2025-10-18</strong>：10月中旬の世論調査、Wilders選挙活動中断、連立見通しを更新</p>
+            <p><strong>2025-08-30</strong>：8月末時点の動向を記録</p>
         </div>
 
         <p class="timestamp">最終更新：2025-10-18</p>
