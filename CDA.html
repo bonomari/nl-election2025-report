@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇳🇱 CDA - キリスト教民主同盟</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fff;
+            font-size: 11pt;
+        }
+
+        /* 印刷用スタイル */
+        @media print {
+            body {
+                font-size: 10pt;
+                line-height: 1.6;
+                color: #000;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 10mm;
+            }
+            
+            .party-header {
+                background: none !important;
+                color: #000 !important;
+                border: 2px solid #000 !important;
+            }
+            
+            .section-card {
+                border: 1px solid #333 !important;
+                background: none !important;
+                box-shadow: none !important;
+                margin-bottom: 15mm;
+            }
+            
+            .timeline-item::before {
+                background: #000 !important;
+            }
+            
+            .policy-grid {
+                border: 1px solid #333;
+            }
+            
+            .policy-item {
+                border-bottom: 1px solid #666;
+            }
+            
+            a {
+                color: #000 !important;
+                text-decoration: underline;
+            }
+        }
+
+        /* 画面表示用スタイル */
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .party-header {
+            background: linear-gradient(135deg, #ff6b35, #004e89);
+            color: white;
+            padding: 25mm 15mm;
+            margin-bottom: 20mm;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .party-header h1 {
+            font-size: 28pt;
+            margin-bottom: 8mm;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .party-subtitle {
+            font-size: 14pt;
+            margin-bottom: 12mm;
+            opacity: 0.9;
+        }
+
+        .party-key-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10mm;
+            margin-top: 15mm;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 8mm;
+            border-radius: 6px;
+        }
+
+        .stat-number {
+            font-size: 18pt;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 10pt;
+            margin-top: 2mm;
+        }
+
+        .section-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15mm;
+            margin-bottom: 15mm;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 16pt;
+            color: #1e3a8a;
+            margin-bottom: 8mm;
+            padding-bottom: 4mm;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 5mm;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            margin-top: 8mm;
+        }
+
+        .policy-item {
+            padding: 6mm;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .policy-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 3mm;
+            font-size: 12pt;
+        }
+
+        .policy-stance {
+            color: #666;
+            font-size: 10pt;
+            margin-bottom: 3mm;
+            font-style: italic;
+        }
+
+        .policy-description {
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .leader-info {
+            background: linear-gradient(135deg, #ffe0d4, #d4e3f0);
+            color: #333;
+            padding: 8mm;
+            border-radius: 6px;
+            margin: 8mm 0;
+        }
+
+        .leader-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 4mm;
+            color: #004e89;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 15mm;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6mm;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 10mm;
+            padding-left: 10mm;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9mm;
+            top: 2mm;
+            width: 8mm;
+            height: 8mm;
+            background: #ff6b35;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: #1e3a8a;
+            font-size: 11pt;
+        }
+
+        .timeline-event {
+            margin-top: 2mm;
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            background: #f1f5f9;
+            border-left: 5mm solid #ff6b35;
+            padding: 8mm;
+            margin: 8mm 0;
+            font-style: italic;
+        }
+
+        .quote-text {
+            font-size: 11pt;
+            line-height: 1.6;
+            margin-bottom: 3mm;
+        }
+
+        .quote-source {
+            font-size: 9pt;
+            color: #666;
+            text-align: right;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8mm 0;
+            font-size: 10pt;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 4mm;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #f8fafc;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .archive-links {
+            background: #dbeafe;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 8mm;
+        }
+
+        .archive-title {
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 4mm;
+            font-size: 11pt;
+        }
+
+        .archive-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .archive-list li {
+            margin-bottom: 2mm;
+            font-size: 9pt;
+        }
+
+        .archive-list a {
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .archive-list a:hover {
+            text-decoration: underline;
+        }
+
+        .navigation {
+            background: #f8fafc;
+            padding: 8mm;
+            border-radius: 6px;
+            margin-top: 15mm;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8mm;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: #1e3a8a;
+            color: white;
+            padding: 4mm 8mm;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 10pt;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #ff6b35;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 8mm;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10pt;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #004e89;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .party-key-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5mm;
+            }
+            
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button no-print" onclick="window.print()">🖨️ 印刷</button>
+
+    <div class="container">
+        <div class="party-header">
+            <h1>🇳🇱 CDA</h1>
+            <div class="party-subtitle">Christen-Democratisch Appèl / キリスト教民主同盟 - 分析レポート</div>
+            
+            <div class="party-key-stats">
+                <div class="stat-item">
+                    <span class="stat-number">1980</span>
+                    <span class="stat-label">設立年</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">22-26</span>
+                    <span class="stat-label">2025予測議席</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5→26</span>
+                    <span class="stat-label">議席増加</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">第2党</span>
+                    <span class="stat-label">予測順位</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📋 基本情報</h2>
+            <table class="data-table">
+                <tr>
+                    <th>項目</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>正式名称</td>
+                    <td>Christen-Democratisch Appèl / Christian Democratic Appeal</td>
+                </tr>
+                <tr>
+                    <td>党首</td>
+                    <td>ヘンリ・ボンテンバル (Henri Bontenbal)</td>
+                </tr>
+                <tr>
+                    <td>設立</td>
+                    <td>1975年（連合として）、1980年（単一政党として統合）</td>
+                </tr>
+                <tr>
+                    <td>イデオロギー</td>
+                    <td>キリスト教民主主義、中道〜中道右派、社会保守主義</td>
+                </tr>
+                <tr>
+                    <td>党員数</td>
+                    <td>約40,000名（2024年）</td>
+                </tr>
+                <tr>
+                    <td>現在の地位</td>
+                    <td>下院第2-3党（世論調査）、野党</td>
+                </tr>
+                <tr>
+                    <td>欧州議会</td>
+                    <td>欧州人民党（EPP）創設メンバー</td>
+                </tr>
+                <tr>
+                    <td>前身政党</td>
+                    <td>カトリック人民党（KVP）、反革命党（ARP）、キリスト教歴史同盟（CHU）</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="quote-box">
+            <div class="quote-text">
+                「オランダは、最も声の大きい者ではなく、最もよく聞く者が中心となる政治を求めています。一時的な気まぐれではなく、オランダの未来に焦点を当てた政治を。『私』ではなく、『私たち』を強化する政治を。私たちは責任を取る準備ができています。」
+            </div>
+            <div class="quote-source">— ヘンリ・ボンテンバル、2025年党大会演説</div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📊 選挙結果の推移</h2>
+            <table class="data-table">
+                <tr>
+                    <th>選挙年</th>
+                    <th>獲得議席</th>
+                    <th>得票率</th>
+                    <th>政権参加</th>
+                    <th>備考</th>
+                </tr>
+                <tr>
+                    <td>1977</td>
+                    <td>49</td>
+                    <td>31.9%</td>
+                    <td>◯（首相：van Agt）</td>
+                    <td>CDAとして初参加、最大政党</td>
+                </tr>
+                <tr>
+                    <td>1982</td>
+                    <td>45</td>
+                    <td>29.4%</td>
+                    <td>◯（首相：Lubbers）</td>
+                    <td>VVDと連立</td>
+                </tr>
+                <tr>
+                    <td>1994</td>
+                    <td>34</td>
+                    <td>22.2%</td>
+                    <td>✕</td>
+                    <td>歴史的敗北、初の野党転落</td>
+                </tr>
+                <tr>
+                    <td>2002</td>
+                    <td>43</td>
+                    <td>27.9%</td>
+                    <td>◯（首相：Balkenende）</td>
+                    <td>最大政党に復帰</td>
+                </tr>
+                <tr>
+                    <td>2010</td>
+                    <td>21</td>
+                    <td>13.6%</td>
+                    <td>◯（連立小党）</td>
+                    <td>議席半減</td>
+                </tr>
+                <tr>
+                    <td>2017</td>
+                    <td>19</td>
+                    <td>12.4%</td>
+                    <td>◯（連立小党）</td>
+                    <td>さらに減少</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>15</td>
+                    <td>9.5%</td>
+                    <td>◯（連立小党）</td>
+                    <td>退潮続く</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>5</td>
+                    <td>3.3%</td>
+                    <td>✕</td>
+                    <td>党史上最低、野党へ</td>
+                </tr>
+                <tr>
+                    <td>2025（予測）</td>
+                    <td>22-26</td>
+                    <td>15-17%</td>
+                    <td>？</td>
+                    <td>劇的回復、第2党予測</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="leader-info avoid-break">
+            <h3 class="leader-title">👤 党首：ヘンリ・ボンテンバル (Henri Bontenbal)</h3>
+            <table class="data-table">
+                <tr>
+                    <th>項目</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>生年月日</td>
+                    <td>1982年11月10日（42歳）</td>
+                </tr>
+                <tr>
+                    <td>出身地</td>
+                    <td>ロッテルダム南部（8人きょうだいの4番目）</td>
+                </tr>
+                <tr>
+                    <td>学歴</td>
+                    <td>ライデン大学 物理学専攻</td>
+                </tr>
+                <tr>
+                    <td>職歴</td>
+                    <td>エネルギーコンサルタント、Stedin（電力・ガス会社）戦略コンサルタント</td>
+                </tr>
+                <tr>
+                    <td>政歴</td>
+                    <td>2021年下院議員、2023年9月CDA党首・院内総務</td>
+                </tr>
+                <tr>
+                    <td>家族</td>
+                    <td>妻Hanneke、息子2人</td>
+                </tr>
+                <tr>
+                    <td>趣味</td>
+                    <td>ピアノ、オルガン、サックス演奏、読書、ランニング</td>
+                </tr>
+                <tr>
+                    <td>特徴</td>
+                    <td>2006年から飛行機利用を停止（気候変動への配慮）</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="quote-box">
+            <div class="quote-text">
+                「首相職は夢見るものではありません。極めて過酷な職務です。しかし、CDAが最大政党になれば、私はその責任から逃げません。」
+            </div>
+            <div class="quote-source">— ヘンリ・ボンテンバル、TV番組 Pauw & De Wit、2025年9月</div>
+        </div>
+
+        <div class="section-card page-break">
+            <h2 class="section-title">🎯 主要政策とスタンス</h2>
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <div class="policy-title">経済・労働</div>
+                    <div class="policy-stance">市場と福祉のバランス重視</div>
+                    <div class="policy-description">市場経済と社会福祉のバランス、起業支援、雇用創出。「分散された責任」：国家・市場・社会機関（教会・組合）の協働</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">エネルギー・気候</div>
+                    <div class="policy-stance">原子力推進、再エネ投資</div>
+                    <div class="policy-description">小型モジュール原子炉（SMR）推進、再生可能エネルギー投資、2030年CO2削減。Bontenbal党首の専門分野</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">移民・統合</div>
+                    <div class="policy-stance">人道性と実効性の両立</div>
+                    <div class="policy-description">実効的な統合政策、人道的受入と法の執行のバランス、EU法遵守。Wildersの過激案に法的・道徳的理由で反対</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">住宅</div>
+                    <div class="policy-stance">建設促進、若年層支援</div>
+                    <div class="policy-description">住宅建設促進、若年層・中間層への支援。有権者最優先課題の一つ</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">教育</div>
+                    <div class="policy-stance">予算削減に強く反対</div>
+                    <div class="policy-description">2025年予算で7.5億ユーロの教育費削減を阻止。「不浄な同盟」を率いて野党多数派を形成</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">EU・外交</div>
+                    <div class="policy-stance">欧州統合推進</div>
+                    <div class="policy-description">強い欧州統合支持、国際協力推進、開発援助。EPP創設メンバー。「オランダは孤島ではない」</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">農業</div>
+                    <div class="policy-stance">対話と協議重視</div>
+                    <div class="policy-description">農業協定（Landbouwakkoord）の再交渉、協議重視。窒素政策での上からの押し付けを批判</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">民主主義</div>
+                    <div class="policy-stance">信頼回復が最優先</div>
+                    <div class="policy-description">「民主的エートス」の回復、議会動議数の制限提案。政治への信頼回復が重要課題</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📈 2025年選挙での急伸要因</h2>
+            <table class="data-table">
+                <tr>
+                    <th>要因</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>Bontenbal党首の人気</td>
+                    <td>「明確で公正」「親しみやすい」「知的」と評価。首相候補支持率44%（VVDのYeşilgözの27%、GL-PvdAのTimmermansの24%を上回る）</td>
+                </tr>
+                <tr>
+                    <td>「新鮮な顔」</td>
+                    <td>政界入り4年、全国レベルでは初の選挙戦。政治不信の時代に既成政治家ではない印象</td>
+                </tr>
+                <tr>
+                    <td>道徳的立場</td>
+                    <td>Wildersの過激な亡命法案に法的・道徳的理由で反対。原則を貫く姿勢が評価される</td>
+                </tr>
+                <tr>
+                    <td>中道の再興</td>
+                    <td>NSCの崩壊（20議席→0予測）で、中道保守の受け皿に。BBBやVVDからも流入</td>
+                </tr>
+                <tr>
+                    <td>「落ち着き」の提供</td>
+                    <td>元VVD支持者：「CDAには落ち着きがある」。極端な二極化への疲労感</td>
+                </tr>
+                <tr>
+                    <td>社会的顔の復活</td>
+                    <td>「共同体精神」「連帯」を前面に。「『私』ではなく『私たち』」のメッセージ</td>
+                </tr>
+                <tr>
+                    <td>歴史的遺産</td>
+                    <td>第二次大戦後ほぼ全ての政権に参加。安定の象徴としての認識</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">🤝 連立の可能性と戦略</h2>
+            <table class="data-table">
+                <tr>
+                    <th>シナリオ</th>
+                    <th>可能性</th>
+                    <th>備考</th>
+                </tr>
+                <tr>
+                    <td>CDA中心の中道右派連立<br>（CDA + VVD + D66 + その他）</td>
+                    <td>中</td>
+                    <td>Bontenbalは「左右の枠組みは合わない」と主張。柔軟な姿勢</td>
+                </tr>
+                <tr>
+                    <td>大連立<br>（CDA + GL-PvdA + その他）</td>
+                    <td>中</td>
+                    <td>歴史的に社会民主主義との連立経験あり（1989-94, 2007-10）</td>
+                </tr>
+                <tr>
+                    <td>PVVを含む連立</td>
+                    <td>低</td>
+                    <td>CDAは明確にPVVとの連立を拒否。Bontenbalの道徳的立場と矛盾</td>
+                </tr>
+                <tr>
+                    <td>CDAが最大政党</td>
+                    <td>低〜中</td>
+                    <td>世論調査では第2-3党。ただし流動的で逆転の可能性も</td>
+                </tr>
+            </table>
+
+            <div class="quote-box" style="margin-top: 8mm;">
+                <div class="quote-text">
+                    「排除について語る代わりに、10月29日以降は妥協が必要になるでしょう。全ての政党が30議席以下という状況では、非常に複雑になります。」
+                </div>
+                <div class="quote-source">— ヘンリ・ボンテンバル、2025年9月</div>
+            </div>
+        </div>
+
+        <div class="section-card page-break">
+            <h2 class="section-title">⚖️ 党の4つの基本原則</h2>
+            <table class="data-table">
+                <tr>
+                    <th>原則</th>
+                    <th>説明</th>
+                </tr>
+                <tr>
+                    <td>環境管理 (Stewardship)</td>
+                    <td>地球環境を含む資源の管理責任。将来世代への責任</td>
+                </tr>
+                <tr>
+                    <td>連帯 (Solidarity)</td>
+                    <td>社会的弱者への配慮、共同体の相互扶助</td>
+                </tr>
+                <tr>
+                    <td>分散された責任 (Distributed Responsibility)</td>
+                    <td>国家・市場・社会機関（教会・労組など）が協働して社会を運営。単一組織による支配を拒否</td>
+                </tr>
+                <tr>
+                    <td>公正 (Public Justice)</td>
+                    <td>法の下の平等、社会正義の実現</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📜 歴史的背景</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">1975年 - 連合形成</div>
+                    <div class="timeline-event">
+                        1960年代の世俗化によりキリスト教民主主義政党が衰退。カトリック人民党（KVP）、反革命党（ARP）、キリスト教歴史同盟（CHU）が統合を決定。1977年選挙に統一リストで参加し49議席獲得。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1980年 - 正式統合</div>
+                    <div class="timeline-event">
+                        3党が正式に単一政党CDAとして統合。以後オランダ政治の中核政党として確立。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1977-1994年 - 黄金期</div>
+                    <div class="timeline-event">
+                        17年間連続で政権参加。首相を輩出（Dries van Agt、Ruud Lubbers）。保守自由主義VVDまたは社会民主主義PvdAとの連立。Lubbers首相（1982-94）は福祉国家改革と民営化を推進。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1994年 - 歴史的敗北</div>
+                    <div class="timeline-event">
+                        得票率半減、初の野党転落。1918年以来初めてキリスト教民主主義政党が政権外に。「紫の連立」（赤のPvdA + 青のVVD）時代の開始。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2002-2010年 - 復活期</div>
+                    <div class="timeline-event">
+                        Jan Peter Balkenende党首で最大政党に復帰。8年間首相を務める。ただし得票率は1980年代のピークには遠く及ばず。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2010-2023年 - 長期衰退</div>
+                    <div class="timeline-event">
+                        2010年以降再び退潮。2023年には党史上最低の5議席（3.3%）まで減少。新興政党NSCに中道保守票を奪われる。
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023-2025年 - 劇的復活</div>
+                    <div class="timeline-event">
+                        Bontenbal党首の下で支持率が急回復。2023年の5議席から2025年予測で22-26議席へ。NSCの崩壊、VVDの混乱、中道回帰の潮流が追い風に。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="archive-links avoid-break">
+            <h3 class="archive-title">🗂️ アーカイブ作業上の注記</h3>
+            <p style="font-size: 10pt; line-height: 1.6; margin-bottom: 4mm;">
+                CDAは戦後オランダ政治の中核を担ってきた政党。2023年の歴史的低迷から2025年にかけての劇的な復活は、オランダ政治史における重要な転換点となる可能性がある。Bontenbal党首の「左右の枠を超えた」アプローチと、極端な二極化への疲労感が背景にある。
+            </p>
+            <ul class="archive-list">
+                <li>📄 2023年の歴史的敗北から2025年の復活に至る戦略転換の過程</li>
+                <li>📄 Bontenbal党首の発言・政策文書（特にエネルギー・気候政策）</li>
+                <li>📊 世論調査データの推移（2023年8月〜2025年10月）</li>
+                <li>🇪🇺 EPP内での位置づけや他の欧州キリスト教民主主義政党との関係性</li>
+                <li>📜 前身3党（KVP、ARP、CHU）の文書との連続性</li>
+                <li>🤝 歴代首相（van Agt、Lubbers、Balkenende）の政策文書</li>
+                <li>⚖️ 4つの基本原則（環境管理、連帯、分散された責任、公正）の解釈変遷</li>
+            </ul>
+        </div>
+
+        <div class="navigation no-print">
+            <h3 style="font-size: 12pt; margin-bottom: 6mm; color: #1e3a8a;">関連ページ</h3>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 トップページ</a>
+                <a href="weekly.html" class="nav-link">📅 週次観測ログ</a>
+                <a href="GL–PvdA.html" class="nav-link">🟢🔴 GL-PvdA</a>
+                <a href="PVV.html" class="nav-link">🔵 PVV</a>
+                <a href="VVD.html" class="nav-link">🔷 VVD</a>
+                <a href="NSC.html" class="nav-link">🔶 NSC</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 15mm; padding-top: 8mm; border-top: 1px solid #e5e7eb; font-size: 9pt; color: #666;">
+            最終更新：2025-10-18 | オランダ総選挙2025 政治動向レポート
+        </div>
+    </div>
+</body>
+</html>
