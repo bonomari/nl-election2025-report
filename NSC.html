@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSC (新社会契約) 詳細分析 - オランダ総選挙2025</title>
+    <title>🇳🇱 NSC - 新社会契約</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,6 @@
             font-size: 11pt;
         }
 
-        /* 印刷用スタイル */
         @media print {
             body {
                 font-size: 10pt;
@@ -66,21 +65,12 @@
                 background: #000 !important;
             }
             
-            .policy-grid {
-                border: 1px solid #333;
-            }
-            
-            .policy-item {
-                border-bottom: 1px solid #666;
-            }
-            
             a {
                 color: #000 !important;
                 text-decoration: underline;
             }
         }
 
-        /* 画面表示用スタイル */
         .container {
             max-width: 210mm;
             margin: 0 auto;
@@ -90,7 +80,7 @@
         }
 
         .party-header {
-            background: linear-gradient(135deg, #4a90a4, #26c6da);
+            background: linear-gradient(135deg, #5e3a8a, #dc2626);
             color: white;
             padding: 25mm 15mm;
             margin-bottom: 20mm;
@@ -147,81 +137,24 @@
 
         .section-title {
             font-size: 16pt;
-            color: #374151;
+            color: #1e3a8a;
             margin-bottom: 8mm;
             padding-bottom: 4mm;
             border-bottom: 2px solid #e5e7eb;
-            display: flex;
-            align-items: center;
-            gap: 5mm;
         }
 
-        .policy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8mm;
-            margin-top: 8mm;
-        }
-
-        .policy-item {
-            padding: 6mm;
-            background: #f8fafc;
+        .collapse-warning {
+            background: linear-gradient(135deg, #fee2e2, #fef3c7);
+            border-left: 5mm solid #dc2626;
+            padding: 10mm;
+            margin: 10mm 0;
             border-radius: 6px;
-            border-left: 4px solid #4a90a4;
         }
 
-        .policy-title {
-            font-weight: bold;
-            color: #374151;
-            margin-bottom: 3mm;
-            font-size: 12pt;
-        }
-
-        .policy-stance {
-            color: #666;
-            font-size: 10pt;
-            margin-bottom: 3mm;
-            font-style: italic;
-        }
-
-        .policy-description {
-            font-size: 10pt;
-            line-height: 1.6;
-        }
-
-        .omtzigt-profile {
-            background: linear-gradient(135deg, #e0f2fe, #f3f4f6);
-            padding: 8mm;
-            border-radius: 6px;
-            margin: 8mm 0;
-            border-left: 5mm solid #4a90a4;
-        }
-
-        .omtzigt-title {
-            font-size: 12pt;
-            font-weight: bold;
+        .collapse-warning h3 {
+            color: #991b1b;
             margin-bottom: 4mm;
-            color: #374151;
-        }
-
-        .omtzigt-highlights {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6mm;
-            margin-top: 6mm;
-        }
-
-        .highlight-box {
-            background: rgba(255,255,255,0.8);
-            padding: 4mm;
-            border-radius: 4px;
-            border: 1px solid #cbd5e1;
-        }
-
-        .highlight-title {
-            font-weight: bold;
-            margin-bottom: 2mm;
-            color: #4a90a4;
+            font-size: 14pt;
         }
 
         .timeline {
@@ -252,14 +185,18 @@
             top: 2mm;
             width: 8mm;
             height: 8mm;
-            background: #4a90a4;
+            background: #5e3a8a;
             border-radius: 50%;
             border: 2px solid white;
         }
 
+        .timeline-item.negative::before {
+            background: #dc2626;
+        }
+
         .timeline-date {
             font-weight: bold;
-            color: #374151;
+            color: #1e3a8a;
             font-size: 11pt;
         }
 
@@ -271,7 +208,7 @@
 
         .quote-box {
             background: #f1f5f9;
-            border-left: 5mm solid #4a90a4;
+            border-left: 5mm solid #5e3a8a;
             padding: 8mm;
             margin: 8mm 0;
             font-style: italic;
@@ -306,63 +243,37 @@
         .data-table th {
             background: #f8fafc;
             font-weight: bold;
-            color: #374151;
+            color: #1e3a8a;
         }
 
-        .reform-agenda {
-            background: #f0f9ff;
-            padding: 8mm;
-            border-radius: 6px;
-            margin: 8mm 0;
-            border-left: 5mm solid #0ea5e9;
+        .data-table tr.decline {
+            background-color: #fee2e2;
         }
 
-        .reform-title {
-            font-size: 12pt;
-            font-weight: bold;
-            margin-bottom: 4mm;
-            color: #0c4a6e;
-        }
-
-        .reform-items {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6mm;
-            margin-top: 6mm;
-        }
-
-        .reform-item {
-            background: rgba(255,255,255,0.8);
-            padding: 4mm;
-            border-radius: 4px;
-        }
-
-        .coalition-analysis {
-            background: #fef3c7;
-            padding: 6mm;
-            border-radius: 6px;
-            margin: 6mm 0;
-            border-left: 4mm solid #f59e0b;
-        }
-
-        .coalition-title {
-            font-weight: bold;
-            color: #92400e;
-            margin-bottom: 3mm;
-        }
-
-        .strategy-grid {
+        .policy-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 8mm;
             margin-top: 8mm;
         }
 
-        .strategy-item {
-            background: #f0f9ff;
+        .policy-item {
             padding: 6mm;
+            background: #f8fafc;
             border-radius: 6px;
-            border-left: 4px solid #0ea5e9;
+            border-left: 4px solid #5e3a8a;
+        }
+
+        .policy-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 3mm;
+            font-size: 12pt;
+        }
+
+        .policy-description {
+            font-size: 10pt;
+            line-height: 1.6;
         }
 
         .archive-links {
@@ -377,25 +288,6 @@
             color: #1e40af;
             margin-bottom: 4mm;
             font-size: 11pt;
-        }
-
-        .archive-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .archive-list li {
-            margin-bottom: 2mm;
-            font-size: 9pt;
-        }
-
-        .archive-list a {
-            color: #1e40af;
-            text-decoration: none;
-        }
-
-        .archive-list a:hover {
-            text-decoration: underline;
         }
 
         .navigation {
@@ -414,7 +306,7 @@
         }
 
         .nav-link {
-            background: #374151;
+            background: #1e3a8a;
             color: white;
             padding: 4mm 8mm;
             text-decoration: none;
@@ -424,14 +316,14 @@
         }
 
         .nav-link:hover {
-            background: #4a90a4;
+            background: #5e3a8a;
         }
 
         .print-button {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #4a90a4;
+            background: #5e3a8a;
             color: white;
             border: none;
             padding: 8mm;
@@ -442,7 +334,7 @@
         }
 
         .print-button:hover {
-            background: #26c6da;
+            background: #dc2626;
         }
 
         @media (max-width: 768px) {
@@ -460,18 +352,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .omtzigt-highlights {
-                grid-template-columns: 1fr;
-            }
-            
-            .reform-items {
-                grid-template-columns: 1fr;
-            }
-            
-            .strategy-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .nav-links {
                 flex-direction: column;
                 align-items: center;
@@ -480,41 +360,48 @@
     </style>
 </head>
 <body>
-    <button onclick="window.print()" class="print-button no-print">🖨️ 印刷</button>
+    <button class="print-button no-print" onclick="window.print()">🖨️ 印刷</button>
 
     <div class="container">
-        <!-- 政党ヘッダー -->
-        <header class="party-header avoid-break">
-            <h1>🇳🇱 NSC (新社会契約)</h1>
-            <p class="party-subtitle">Nieuw Sociaal Contract - 分析レポート</p>
+        <div class="party-header">
+            <h1>🇳🇱 NSC</h1>
+            <div class="party-subtitle">Nieuw Sociaal Contract / 新社会契約 - 分析レポート</div>
             
             <div class="party-key-stats">
-                <div class="stat-item">
-                    <span class="stat-number">20</span>
-                    <span class="stat-label">下院議席数</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">12.9%</span>
-                    <span class="stat-label">得票率(2023)</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">16%</span>
-                    <span class="stat-label">現在支持率</span>
-                </div>
                 <div class="stat-item">
                     <span class="stat-number">2023</span>
                     <span class="stat-label">設立年</span>
                 </div>
+                <div class="stat-item">
+                    <span class="stat-number">20→0</span>
+                    <span class="stat-label">議席変化</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1年</span>
+                    <span class="stat-label">政権在籍期間</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">消滅危機</span>
+                    <span class="stat-label">2025予測</span>
+                </div>
             </div>
-        </header>
+        </div>
 
-        <!-- 基本情報 -->
-        <section class="section-card avoid-break">
-            <h2 class="section-title">📋 党勢・基本情報</h2>
-            
+        <div class="collapse-warning avoid-break">
+            <h3>⚠️ 劇的崩壊：2023年20議席→2025年0-1議席予測</h3>
+            <p style="font-size: 11pt; line-height: 1.6; margin-bottom: 4mm;">
+                設立からわずか1年半で議席ゼロの危機に直面。オムツィフト党首のバーンアウトによる退任（2025年4月）、イスラエル問題での連立離脱（8月）、連立内での機能不全が原因。「良き統治」を掲げて誕生したが、オムツィフトのスターパワーに依存しすぎた結果、党首不在で求心力を完全に失った。
+            </p>
+            <p style="font-size: 11pt; line-height: 1.6; margin: 0;">
+                <strong>支持者の行き先</strong>：多くが古巣CDA（約半数）、一部がD66やGL-PvdAへ流出。「Omtzigtに投票したが、人生で最悪の選択だった」との声も。
+            </p>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📋 基本情報</h2>
             <table class="data-table">
                 <tr>
-                    <th style="width: 30%">項目</th>
+                    <th>項目</th>
                     <th>詳細</th>
                 </tr>
                 <tr>
@@ -522,8 +409,12 @@
                     <td>Nieuw Sociaal Contract (新社会契約)</td>
                 </tr>
                 <tr>
-                    <td>党首</td>
-                    <td>ピーター・オムツィフト (Pieter Omtzigt)</td>
+                    <td>創設者</td>
+                    <td>ピーター・オムツィフト (Pieter Omtzigt) - 2025年4月退任</td>
+                </tr>
+                <tr>
+                    <td>現党首</td>
+                    <td>エディ・ファン・ヘイユム (Eddy van Hijum) - 2025年リストトップ</td>
                 </tr>
                 <tr>
                     <td>設立</td>
@@ -535,281 +426,361 @@
                 </tr>
                 <tr>
                     <td>党員数</td>
-                    <td>約8,800名 (2024年)</td>
+                    <td>約8,800名（2024年）</td>
                 </tr>
                 <tr>
                     <td>現在の地位</td>
-                    <td>下院第4党、連立離脱後の野党</td>
+                    <td>野党（2025年8月に連立離脱）</td>
                 </tr>
                 <tr>
-                    <td>国際組織</td>
-                    <td>欧州人民党 (EPP)</td>
+                    <td>欧州議会</td>
+                    <td>欧州人民党（EPP）</td>
                 </tr>
                 <tr>
                     <td>前身</td>
-                    <td>CDA離党後の無所属期間を経て新党設立</td>
+                    <td>CDA離党後のオムツィフト個人派閥</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="quote-box">
+            <div class="quote-text">
+                「政治は市民のためにあるべきです。新しい社会契約によって、透明で説明責任のある政治を実現します。」
+            </div>
+            <div class="quote-source">— ピーター・オムツィフト、NSC設立記者会見（2023年8月）</div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">📊 選挙結果と崩壊の軌跡</h2>
+            <table class="data-table">
+                <tr>
+                    <th>時期</th>
+                    <th>議席数</th>
+                    <th>得票率</th>
+                    <th>状況</th>
+                </tr>
+                <tr>
+                    <td>2023年11月（総選挙）</td>
+                    <td>20</td>
+                    <td>12.9%</td>
+                    <td>第4党として華々しくデビュー</td>
+                </tr>
+                <tr>
+                    <td>2024年7月</td>
+                    <td>20</td>
+                    <td>-</td>
+                    <td>Schoof内閣発足、連立参加</td>
+                </tr>
+                <tr class="decline">
+                    <td>2024年8-9月</td>
+                    <td>世論調査: 15</td>
+                    <td>10%</td>
+                    <td>オムツィフトのバーンアウト、一時離脱</td>
+                </tr>
+                <tr class="decline">
+                    <td>2024年11月</td>
+                    <td>世論調査: 10</td>
+                    <td>7%</td>
+                    <td>連立内の混乱、オムツィフト復帰もパートタイム</td>
+                </tr>
+                <tr class="decline">
+                    <td>2025年4月</td>
+                    <td>世論調査: 1-2</td>
+                    <td>1-2%</td>
+                    <td>オムツィフト完全退任、党の求心力喪失</td>
+                </tr>
+                <tr class="decline">
+                    <td>2025年8月</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>イスラエル問題で連立離脱、全閣僚辞任</td>
+                </tr>
+                <tr class="decline">
+                    <td>2025年10月（予測）</td>
+                    <td>0-1</td>
+                    <td>0-1%</td>
+                    <td>議会から消滅の危機</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section-card page-break">
+            <h2 class="section-title">👤 創設者：ピーター・オムツィフト</h2>
+            <table class="data-table">
+                <tr>
+                    <th>項目</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>生年月日</td>
+                    <td>1973年（51歳）</td>
+                </tr>
+                <tr>
+                    <td>学歴</td>
+                    <td>計量経済学者</td>
+                </tr>
+                <tr>
+                    <td>政歴</td>
+                    <td>下院議員21年（2003-2024）、CDA→無所属→NSC</td>
+                </tr>
+                <tr>
+                    <td>功績</td>
+                    <td>児童手当スキャンダルの告発者、徹底的な監視活動で知られる</td>
+                </tr>
+                <tr>
+                    <td>健康問題</td>
+                    <td>2021年と2024年に2度のバーンアウト</td>
+                </tr>
+                <tr>
+                    <td>退任理由</td>
+                    <td>「家族と健康を最優先」「ハーグの有毒な政治風土」</td>
+                </tr>
+                <tr>
+                    <td>評価</td>
+                    <td>原則的だが気性が激しい。連立内で「叫び泣く」場面も報告される</td>
                 </tr>
             </table>
 
-            <div class="omtzigt-profile">
-                <div class="omtzigt-title">ピーター・オムツィフト - 改革政治家の軌跡</div>
-                <div class="omtzigt-highlights">
-                    <div class="highlight-box">
-                        <div class="highlight-title">政治経歴</div>
-                        <div>CDA所属20年間 (2003-2023年)</div>
-                        <div>下院議員として政府監視に注力</div>
-                        <div>児童手当スキャンダル告発の中心人物</div>
-                    </div>
-                    <div class="highlight-box">
-                        <div class="highlight-title">専門分野</div>
-                        <div>行政監視・統治改善</div>
-                        <div>財政政策・予算分析</div>
-                        <div>政府透明性・説明責任</div>
-                    </div>
-                    <div class="highlight-box">
-                        <div class="highlight-title">政治的特徴</div>
-                        <div>党派を超えた問題追及</div>
-                        <div>データに基づく政策論議</div>
-                        <div>市民目線での政治改革</div>
-                    </div>
-                    <div class="highlight-box">
-                        <div class="highlight-title">社会的影響</div>
-                        <div>政府不信問題の象徴的存在</div>
-                        <div>新しい政治スタイルの提示</div>
-                        <div>既存政党への挑戦者</div>
-                    </div>
+            <div class="quote-box" style="margin-top: 8mm;">
+                <div class="quote-text">
+                    「21年以上の国会議員として働けたことは大きな名誉でした。しかし代償はあまりにも大きかった。ハーグの現在の政治風土では、バーンアウトからの真の回復は不可能です。」
                 </div>
+                <div class="quote-source">— ピーター・オムツィフト、退任声明（2025年4月18日）</div>
             </div>
+        </div>
 
-            <div class="quote-box">
-                <p class="quote-text">「政治は市民のためにあるべきです。新しい社会契約によって、透明で説明責任のある政治を実現します。」</p>
-                <p class="quote-source">— ピーター・オムツィフト、NSC設立記者会見 (2023年8月)</p>
-            </div>
-        </section>
-
-        <div class="page-break"></div>
-
-        <!-- 政策ポジション -->
-        <section class="section-card">
-            <h2 class="section-title">🎯 主要政策ポジション</h2>
-            
+        <div class="section-card">
+            <h2 class="section-title">🎯 主要政策（2023年マニフェスト）</h2>
             <div class="policy-grid">
                 <div class="policy-item">
-                    <div class="policy-title">対NATO関係</div>
-                    <div class="policy-stance">積極支持・責任分担</div>
-                    <div class="policy-description">
-                        NATO集団防衛への強い支持とGDP2%防衛費目標の達成。ウクライナ支援継続と欧州安全保障での建設的役割。軍事費の透明性向上と効率的運用を重視。
-                    </div>
+                    <div class="policy-title">統治改革</div>
+                    <div class="policy-description">情報公開法強化、議会調査権拡大、閣僚責任の明文化、独立監視機関設置。児童手当スキャンダルの再発防止が最優先課題。</div>
                 </div>
-                
                 <div class="policy-item">
-                    <div class="policy-title">対EU統合</div>
-                    <div class="policy-stance">統合推進・民主化重視</div>
-                    <div class="policy-description">
-                        EU統合の深化を支持するが、民主的正統性の向上が前提。補完性原則の厳格適用、EU議会権限強化、市民への説明責任向上を求める。
-                    </div>
+                    <div class="policy-title">移民政策</div>
+                    <div class="policy-description">年間純移民を5万人以下に制限（現行10万人超）。2ステータス制（亡命希望者と経済移民で異なる基準）。迅速な審査と強制送還。</div>
                 </div>
-                
                 <div class="policy-item">
-                    <div class="policy-title">移民・難民政策</div>
-                    <div class="policy-stance">管理政策・人道配慮</div>
-                    <div class="policy-description">
-                        人道的責任と秩序ある移民管理の両立。EU共通政策での協調と国境管理強化。統合政策投資と不法移民対策のバランス取れたアプローチ。
-                    </div>
+                    <div class="policy-title">教育</div>
+                    <div class="policy-description">外国人学生の制限、オランダ語を大学の標準言語に（一部大学院除く）。教育の質向上を重視。</div>
                 </div>
-                
                 <div class="policy-item">
-                    <div class="policy-title">防衛費負担</div>
-                    <div class="policy-stance">GDP2%以上・効率重視</div>
-                    <div class="policy-description">
-                        NATO目標達成と将来的な増額支持。ただし防衛費の透明性確保と効率的配分を条件とする。EU共同調達や技術協力による相乗効果追求。
-                    </div>
+                    <div class="policy-title">財政規律</div>
+                    <div class="policy-description">厳格な財政管理、空約束の拒否。これが2024年2月の連立交渉離脱の理由となった。</div>
                 </div>
-                
                 <div class="policy-item">
-                    <div class="policy-title">気候・エネルギー政策</div>
-                    <div class="policy-stance">段階的移行・技術重視</div>
-                    <div class="policy-description">
-                        パリ協定目標への現実的アプローチ。技術革新と経済性を重視した段階的脱炭素化。原子力を含む多様なエネルギー・ミックスの検討。
-                    </div>
+                    <div class="policy-title">EU政策</div>
+                    <div class="policy-description">欧州協力支持だが透明性と民主的正当性の向上を要求。補完性原則の厳格適用。国家主権の保護。</div>
                 </div>
-                
                 <div class="policy-item">
-                    <div class="policy-title">統治・行政改革</div>
-                    <div class="policy-stance">根本的改革・透明化</div>
-                    <div class="policy-description">
-                        行政の透明性向上、政府説明責任の強化、官僚制改革。市民参加の拡大、情報公開の徹底、政策決定プロセスの民主化を推進。
-                    </div>
+                    <div class="policy-title">気候</div>
+                    <div class="policy-description">追加の気候措置には反対。既存目標の着実な実行を優先。</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">住宅</div>
+                    <div class="policy-description">地方自治体の裁量重視、住宅ローン減税の維持。</div>
+                </div>
+                <div class="policy-item">
+                    <div class="policy-title">医療</div>
+                    <div class="policy-description">制度改革、効率化、質の向上。具体策は限定的。</div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <div class="page-break"></div>
-
-        <!-- 政治改革アジェンダ -->
-        <section class="section-card">
-            <h2 class="section-title">🔧 政治改革アジェンダ</h2>
-            
-            <div class="reform-agenda">
-                <div class="reform-title">「新社会契約」 - 統治改革の柱</div>
-                <div class="reform-items">
-                    <div class="reform-item">
-                        <strong>政府透明性</strong><br>
-                        全政策決定プロセスの公開、閣議録の原則開示、ロビイング活動の登録制度
-                    </div>
-                    <div class="reform-item">
-                        <strong>議会機能強化</strong><br>
-                        政府監視機能の拡充、委員会権限強化、野党質問権の保障
-                    </div>
-                    <div class="reform-item">
-                        <strong>市民参加拡大</strong><br>
-                        国民投票制度の導入、市民陪審の活用、パブリックコメント制度化
-                    </div>
-                    <div class="reform-item">
-                        <strong>官僚制改革</strong><br>
-                        省庁間縦割り打破、成果主義導入、公務員倫理規定強化
-                    </div>
-                    <div class="reform-item">
-                        <strong>司法独立確保</strong><br>
-                        検察・裁判所の政治的中立性担保、司法予算の独立性確保
-                    </div>
-                    <div class="reform-item">
-                        <strong>地方分権推進</strong><br>
-                        基礎自治体権限拡大、財政移譲、住民自治強化
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 8mm; margin-bottom: 5mm; color: #374151;">児童手当スキャンダルの教訓</h3>
-            
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th style="width: 25%">問題領域</th>
-                        <th style="width: 35%">明らかになった課題</th>
-                        <th>NSCの改革提案</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>行政監視</td>
-                        <td>議会への情報隠蔽、官僚の説明責任回避</td>
-                        <td>情報公開法強化、議会調査権拡大</td>
-                    </tr>
-                    <tr>
-                        <td>政治責任</td>
-                        <td>大臣辞任回避、政治的責任の曖昧化</td>
-                        <td>閣僚責任の明文化、自動辞任規定</td>
-                    </tr>
-                    <tr>
-                        <td>市民権利</td>
-                        <td>行政による市民権利侵害、救済制度不備</td>
-                        <td>独立監視機関設置、被害者救済強化</td>
-                    </tr>
-                    <tr>
-                        <td>組織文化</td>
-                        <td>省庁縦割り、前例主義、変化への抵抗</td>
-                        <td>組織横断チーム、イノベーション奨励</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="quote-box">
-                <p class="quote-text">「児童手当問題は氷山の一角です。根本的な統治改革なしに、同様の問題は必ず再発します。」</p>
-                <p class="quote-source">— ピーター・オムツィフト、議会質疑 (2021年1月)</p>
-            </div>
-        </section>
-
-        <div class="page-break"></div>
-
-        <!-- 政治的変遷 -->
-        <section class="section-card">
-            <h2 class="section-title">📈 政治的変遷・主要出来事</h2>
-            
+        <div class="section-card page-break">
+            <h2 class="section-title">📜 崩壊の年表</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">2003年</div>
+                    <div class="timeline-date">2023年8月19日 - 設立</div>
                     <div class="timeline-event">
-                        CDA所属で下院議員初当選。財政政策委員会で頭角を現す。
+                        オムツィフトがCDA離党後、総選挙直前にNSCを設立。「新しい社会契約」マニフェスト（2021年執筆）を基盤に。当初は世論調査でトップ争い。
                     </div>
                 </div>
-                
                 <div class="timeline-item">
-                    <div class="timeline-date">2017年</div>
+                    <div class="timeline-date">2023年11月22日 - 選挙成功</div>
                     <div class="timeline-event">
-                        児童手当制度の不正調査に着手。政府答弁の矛盾を系統的に追及開始。
+                        20議席獲得（12.9%）、第4党に。オムツィフトは「最大政党にならない」「首相にならない」と宣言していたが、選挙後に態度軟化。
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2020年12月</div>
+                <div class="timeline-item negative">
+                    <div class="timeline-date">2024年2月7日 - 連立交渉離脱</div>
                     <div class="timeline-event">
-                        児童手当スキャンダル調査報告書公表。政府の隠蔽体質を徹底批判。
+                        PVV、VVD、BBBとの連立交渉から離脱。財政情報が隠蔽されたと主張。PVVとBBBの「高額な政策野心」と財政規律の板挟みが真の理由。最終的に5月に復帰。
                     </div>
                 </div>
-                
                 <div class="timeline-item">
-                    <div class="timeline-date">2021年1月</div>
+                    <div class="timeline-date">2024年7月2日 - Schoof内閣発足</div>
                     <div class="timeline-event">
-                        第3次ルッテ内閣総辞職。オムツィフトの追及が政権崩壊の直接要因に。
+                        NSCは4党連立に参加。独立系公務員Dick Schoofが首相に（Wildersは不適格と判断される）。NSCは「法の支配」遵守の約束を連立協定に盛り込むことに成功。
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2021年4月</div>
+                <div class="timeline-item negative">
+                    <div class="timeline-date">2024年8月 - オムツィフトのバーンアウト</div>
                     <div class="timeline-event">
-                        内閣形成過程で「オムツィフト、他所での職を」メモが流出。CDAとの関係が決定的に悪化。
+                        内閣発足わずか数週間後、予算交渉でオムツィフトの「叫び泣き」が連立パートナーを困惑させる。医師の勧告で2ヶ月間政界から離脱。
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2021年9月</div>
+                <div class="timeline-item negative">
+                    <div class="timeline-date">2024年11月 - パートタイム復帰</div>
                     <div class="timeline-event">
-                        CDAを離党し無所属議員に。「新しい政治」の必要性を強調する独自路線を歩む。
+                        オムツィフトがパートタイムで復帰するも、完全回復せず。世論調査でNSC支持率が急落し始める。
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2023年3月</div>
+                <div class="timeline-item negative">
+                    <div class="timeline-date">2025年4月18日 - オムツィフト完全退任</div>
                     <div class="timeline-event">
-                        『新社会契約』マニフェスト発表。政治改革を中心とした政策ビジョンを提示。
+                        「家族と健康を最優先」として政界引退を表明。副党首Nicolien van Vroonhovenが党首に。しかしNSCはオムツィフトのスターパワーに全面依存していたため、求心力を完全喪失。世論調査で1-2議席まで急落。
                     </div>
                 </div>
-                
                 <div class="timeline-item">
-                    <div class="timeline-date">2023年8月</div>
+                    <div class="timeline-date">2025年6月3日 - PVV連立離脱</div>
                     <div class="timeline-event">
-                        <strong>NSC正式設立</strong>: 第4次ルッテ内閣崩壊を受け、新党「新社会契約」を結成。
+                        Wildersが亡命政策をめぐり連立離脱。NSCは残留を選択するも、孤立化が進む。
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2023年11月</div>
+                <div class="timeline-item negative">
+                    <div class="timeline-date">2025年8月22-23日 - NSC連立離脱</div>
                     <div class="timeline-event">
-                        初の総選挙で20議席獲得、第4党に。新党としては異例の躍進を遂げる。
+                        外相Caspar Veldkamp（NSC）がイスラエル入植地製品の輸入禁止を求めるも、VVDとBBBの支持を得られず辞任。これを契機にNSCの全閣僚・副大臣が辞任、連立離脱。連立は2党（PVV、VVD）・32議席に縮小。
                     </div>
                 </div>
-                
                 <div class="timeline-item">
-                    <div class="timeline-date">2024年7月</div>
+                    <div class="timeline-date">2025年9月 - 新党首選出</div>
                     <div class="timeline-event">
-                        Schoof内閣で連立参加。政治改革の実現を目指すが、PVVとの価値観対立が深刻化。
+                        Eddy van Hijum（元CDA幹部）が2025年選挙のリストトップに選出されるも、時すでに遅し。
                     </div>
                 </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">2025年6月</div>
+                <div class="timeline-item negative">
+                    <div class="timeline-date">2025年10月 - 消滅危機</div>
                     <div class="timeline-event">
-                        <strong>連立政権からの離脱</strong>: PVVの極端な移民政策に反対し、政権を離脱。野党復帰。
+                        世論調査で0-1議席予測。支持者の大半がCDAに流出、一部はD66やGL-PvdAへ。「オムツィフトに投票したのは人生最悪の選択」との声。
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <div class="page-break"></div>
+        <div class="section-card">
+            <h2 class="section-title">❌ 崩壊の要因分析</h2>
+            <table class="data-table">
+                <tr>
+                    <th>要因</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>スターパワー依存</td>
+                    <td>党がオムツィフト個人のカリスマに全面依存。彼の退任で求心力が完全喪失。組織基盤が脆弱だった。</td>
+                </tr>
+                <tr>
+                    <td>健康問題</td>
+                    <td>オムツィフトの2度のバーンアウト。連立内での「叫び泣き」など情緒不安定な行動が報告される。政治の重圧に耐えられなかった。</td>
+                </tr>
+                <tr>
+                    <td>連立の矛盾</td>
+                    <td>「Wildersとは組まない」と公約したのに連立参加。「良き統治」を掲げながら機能不全の政権に加担。有権者の信頼を失った。</td>
+                </tr>
+                <tr>
+                    <td>実績の欠如</td>
+                    <td>Schoof内閣は1年間で何も達成せず。移民法も窒素問題も進展なし。NSCの統治改革も実現せず。</td>
+                </tr>
+                <tr>
+                    <td>イスラエル問題</td>
+                    <td>ガザ戦争をめぐる連立内対立で孤立。VVDとBBBから支持を得られず、原則を貫いて離脱したが時すでに遅し。</td>
+                </tr>
+                <tr>
+                    <td>CDAとの競合</td>
+                    <td>同じキリスト教民主主義で政策も類似。CDAがBontenbal新党首で復活すると、NSC支持者が大量流出。古巣に戻る形に。</td>
+                </tr>
+                <tr>
+                    <td>新党の脆弱性</td>
+                    <td>設立2年の新党は組織基盤が弱い。地方組織も未発達。党員わずか8,800名。危機に耐えられる構造ではなかった。</td>
+                </tr>
+            </table>
+        </div>
 
-        <!-- 連立経験の分析 -->
-        <section class="section-card">
-            <h2 class="section-title">🤝 連立経験・政権運営の実際</h2>
-            
-            <h3 style="margin-bottom:
+        <div class="quote-box">
+            <div class="quote-text">
+                「オムツィフトに何度も投票してきたが、今回ほどひどい選択はなかった。」
+            </div>
+            <div class="quote-source">— 元NSC支持者の証言、2025年5月</div>
+        </div>
+
+        <div class="section-card">
+            <h2 class="section-title">🔍 児童手当スキャンダル（NSC設立の原点）</h2>
+            <p style="font-size: 11pt; line-height: 1.6; margin-bottom: 8mm;">
+                オムツィフトをオランダ政治のスターにしたのは、児童手当不正問題（Toeslagenaffaire）の告発だった。税務当局が何千もの家族を不正に「詐欺師」と認定し、手当を取り消し、多額の返金を要求。多くの家族が経済的に破綻し、自殺者も出た。オムツィフトの執拗な追及により、2021年にRutte第3次内閣が総辞職。これがNSC設立の原点となった。
+            </p>
+            <table class="data-table">
+                <tr>
+                    <th>問題領域</th>
+                    <th>明らかになった課題</th>
+                    <th>NSCの改革提案</th>
+                </tr>
+                <tr>
+                    <td>行政監視</td>
+                    <td>議会への情報隠蔽、官僚の説明責任回避</td>
+                    <td>情報公開法強化、議会調査権拡大</td>
+                </tr>
+                <tr>
+                    <td>政治責任</td>
+                    <td>大臣辞任回避、政治的責任の曖昧化</td>
+                    <td>閣僚責任の明文化、自動辞任規定</td>
+                </tr>
+                <tr>
+                    <td>市民権利</td>
+                    <td>行政による市民権利侵害、救済制度不備</td>
+                    <td>独立監視機関設置、被害者救済強化</td>
+                </tr>
+                <tr>
+                    <td>組織文化</td>
+                    <td>省庁縦割り、前例主義、変化への抵抗</td>
+                    <td>組織横断チーム、イノベーション奨励</td>
+                </tr>
+            </table>
+
+            <div class="quote-box" style="margin-top: 8mm;">
+                <div class="quote-text">
+                    「児童手当問題は氷山の一角です。根本的な統治改革なしに、同様の問題は必ず再発します。」
+                </div>
+                <div class="quote-source">— ピーター・オムツィフト、議会質疑（2021年1月）</div>
+            </div>
+
+            <p style="font-size: 10pt; color: #666; margin-top: 8mm; line-height: 1.6;">
+                皮肉なことに、「良き統治」を掲げて設立されたNSCは、Schoof内閣では何も達成できなかった。オムツィフト自身も連立内の混乱に対処できず、バーンアウトで退場。NSCの崩壊は、原則と現実政治のギャップ、個人依存型政党の脆弱性、新党の限界を示す教訓となった。
+            </p>
+        </div>
+
+        <div class="archive-links avoid-break">
+            <h3 class="archive-title">🗂️ アーカイブ作業上の注記</h3>
+            <p style="font-size: 10pt; line-height: 1.6; margin-bottom: 4mm;">
+                NSCは設立から消滅まで約2年という短命政党となる可能性が高い。しかし、オランダ政治史における重要な教訓を残した。オムツィフトの児童手当スキャンダル告発は政治史に残る功績であり、NSCの急速な崩壊は個人依存型政党の限界を示す事例として記録価値が高い。
+            </p>
+            <ul style="list-style: none; padding: 0; font-size: 9pt;">
+                <li style="margin-bottom: 2mm;">📄 オムツィフトの議会質疑記録（特に児童手当問題関連、2019-2021年）</li>
+                <li style="margin-bottom: 2mm;">📄 「新しい社会契約」マニフェスト（2021年）とNSC設立文書（2023年8月）</li>
+                <li style="margin-bottom: 2mm;">📊 世論調査の急激な変動（2023年8月〜2025年10月）</li>
+                <li style="margin-bottom: 2mm;">🎥 オムツィフトの退任記者会見（2025年4月18日）</li>
+                <li style="margin-bottom: 2mm;">📜 Schoof内閣の連立協定と「法の支配」条項</li>
+                <li style="margin-bottom: 2mm;">💬 連立内の混乱に関する報道（「叫び泣き」など）</li>
+                <li style="margin-bottom: 2mm;">🔄 NSC支持者のCDA流出過程の分析</li>
+                <li style="margin-bottom: 2mm;">⚖️ イスラエル問題をめぐる連立離脱の詳細（2025年8月）</li>
+            </ul>
+        </div>
+
+        <div class="navigation no-print">
+            <h3 style="font-size: 12pt; margin-bottom: 6mm; color: #1e3a8a;">関連ページ</h3>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">🏠 メインページ</a>
+                <a href="CDA.html" class="nav-link">CDA詳細</a>
+                <a href="PVV.html" class="nav-link">PVV詳細</a>
+                <a href="GL–PvdA.html" class="nav-link">GL-PvdA詳細</a>
+                <a href="VVD.html" class="nav-link">VVD詳細</a>
+                <a href="weekly.html" class="nav-link">週次レポート</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 15mm; padding-top: 8mm; border-top: 1px solid #e5e7eb; font-size: 9pt; color: #666;">
+            最終更新：2025-10-18 | オランダ総選挙2025 政治動向レポート
+        </div>
+    </div>
+</body>
+</html>
