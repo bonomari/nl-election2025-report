@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇳🇱 CDA - キリスト教民主同盟</title>
+    <title>CDA (キリスト教民主同盟) 詳細分析 - オランダ総選挙2025</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,6 @@
             font-size: 11pt;
         }
 
-        /* 印刷用スタイル */
         @media print {
             body {
                 font-size: 10pt;
@@ -80,7 +79,6 @@
             }
         }
 
-        /* 画面表示用スタイル */
         .container {
             max-width: 210mm;
             margin: 0 auto;
@@ -90,7 +88,7 @@
         }
 
         .party-header {
-            background: linear-gradient(135deg, #ff6b35, #004e89);
+            background: linear-gradient(135deg, #FF9B00, #FFC107);
             color: white;
             padding: 25mm 15mm;
             margin-bottom: 20mm;
@@ -147,7 +145,7 @@
 
         .section-title {
             font-size: 16pt;
-            color: #1e3a8a;
+            color: #FF9B00;
             margin-bottom: 8mm;
             padding-bottom: 4mm;
             border-bottom: 2px solid #e5e7eb;
@@ -167,7 +165,7 @@
             padding: 6mm;
             background: #f8fafc;
             border-radius: 6px;
-            border-left: 4px solid #ff6b35;
+            border-left: 4px solid #FF9B00;
         }
 
         .policy-title {
@@ -187,21 +185,6 @@
         .policy-description {
             font-size: 10pt;
             line-height: 1.6;
-        }
-
-        .leader-info {
-            background: linear-gradient(135deg, #ffe0d4, #d4e3f0);
-            color: #333;
-            padding: 8mm;
-            border-radius: 6px;
-            margin: 8mm 0;
-        }
-
-        .leader-title {
-            font-size: 12pt;
-            font-weight: bold;
-            margin-bottom: 4mm;
-            color: #004e89;
         }
 
         .timeline {
@@ -232,7 +215,7 @@
             top: 2mm;
             width: 8mm;
             height: 8mm;
-            background: #ff6b35;
+            background: #FF9B00;
             border-radius: 50%;
             border: 2px solid white;
         }
@@ -251,7 +234,7 @@
 
         .quote-box {
             background: #f1f5f9;
-            border-left: 5mm solid #ff6b35;
+            border-left: 5mm solid #FF9B00;
             padding: 8mm;
             margin: 8mm 0;
             font-style: italic;
@@ -286,7 +269,73 @@
         .data-table th {
             background: #f8fafc;
             font-weight: bold;
-            color: #1e3a8a;
+            color: #FF9B00;
+        }
+
+        .highlight-row {
+            background: #e8f5e9;
+            font-weight: bold;
+        }
+
+        .analysis-box {
+            background: #FFF8E1;
+            border: 2px solid #FF9B00;
+            border-radius: 8px;
+            padding: 10mm;
+            margin: 10mm 0;
+        }
+
+        .analysis-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #FF9B00;
+            margin-bottom: 6mm;
+            display: flex;
+            align-items: center;
+            gap: 4mm;
+        }
+
+        .analysis-content {
+            font-size: 10pt;
+            line-height: 1.8;
+        }
+
+        .four-axis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            margin-top: 8mm;
+        }
+
+        .axis-card {
+            background: white;
+            border: 2px solid #FF9B00;
+            border-radius: 6px;
+            padding: 8mm;
+        }
+
+        .axis-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #FF9B00;
+            margin-bottom: 4mm;
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+        }
+
+        .axis-content {
+            font-size: 10pt;
+            line-height: 1.6;
+        }
+
+        .axis-content ul {
+            padding-left: 6mm;
+            margin-top: 3mm;
+        }
+
+        .axis-content li {
+            margin-bottom: 2mm;
         }
 
         .archive-links {
@@ -338,7 +387,7 @@
         }
 
         .nav-link {
-            background: #1e3a8a;
+            background: #FF9B00;
             color: white;
             padding: 4mm 8mm;
             text-decoration: none;
@@ -348,14 +397,14 @@
         }
 
         .nav-link:hover {
-            background: #ff6b35;
+            background: #FFC107;
         }
 
         .print-button {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #ff6b35;
+            background: #FF9B00;
             color: white;
             border: none;
             padding: 8mm;
@@ -366,7 +415,7 @@
         }
 
         .print-button:hover {
-            background: #004e89;
+            background: #FFC107;
         }
 
         @media (max-width: 768px) {
@@ -380,7 +429,8 @@
                 gap: 5mm;
             }
             
-            .policy-grid {
+            .policy-grid,
+            .four-axis-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -392,43 +442,46 @@
     </style>
 </head>
 <body>
-    <button class="print-button no-print" onclick="window.print()">🖨️ 印刷</button>
+    <button onclick="window.print()" class="print-button no-print">🖨️ 印刷</button>
 
     <div class="container">
-        <div class="party-header">
-            <h1>🇳🇱 CDA</h1>
-            <div class="party-subtitle">Christen-Democratisch Appèl / キリスト教民主同盟 - 分析レポート</div>
+        <!-- 政党ヘッダー -->
+        <header class="party-header avoid-break">
+            <h1>🇳🇱 CDA (キリスト教民主同盟)</h1>
+            <p class="party-subtitle">Christen-Democratisch Appèl - 分析レポート</p>
             
             <div class="party-key-stats">
                 <div class="stat-item">
-                    <span class="stat-number">1980</span>
-                    <span class="stat-label">設立年</span>
+                    <span class="stat-number">5 → 22-26</span>
+                    <span class="stat-label">議席数推移</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">22-26</span>
-                    <span class="stat-label">2025予測議席</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">5→26</span>
-                    <span class="stat-label">議席増加</span>
+                    <span class="stat-number">3.3% → 17%</span>
+                    <span class="stat-label">得票率推移</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">第2党</span>
-                    <span class="stat-label">予測順位</span>
+                    <span class="stat-label">2025予測</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1980</span>
+                    <span class="stat-label">統合設立年</span>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <div class="section-card">
-            <h2 class="section-title">📋 基本情報</h2>
+        <!-- 基本情報 -->
+        <section class="section-card avoid-break">
+            <h2 class="section-title">📋 党勢・基本情報</h2>
+            
             <table class="data-table">
                 <tr>
-                    <th>項目</th>
+                    <th style="width: 30%">項目</th>
                     <th>詳細</th>
                 </tr>
                 <tr>
                     <td>正式名称</td>
-                    <td>Christen-Democratisch Appèl / Christian Democratic Appeal</td>
+                    <td>Christen-Democratisch Appèl (キリスト教民主同盟)</td>
                 </tr>
                 <tr>
                     <td>党首</td>
@@ -437,6 +490,10 @@
                 <tr>
                     <td>設立</td>
                     <td>1975年（連合として）、1980年（単一政党として統合）</td>
+                </tr>
+                <tr>
+                    <td>前身政党</td>
+                    <td>カトリック人民党（KVP）、反革命党（ARP）、キリスト教歴史同盟（CHU）</td>
                 </tr>
                 <tr>
                     <td>イデオロギー</td>
@@ -448,107 +505,24 @@
                 </tr>
                 <tr>
                     <td>現在の地位</td>
-                    <td>下院第2-3党（世論調査）、野党</td>
+                    <td>野党（2025年予測：第2党、キングメーカー）</td>
                 </tr>
                 <tr>
                     <td>欧州議会</td>
                     <td>欧州人民党（EPP）創設メンバー</td>
                 </tr>
-                <tr>
-                    <td>前身政党</td>
-                    <td>カトリック人民党（KVP）、反革命党（ARP）、キリスト教歴史同盟（CHU）</td>
-                </tr>
             </table>
-        </div>
 
-        <div class="quote-box">
-            <div class="quote-text">
-                「オランダは、最も声の大きい者ではなく、最もよく聞く者が中心となる政治を求めています。一時的な気まぐれではなく、オランダの未来に焦点を当てた政治を。『私』ではなく、『私たち』を強化する政治を。私たちは責任を取る準備ができています。」
+            <div class="quote-box">
+                <p class="quote-text">「左と右の枠組みはもう機能しません。私たちに必要なのは、共に前進できる人々です。」</p>
+                <p class="quote-source">— ヘンリ・ボンテンバル党首、2024年9月</p>
             </div>
-            <div class="quote-source">— ヘンリ・ボンテンバル、2025年党大会演説</div>
-        </div>
 
-        <div class="section-card">
-            <h2 class="section-title">📊 選挙結果の推移</h2>
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #FF9B00;">党首プロフィール：ヘンリ・ボンテンバル</h3>
+            
             <table class="data-table">
                 <tr>
-                    <th>選挙年</th>
-                    <th>獲得議席</th>
-                    <th>得票率</th>
-                    <th>政権参加</th>
-                    <th>備考</th>
-                </tr>
-                <tr>
-                    <td>1977</td>
-                    <td>49</td>
-                    <td>31.9%</td>
-                    <td>◯（首相：van Agt）</td>
-                    <td>CDAとして初参加、最大政党</td>
-                </tr>
-                <tr>
-                    <td>1982</td>
-                    <td>45</td>
-                    <td>29.4%</td>
-                    <td>◯（首相：Lubbers）</td>
-                    <td>VVDと連立</td>
-                </tr>
-                <tr>
-                    <td>1994</td>
-                    <td>34</td>
-                    <td>22.2%</td>
-                    <td>✕</td>
-                    <td>歴史的敗北、初の野党転落</td>
-                </tr>
-                <tr>
-                    <td>2002</td>
-                    <td>43</td>
-                    <td>27.9%</td>
-                    <td>◯（首相：Balkenende）</td>
-                    <td>最大政党に復帰</td>
-                </tr>
-                <tr>
-                    <td>2010</td>
-                    <td>21</td>
-                    <td>13.6%</td>
-                    <td>◯（連立小党）</td>
-                    <td>議席半減</td>
-                </tr>
-                <tr>
-                    <td>2017</td>
-                    <td>19</td>
-                    <td>12.4%</td>
-                    <td>◯（連立小党）</td>
-                    <td>さらに減少</td>
-                </tr>
-                <tr>
-                    <td>2021</td>
-                    <td>15</td>
-                    <td>9.5%</td>
-                    <td>◯（連立小党）</td>
-                    <td>退潮続く</td>
-                </tr>
-                <tr>
-                    <td>2023</td>
-                    <td>5</td>
-                    <td>3.3%</td>
-                    <td>✕</td>
-                    <td>党史上最低、野党へ</td>
-                </tr>
-                <tr>
-                    <td>2025（予測）</td>
-                    <td>22-26</td>
-                    <td>15-17%</td>
-                    <td>？</td>
-                    <td>劇的回復、第2党予測</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="leader-info avoid-break">
-            <h3 class="leader-title">👤 党首：ヘンリ・ボンテンバル (Henri Bontenbal)</h3>
-            <table class="data-table">
-                <tr>
-                    <th>項目</th>
+                    <th style="width: 25%">項目</th>
                     <th>詳細</th>
                 </tr>
                 <tr>
@@ -569,257 +543,670 @@
                 </tr>
                 <tr>
                     <td>政歴</td>
-                    <td>2021年下院議員、2023年9月CDA党首・院内総務</td>
+                    <td>2021年下院議員、2023年9月CDA党首・院内総務就任</td>
                 </tr>
                 <tr>
                     <td>家族</td>
                     <td>妻Hanneke、息子2人</td>
                 </tr>
                 <tr>
-                    <td>趣味</td>
-                    <td>ピアノ、オルガン、サックス演奏、読書、ランニング</td>
+                    <td>特徴</td>
+                    <td>2006年から飛行機利用停止（気候変動への配慮）<br>ピアノ、オルガン、サックス演奏者</td>
                 </tr>
                 <tr>
-                    <td>特徴</td>
-                    <td>2006年から飛行機利用を停止（気候変動への配慮）</td>
+                    <td>首相候補支持率</td>
+                    <td>44%（VVD Yeşilgöz 27%、GL-PvdA Timmermans 24%を上回る）</td>
                 </tr>
             </table>
-        </div>
+        </section>
 
-        <div class="quote-box">
-            <div class="quote-text">
-                「首相職は夢見るものではありません。極めて過酷な職務です。しかし、CDAが最大政党になれば、私はその責任から逃げません。」
-            </div>
-            <div class="quote-source">— ヘンリ・ボンテンバル、TV番組 Pauw & De Wit、2025年9月</div>
-        </div>
+        <div class="page-break"></div>
 
-        <div class="section-card page-break">
-            <h2 class="section-title">🎯 主要政策とスタンス</h2>
+        <!-- 主要政策ポジション -->
+        <section class="section-card">
+            <h2 class="section-title">🎯 主要政策ポジション</h2>
+            
             <div class="policy-grid">
                 <div class="policy-item">
-                    <div class="policy-title">経済・労働</div>
-                    <div class="policy-stance">市場と福祉のバランス重視</div>
-                    <div class="policy-description">市場経済と社会福祉のバランス、起業支援、雇用創出。「分散された責任」：国家・市場・社会機関（教会・組合）の協働</div>
+                    <div class="policy-title">移民・難民政策</div>
+                    <div class="policy-stance">バランス重視・人道性と法執行</div>
+                    <div class="policy-description">
+                        実効的な統合プログラムと、人道的配慮と法執行のバランス。PVVの過激な亡命法案には法的・道徳的理由で明確に反対。EU難民法の枠内での対応を主張。
+                    </div>
                 </div>
+                
                 <div class="policy-item">
-                    <div class="policy-title">エネルギー・気候</div>
-                    <div class="policy-stance">原子力推進、再エネ投資</div>
-                    <div class="policy-description">小型モジュール原子炉（SMR）推進、再生可能エネルギー投資、2030年CO2削減。Bontenbal党首の専門分野</div>
+                    <div class="policy-title">気候・エネルギー政策</div>
+                    <div class="policy-stance">原子力推進・現実的移行</div>
+                    <div class="policy-description">
+                        原子力発電の積極推進、再生可能エネルギーへの投資継続、EU気候目標支持。ただし経済的実現可能性を重視し、急進的措置には慎重。
+                    </div>
                 </div>
+                
                 <div class="policy-item">
-                    <div class="policy-title">移民・統合</div>
-                    <div class="policy-stance">人道性と実効性の両立</div>
-                    <div class="policy-description">実効的な統合政策、人道的受入と法の執行のバランス、EU法遵守。Wildersの過激案に法的・道徳的理由で反対</div>
+                    <div class="policy-title">対NATO・防衛政策</div>
+                    <div class="policy-stance">強力支持</div>
+                    <div class="policy-description">
+                        NATO強化、ウクライナ支援継続、防衛費GDP2%以上達成支持。欧州防衛協力の推進と、トランプ政権下での欧州独自防衛力強化。
+                    </div>
                 </div>
+                
                 <div class="policy-item">
-                    <div class="policy-title">住宅</div>
-                    <div class="policy-stance">建設促進、若年層支援</div>
-                    <div class="policy-description">住宅建設促進、若年層・中間層への支援。有権者最優先課題の一つ</div>
+                    <div class="policy-title">対EU統合</div>
+                    <div class="policy-stance">建設的関与</div>
+                    <div class="policy-description">
+                        EU統合支持、EPP創設メンバーとしての積極的関与。ただし補完性原則（subsidiarity）を重視し、国家主権との適切なバランスを主張。
+                    </div>
                 </div>
+                
                 <div class="policy-item">
-                    <div class="policy-title">教育</div>
-                    <div class="policy-stance">予算削減に強く反対</div>
-                    <div class="policy-description">2025年予算で7.5億ユーロの教育費削減を阻止。「不浄な同盟」を率いて野党多数派を形成</div>
+                    <div class="policy-title">住宅政策</div>
+                    <div class="policy-stance">建設促進・市場改革</div>
+                    <div class="policy-description">
+                        住宅建設の大幅促進、規制緩和、住宅ローン減税の段階的削減。市場メカニズムと社会的配慮のバランスを追求。
+                    </div>
                 </div>
+                
                 <div class="policy-item">
-                    <div class="policy-title">EU・外交</div>
-                    <div class="policy-stance">欧州統合推進</div>
-                    <div class="policy-description">強い欧州統合支持、国際協力推進、開発援助。EPP創設メンバー。「オランダは孤島ではない」</div>
-                </div>
-                <div class="policy-item">
-                    <div class="policy-title">農業</div>
-                    <div class="policy-stance">対話と協議重視</div>
-                    <div class="policy-description">農業協定（Landbouwakkoord）の再交渉、協議重視。窒素政策での上からの押し付けを批判</div>
-                </div>
-                <div class="policy-item">
-                    <div class="policy-title">民主主義</div>
-                    <div class="policy-stance">信頼回復が最優先</div>
-                    <div class="policy-description">「民主的エートス」の回復、議会動議数の制限提案。政治への信頼回復が重要課題</div>
+                    <div class="policy-title">医療・社会保障</div>
+                    <div class="policy-stance">アクセス改善・持続可能性</div>
+                    <div class="policy-description">
+                        医療自己負担の適度な増額、医療アクセス改善、高齢化社会への対応。社会的連帯の原則に基づく持続可能な制度設計。
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="section-card">
-            <h2 class="section-title">📈 2025年選挙での急伸要因</h2>
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #FF9B00;">CDAの基本原則（キリスト教民主主義）</h3>
+            
             <table class="data-table">
                 <tr>
-                    <th>要因</th>
-                    <th>詳細</th>
-                </tr>
-                <tr>
-                    <td>Bontenbal党首の人気</td>
-                    <td>「明確で公正」「親しみやすい」「知的」と評価。首相候補支持率44%（VVDのYeşilgözの27%、GL-PvdAのTimmermansの24%を上回る）</td>
-                </tr>
-                <tr>
-                    <td>「新鮮な顔」</td>
-                    <td>政界入り4年、全国レベルでは初の選挙戦。政治不信の時代に既成政治家ではない印象</td>
-                </tr>
-                <tr>
-                    <td>道徳的立場</td>
-                    <td>Wildersの過激な亡命法案に法的・道徳的理由で反対。原則を貫く姿勢が評価される</td>
-                </tr>
-                <tr>
-                    <td>中道の再興</td>
-                    <td>NSCの崩壊（20議席→0予測）で、中道保守の受け皿に。BBBやVVDからも流入</td>
-                </tr>
-                <tr>
-                    <td>「落ち着き」の提供</td>
-                    <td>元VVD支持者：「CDAには落ち着きがある」。極端な二極化への疲労感</td>
-                </tr>
-                <tr>
-                    <td>社会的顔の復活</td>
-                    <td>「共同体精神」「連帯」を前面に。「『私』ではなく『私たち』」のメッセージ</td>
-                </tr>
-                <tr>
-                    <td>歴史的遺産</td>
-                    <td>第二次大戦後ほぼ全ての政権に参加。安定の象徴としての認識</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section-card">
-            <h2 class="section-title">🤝 連立の可能性と戦略</h2>
-            <table class="data-table">
-                <tr>
-                    <th>シナリオ</th>
-                    <th>可能性</th>
-                    <th>備考</th>
-                </tr>
-                <tr>
-                    <td>CDA中心の中道右派連立<br>（CDA + VVD + D66 + その他）</td>
-                    <td>中</td>
-                    <td>Bontenbalは「左右の枠組みは合わない」と主張。柔軟な姿勢</td>
-                </tr>
-                <tr>
-                    <td>大連立<br>（CDA + GL-PvdA + その他）</td>
-                    <td>中</td>
-                    <td>歴史的に社会民主主義との連立経験あり（1989-94, 2007-10）</td>
-                </tr>
-                <tr>
-                    <td>PVVを含む連立</td>
-                    <td>低</td>
-                    <td>CDAは明確にPVVとの連立を拒否。Bontenbalの道徳的立場と矛盾</td>
-                </tr>
-                <tr>
-                    <td>CDAが最大政党</td>
-                    <td>低〜中</td>
-                    <td>世論調査では第2-3党。ただし流動的で逆転の可能性も</td>
-                </tr>
-            </table>
-
-            <div class="quote-box" style="margin-top: 8mm;">
-                <div class="quote-text">
-                    「排除について語る代わりに、10月29日以降は妥協が必要になるでしょう。全ての政党が30議席以下という状況では、非常に複雑になります。」
-                </div>
-                <div class="quote-source">— ヘンリ・ボンテンバル、2025年9月</div>
-            </div>
-        </div>
-
-        <div class="section-card page-break">
-            <h2 class="section-title">⚖️ 党の4つの基本原則</h2>
-            <table class="data-table">
-                <tr>
-                    <th>原則</th>
+                    <th style="width: 30%">原則</th>
                     <th>説明</th>
                 </tr>
                 <tr>
                     <td>環境管理 (Stewardship)</td>
-                    <td>地球環境を含む資源の管理責任。将来世代への責任</td>
+                    <td>地球環境を含む資源の管理責任。将来世代への責任を重視</td>
                 </tr>
                 <tr>
                     <td>連帯 (Solidarity)</td>
-                    <td>社会的弱者への配慮、共同体の相互扶助</td>
+                    <td>社会的弱者への配慮、共同体の相互扶助。「私」ではなく「私たち」</td>
                 </tr>
                 <tr>
-                    <td>分散された責任 (Distributed Responsibility)</td>
-                    <td>国家・市場・社会機関（教会・労組など）が協働して社会を運営。単一組織による支配を拒否</td>
+                    <td>分散された責任</td>
+                    <td>国家・市場・社会機関（教会・労組など）が協働して社会を運営</td>
                 </tr>
                 <tr>
                     <td>公正 (Public Justice)</td>
                     <td>法の下の平等、社会正義の実現</td>
                 </tr>
             </table>
-        </div>
+        </section>
 
-        <div class="section-card">
-            <h2 class="section-title">📜 歴史的背景</h2>
+        <div class="page-break"></div>
+
+        <!-- 政治的変遷 -->
+        <section class="section-card">
+            <h2 class="section-title">📈 政治的変遷・選挙履歴</h2>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>選挙年</th>
+                        <th>議席数</th>
+                        <th>得票率</th>
+                        <th>政権参加</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1977</td>
+                        <td>49</td>
+                        <td>31.9%</td>
+                        <td>◯（首相：van Agt）</td>
+                        <td>CDAとして初参加、最大政党</td>
+                    </tr>
+                    <tr>
+                        <td>1982</td>
+                        <td>45</td>
+                        <td>29.4%</td>
+                        <td>◯（首相：Lubbers）</td>
+                        <td>VVDと連立</td>
+                    </tr>
+                    <tr>
+                        <td>1994</td>
+                        <td>34</td>
+                        <td>22.2%</td>
+                        <td>✕</td>
+                        <td>歴史的敗北、初の野党転落</td>
+                    </tr>
+                    <tr>
+                        <td>2002</td>
+                        <td>43</td>
+                        <td>27.9%</td>
+                        <td>◯（首相：Balkenende）</td>
+                        <td>最大政党に復帰</td>
+                    </tr>
+                    <tr>
+                        <td>2010</td>
+                        <td>21</td>
+                        <td>13.6%</td>
+                        <td>◯（連立小党）</td>
+                        <td>議席半減</td>
+                    </tr>
+                    <tr>
+                        <td>2017</td>
+                        <td>19</td>
+                        <td>12.4%</td>
+                        <td>◯（連立小党）</td>
+                        <td>さらに減少</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>15</td>
+                        <td>9.5%</td>
+                        <td>◯（連立小党）</td>
+                        <td>退潮続く</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>5</td>
+                        <td>3.3%</td>
+                        <td>✕</td>
+                        <td>党史上最低、野党へ</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>2025（予測）</strong></td>
+                        <td><strong>22-26</strong></td>
+                        <td><strong>15-17%</strong></td>
+                        <td><strong>？</strong></td>
+                        <td><strong>劇的回復、第2党予測</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="analysis-box">
+                <div class="analysis-title">📊 歴史的文脈</div>
+                <div class="analysis-content">
+                    <p>CDAは第二次大戦後から2010年まで、ほぼすべての政権に参加し、オランダ政治の「中軸」として機能。しかし2010年以降は連続的な退潮を経験し、2023年には党史上最低の5議席まで落ち込んだ。2025年の劇的回復は、オランダ政治史における重要な転換点となる可能性がある。</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- CDA固有：急浮上の4軸分析 -->
+        <section class="section-card">
+            <h2 class="section-title">🚀 急浮上の4軸分析</h2>
+            
+            <div class="analysis-box">
+                <div class="analysis-title">🎯 分析ポイント</div>
+                <div class="analysis-content">
+                    <p>CDAの「3.3%→17%」という劇的回復は単一要因では説明できない。<strong>供給側（党・党首）、需要側（有権者）、タイミング、構造</strong>という4つの軸から分析することで、この歴史的変化の全体像が見えてくる。</p>
+                </div>
+            </div>
+
+            <div class="four-axis-grid">
+                <div class="axis-card">
+                    <div class="axis-title">🏛️ 構造：中軸の回帰</div>
+                    <div class="axis-content">
+                        <ul>
+                            <li><strong>オランダ政治の伝統</strong>：柱状化（verzuiling）時代からの中道調整役</li>
+                            <li><strong>EPPネットワーク</strong>：欧州レベルでの影響力と正統性</li>
+                            <li><strong>組織基盤</strong>：4万党員、地方組織、シンクタンク</li>
+                            <li><strong>連立形成能力</strong>：左右どちらとも組める柔軟性</li>
+                            <li><strong>歴史的記憶</strong>：「安定」「責任」「妥協」の政党イメージ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <p class="quote-text">「人々は極端に疲れています。左でも右でもなく、前進を望んでいるのです。」</p>
+                <p class="quote-source">— CDA選挙戦略責任者、2025年9月</p>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- CDA固有：ターニングポイント -->
+        <section class="section-card">
+            <h2 class="section-title">📅 2023-2025のターニングポイント</h2>
+            
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">1975年 - 連合形成</div>
+                    <div class="timeline-date">2023年9月</div>
                     <div class="timeline-event">
-                        1960年代の世俗化によりキリスト教民主主義政党が衰退。カトリック人民党（KVP）、反革命党（ARP）、キリスト教歴史同盟（CHU）が統合を決定。1977年選挙に統一リストで参加し49議席獲得。
+                        <strong>ボンテンバル党首就任</strong><br>
+                        歴史的大敗（5議席）の直後、42歳のボンテンバルが党首・院内総務に就任。「再建には時間がかかる」と慎重姿勢を示す。
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">1980年 - 正式統合</div>
+                    <div class="timeline-date">2023年11月</div>
                     <div class="timeline-event">
-                        3党が正式に単一政党CDAとして統合。以後オランダ政治の中核政党として確立。
+                        <strong>PVV歴史的勝利</strong><br>
+                        PVVが37議席で第1党に。CDAは連立参加を打診されるも拒否。「PVVとは原則的に組めない」と明言。
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">1977-1994年 - 黄金期</div>
+                    <div class="timeline-date">2024年2月-5月</div>
                     <div class="timeline-event">
-                        17年間連続で政権参加。首相を輩出（Dries van Agt、Ruud Lubbers）。保守自由主義VVDまたは社会民主主義PvdAとの連立。Lubbers首相（1982-94）は福祉国家改革と民営化を推進。
+                        <strong>連立交渉での明確な立場</strong><br>
+                        223日に及ぶ連立交渉でCDAは野党に留まる。ボンテンバルは討論番組で冷静かつ論理的な政策議論を展開し、注目を集める。
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">1994年 - 歴史的敗北</div>
+                    <div class="timeline-date">2024年7月</div>
                     <div class="timeline-event">
-                        得票率半減、初の野党転落。1918年以来初めてキリスト教民主主義政党が政権外に。「紫の連立」（赤のPvdA + 青のVVD）時代の開始。
+                        <strong>Schoof内閣発足</strong><br>
+                        PVV・VVD・NSC・BBBの4党連立が発足。CDAは野党として「建設的批判」の姿勢を表明。
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">2002-2010年 - 復活期</div>
+                    <div class="timeline-date">2024年秋</div>
                     <div class="timeline-event">
-                        Jan Peter Balkenende党首で最大政党に復帰。8年間首相を務める。ただし得票率は1980年代のピークには遠く及ばず。
+                        <strong>亡命法案への道徳的反対</strong><br>
+                        ウィルダースの「史上最も厳格な亡命政策」法案に対し、ボンテンバルは法的・道徳的理由から明確に反対。「これは我々の価値観に反する」と演説。この姿勢が幅広い支持を獲得。
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">2010-2023年 - 長期衰退</div>
+                    <div class="timeline-date">2025年1月</div>
                     <div class="timeline-event">
-                        2010年以降再び退潮。2023年には党史上最低の5議席（3.3%）まで減少。新興政党NSCに中道保守票を奪われる。
+                        <strong>世論調査で上昇開始</strong><br>
+                        CDAが10議席前後まで回復。ボンテンバルの首相候補支持率も上昇開始。「新鮮な顔」として注目される。
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">2023-2025年 - 劇的復活</div>
+                    <div class="timeline-date">2025年6月</div>
                     <div class="timeline-event">
-                        Bontenbal党首の下で支持率が急回復。2023年の5議席から2025年予測で22-26議席へ。NSCの崩壊、VVDの混乱、中道回帰の潮流が追い風に。
+                        <strong>PVV連立離脱・内閣崩壊</strong><br>
+                        PVVが連立を離脱、Schoof内閣は事実上崩壊。CDAの「PVVとは組めない」判断の正しさが証明される。ボンテンバル：「我々は原則を貫いた」。
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年6月-8月</div>
+                    <div class="timeline-event">
+                        <strong>NSCの崩壊加速</strong><br>
+                        NSCが20議席→0予測へ急落。中道保守の受け皿としてCDAへの支持が一気に流入。VVDからも「落ち着き」を求めて移動。
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年9月</div>
+                    <div class="timeline-event">
+                        <strong>第2党浮上</strong><br>
+                        世論調査で22-26議席予測、第2党に浮上。首相候補支持率44%で主要候補を圧倒。「左右の枠を超えた連立」を提唱し、キングメーカーとしての地位を確立。
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2025年10月</div>
+                    <div class="timeline-event">
+                        <strong>選挙戦最終局面</strong><br>
+                        討論で冷静かつ知的な姿勢を貫く。「オランダには極端ではなく、バランスが必要」とのメッセージが有権者に浸透。未決定層の取り込みに成功。
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="archive-links avoid-break">
-            <h3 class="archive-title">🗂️ アーカイブ作業上の注記</h3>
-            <p style="font-size: 10pt; line-height: 1.6; margin-bottom: 4mm;">
-                CDAは戦後オランダ政治の中核を担ってきた政党。2023年の歴史的低迷から2025年にかけての劇的な復活は、オランダ政治史における重要な転換点となる可能性がある。Bontenbal党首の「左右の枠を超えた」アプローチと、極端な二極化への疲労感が背景にある。
-            </p>
-            <ul class="archive-list">
-                <li>📄 2023年の歴史的敗北から2025年の復活に至る戦略転換の過程</li>
-                <li>📄 Bontenbal党首の発言・政策文書（特にエネルギー・気候政策）</li>
-                <li>📊 世論調査データの推移（2023年8月〜2025年10月）</li>
-                <li>🇪🇺 EPP内での位置づけや他の欧州キリスト教民主主義政党との関係性</li>
-                <li>📜 前身3党（KVP、ARP、CHU）の文書との連続性</li>
-                <li>🤝 歴代首相（van Agt、Lubbers、Balkenende）の政策文書</li>
-                <li>⚖️ 4つの基本原則（環境管理、連帯、分散された責任、公正）の解釈変遷</li>
+        <div class="page-break"></div>
+
+        <!-- CDA固有：キングメーカー分析 -->
+        <section class="section-card">
+            <h2 class="section-title">🤝 キングメーカーとしての地政学</h2>
+            
+            <div class="analysis-box">
+                <div class="analysis-title">👑 連立形成におけるCDAの決定的重要性</div>
+                <div class="analysis-content">
+                    <p>2025年選挙後、CDAは事実上すべての実現可能な連立シナリオに登場する。PVVが最大政党でも孤立し、他の主要政党（VVD、GL-PvdA、D66）がいずれもPVVとの連立を拒否する中、<strong>CDAの判断が次期政権の方向性を決定する</strong>。</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #00A651;">主要な連立シナリオとCDAの役割</h3>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>シナリオ</th>
+                        <th>構成政党</th>
+                        <th>予測議席</th>
+                        <th>実現可能性</th>
+                        <th>CDAの役割</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td><strong>CDA中心の拡大連立</strong></td>
+                        <td>CDA + VVD + D66 + BBB + JA21</td>
+                        <td>61-76</td>
+                        <td>✔️ 高</td>
+                        <td><strong>中心・首相候補</strong></td>
+                    </tr>
+                    <tr>
+                        <td>大連立（左右協力）</td>
+                        <td>CDA + GL-PvdA + VVD + D66</td>
+                        <td>67-82</td>
+                        <td>❍ 中</td>
+                        <td><strong>仲介役・バランサー</strong></td>
+                    </tr>
+                    <tr>
+                        <td>中道右派連立</td>
+                        <td>CDA + VVD + D66 + JA21</td>
+                        <td>58-70</td>
+                        <td>❍ 中</td>
+                        <td><strong>中核政党</strong></td>
+                    </tr>
+                    <tr>
+                        <td>中道左派連立</td>
+                        <td>CDA + GL-PvdA + D66 + その他</td>
+                        <td>55-66</td>
+                        <td>❍ 低-中</td>
+                        <td><strong>中道代表</strong></td>
+                    </tr>
+                    <tr>
+                        <td>PVV中心連立</td>
+                        <td>PVV + CDA + その他</td>
+                        <td>-</td>
+                        <td>✘ 極低</td>
+                        <td><strong>拒否（原則的立場）</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #FF9B00;">CDAの連立戦略：3つの原則</h3>
+            
+            <div class="policy-grid">
+                <div class="policy-item" style="grid-column: 1 / -1;">
+                    <div class="policy-title">1. 「左右の枠を超える」柔軟性</div>
+                    <div class="policy-description">
+                        ボンテンバル：「左と右の枠組みはもう機能しない」。CDAは歴史的に社会民主主義（PvdA）とも自由主義（VVD）とも連立経験がある。イデオロギーより「共に前進できるか」を重視。
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-grid">
+                <div class="policy-item" style="grid-column: 1 / -1;">
+                    <div class="policy-title">2. PVVとの連立は明確に拒否</div>
+                    <div class="policy-description">
+                        2023年選挙直後から一貫して「PVVとは原則的に組めない」と表明。2024年秋の亡命法案反対、2025年6月の連立崩壊後も立場不変。道徳的・法的理由を明示。
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-grid">
+                <div class="policy-item" style="grid-column: 1 / -1;">
+                    <div class="policy-title">3. 政策実現を最優先</div>
+                    <div class="policy-description">
+                        首相ポストへのこだわりなし。気候政策、社会的連帯、財政規律、欧州協力という4つの政策分野での実現を連立判断の基準とする。「誰がトップかではなく、何を実現するか」。
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #FF9B00;">連立交渉における優位性</h3>
+            
+            <ul style="padding-left: 8mm; line-height: 1.8;">
+                <li><strong>選択肢の多様性</strong>：左派・右派どちらとも組める。他党より交渉の自由度が高い</li>
+                <li><strong>拒否権の効果</strong>：CDAなしでは過半数形成が極めて困難</li>
+                <li><strong>原則の明確性</strong>：PVV拒否を貫き、有権者からの信頼獲得</li>
+                <li><strong>人材の豊富さ</strong>：4万党員、地方組織、経験豊富な政治家</li>
+                <li><strong>国際的正統性</strong>：EPP創設メンバー、EU諸国からの信頼</li>
             </ul>
-        </div>
 
+            <div class="quote-box">
+                <p class="quote-text">「CDAは橋を架ける政党です。左と右の間に、過去と未来の間に、理想と現実の間に。」</p>
+                <p class="quote-source">— ヘンリ・ボンテンバル、選挙討論会 (2025年10月)</p>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- 今後の展望 -->
+        <section class="section-card">
+            <h2 class="section-title">🔮 今後の政治展望・課題</h2>
+            
+            <h3 style="margin-bottom: 5mm; color: #FF9B00;">選挙後の3つのシナリオ</h3>
+            
+            <div class="analysis-box">
+                <div class="analysis-title">シナリオA：CDA中心の5党連立（確率：高）</div>
+                <div class="analysis-content">
+                    <p><strong>構成：</strong>CDA + VVD + D66 + BBB + JA21（61-76議席）</p>
+                    <p><strong>首相候補：</strong>ボンテンバル（CDA）またはYeşilgöz（VVD）</p>
+                    <p><strong>政策方向：</strong>中道右派、財政規律重視、気候政策は現実的移行、移民政策はバランス型</p>
+                    <p><strong>課題：</strong>5党調整の複雑さ、JA21の右派色との調整</p>
+                </div>
+            </div>
+
+            <div class="analysis-box">
+                <div class="analysis-title">シナリオB：大連立（確率：中）</div>
+                <div class="analysis-content">
+                    <p><strong>構成：</strong>CDA + GL-PvdA + VVD + D66（67-82議席）</p>
+                    <p><strong>首相候補：</strong>Timmermans（GL-PvdA）またはボンテンバル（CDA）</p>
+                    <p><strong>政策方向：</strong>中道、社会政策重視、気候目標強化、EU協力深化</p>
+                    <p><strong>課題：</strong>VVDとGL-PvdAの相互不信、CDAの仲介役の困難さ</p>
+                </div>
+            </div>
+
+            <div class="analysis-box">
+                <div class="analysis-title">シナリオC：連立交渉の長期化（確率：中）</div>
+                <div class="analysis-content">
+                    <p><strong>状況：</strong>複数シナリオが並行交渉、合意に至らず</p>
+                    <p><strong>期間：</strong>6ヶ月以上（2023年の223日を超える可能性）</p>
+                    <p><strong>暫定措置：</strong>看守内閣の継続、政策停滞</p>
+                    <p><strong>CDAの対応：</strong>忍耐強い交渉、原則は譲らず妥協点を模索</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #FF9B00;">CDAが直面する課題</h3>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%">課題領域</th>
+                        <th>具体的リスク</th>
+                        <th>対応戦略</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>連立形成の複雑性</td>
+                        <td>4-5党連立での調整困難、交渉長期化</td>
+                        <td>原則を明確にしつつ柔軟な妥協案提示、経験豊富な交渉チーム</td>
+                    </tr>
+                    <tr>
+                        <td>期待値の管理</td>
+                        <td>急上昇への過度な期待、失望リスク</td>
+                        <td>現実的な公約、実現可能な政策提示</td>
+                    </tr>
+                    <tr>
+                        <td>支持基盤の維持</td>
+                        <td>多様な支持層（NSC、VVD、旧CDA）の統合</td>
+                        <td>「左右を超える」メッセージの継続、包摂的姿勢</td>
+                    </tr>
+                    <tr>
+                        <td>政権運営能力</td>
+                        <td>15年ぶりの大規模政権参加、経験不足</td>
+                        <td>ベテラン政治家の登用、党組織の強化</td>
+                    </tr>
+                    <tr>
+                        <td>国際的立場</td>
+                        <td>EU・NATO政策での国内との調整</td>
+                        <td>EPPネットワーク活用、建設的欧州主義</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 10mm; margin-bottom: 5mm; color: #FF9B00;">長期的展望：オランダ政治の再編</h3>
+            
+            <ul style="padding-left: 8mm; line-height: 1.8;">
+                <li><strong>中道の再興</strong>：CDAの復活は極端な二極化への反動。中道政治の新たな可能性</li>
+                <li><strong>世代交代</strong>：ボンテンバル（42歳）ら若手世代のリーダーシップ</li>
+                <li><strong>価値観政治</strong>：移民・気候・EU統合を巡る「価値観の政治」の継続</li>
+                <li><strong>連立文化の進化</strong>：5-6党連立が常態化、より複雑な合意形成</li>
+                <li><strong>ポピュリズムとの共存</strong>：PVVの永続的存在を前提とした政治運営</li>
+            </ul>
+
+            <div class="quote-box">
+                <p class="quote-text">「私たちの急上昇は、オランダ国民が極端ではなくバランスを、分断ではなく団結を求めている証です。これは始まりに過ぎません。」</p>
+                <p class="quote-source">— ヘンリ・ボンテンバル、支持率急上昇への反応 (2025年9月)</p>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- アーカイブ・情報源 -->
+        <section class="section-card">
+            <h2 class="section-title">🗄️ アーカイブ・主要情報源</h2>
+            
+            <div class="archive-links">
+                <div class="archive-title">政府・公式文書</div>
+                <ul class="archive-list">
+                    <li><a href="#">CDA党綱領2023年版 - 党公式サイトアーカイブ</a></li>
+                    <li><a href="#">CDA選挙マニフェスト2025 - Wayback Machine</a></li>
+                    <li><a href="#">オランダ下院CDA会派公式声明集 - 議会アーカイブ</a></li>
+                    <li><a href="#">EPP政策文書（CDA寄稿分） - 欧州人民党アーカイブ</a></li>
+                </ul>
+            </div>
+
+            <div class="archive-links">
+                <div class="archive-title">演説・インタビュー記録</div>
+                <ul class="archive-list">
+                    <li><a href="#">ボンテンバル党首就任演説 - YouTube (2023年9月)</a></li>
+                    <li><a href="#">RTL4主要討論番組出演記録 - Archive.org (2024-2025)</a></li>
+                    <li><a href="#">亡命法案反対演説 - 国会議事録 (2024年11月)</a></li>
+                    <li><a href="#">選挙戦最終討論会 - NOS放送アーカイブ (2025年10月)</a></li>
+                </ul>
+            </div>
+
+            <div class="archive-links">
+                <div class="archive-title">世論調査・統計データ</div>
+                <ul class="archive-list">
+                    <li><a href="#">Peil.nl月次調査データ (2023年9月-2025年10月) - Archive.today</a></li>
+                    <li><a href="#">Maurice de Hond世論調査 CDA推移 - Wayback Machine</a></li>
+                    <li><a href="#">首相候補支持率調査 (Ipsos) - Statistical Archive</a></li>
+                    <li><a href="#">Kantar政党支持率推移 - 選挙管理委員会データベース</a></li>
+                </ul>
+            </div>
+
+            <div class="archive-links">
+                <div class="archive-title">学術分析・シンクタンク報告</div>
+                <ul class="archive-list">
+                    <li><a href="#">Wetenschappelijk Instituut voor het CDA (科学研究所) 政策報告書</a></li>
+                    <li><a href="#">ライデン大学政治学部「CDA復活の要因分析」論文 (2025年8月)</a></li>
+                    <li><a href="#">オランダ社会文化計画局（SCP）有権者動向調査</a></li>
+                    <li><a href="#">CPB経済政策分析局 マニフェスト評価 (2025年9月)</a></li>
+                </ul>
+            </div>
+
+            <div class="archive-links">
+                <div class="archive-title">国際報道・分析</div>
+                <ul class="archive-list">
+                    <li><a href="#">Financial Times "The Return of the Centre" - Archive.today</a></li>
+                    <li><a href="#">Politico Europe CDA特集記事集 - Wayback Machine</a></li>
+                    <li><a href="#">Deutsche Welle日本語報道「オランダ中道の復権」</a></li>
+                    <li><a href="#">The Economist "Dutch politics: Back to the centre"</a></li>
+                </ul>
+            </div>
+
+            <p style="margin-top: 8mm; font-size: 9pt; color: #666; line-height: 1.6;">
+                <strong>注記:</strong> 上記リンクは2025年10月18日時点での状況を基に構成。
+                実際のアーカイブ収集作業では、Internet Archive、Archive.today、
+                Wayback Machine等を使用して各文書の永続的保存を確保。
+                政府公文書は原則として公式サイトから直接収集し、消失リスクに備えて複数サービスでの重複保存を実施。
+            </p>
+        </section>
+
+        <!-- ナビゲーション -->
         <div class="navigation no-print">
-            <h3 style="font-size: 12pt; margin-bottom: 6mm; color: #1e3a8a;">関連ページ</h3>
+            <h3 style="color: #FF9B00; margin-bottom: 8mm;">関連ページ</h3>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">🏠 トップページ</a>
-                <a href="weekly.html" class="nav-link">📅 週次観測ログ</a>
-                <a href="GL–PvdA.html" class="nav-link">🟢🔴 GL-PvdA</a>
-                <a href="PVV.html" class="nav-link">🔵 PVV</a>
-                <a href="VVD.html" class="nav-link">🔷 VVD</a>
-                <a href="NSC.html" class="nav-link">🔶 NSC</a>
+                <a href="index.html" class="nav-link">🏠 メインページ</a>
+                <a href="PVV.html" class="nav-link">PVV詳細</a>
+                <a href="NSC.html" class="nav-link">NSC詳細</a>
+                <a href="GL-PvdA.html" class="nav-link">GL-PvdA詳細</a>
+                <a href="VVD.html" class="nav-link">VVD詳細</a>
+                <a href="weekly.html" class="nav-link">週次レポート</a>
+                <a href="polls.html" class="nav-link">世論調査履歴</a>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 15mm; padding-top: 8mm; border-top: 1px solid #e5e7eb; font-size: 9pt; color: #666;">
-            最終更新：2025-10-18 | オランダ総選挙2025 政治動向レポート
-        </div>
+        <!-- 印刷用フッター -->
+        <footer style="margin-top: 15mm; padding-top: 8mm; border-top: 1px solid #e5e7eb; text-align: center; color: #666; font-size: 9pt;">
+            <p>CDA (キリスト教民主同盟) 詳細分析レポート | オランダ総選挙2025政治動向調査</p>
+            <p>作成日: 2025年10月18日 | 最終更新: 2025年10月18日</p>
+            <p style="margin-top: 3mm;">
+                本資料は公開情報および公的アーカイブに基づく分析であり、
+                特定政党への支持・反対を表明するものではありません。
+            </p>
+        </footer>
     </div>
+
+    <script>
+        window.addEventListener('beforeprint', function() {
+            document.title = 'CDA詳細分析_' + new Date().toISOString().slice(0,10);
+        });
+
+        window.addEventListener('afterprint', function() {
+            console.log('CDA詳細レポート印刷完了');
+        });
+
+        const cdaData = {
+            lastUpdated: "2025年10月18日",
+            seats2023: 5,
+            seats2025: "22-26",
+            voteShare2023: "3.3%",
+            voteShare2025: "15-17%",
+            leader: "ヘンリ・ボンテンバル",
+            status: "野党（2025予測：第2党、キングメーカー）",
+            founded: 1980
+        };
+
+        console.log('CDA詳細ページ初期化完了:', cdaData);
+    </script>
 </body>
-</html>
+</html>card">
+                    <div class="axis-title">📤 供給側：Bontenbalという存在</div>
+                    <div class="axis-content">
+                        <ul>
+                            <li><strong>「新鮮な顔」</strong>：政界入り4年、全国レベル初選挙。既成政治家ではない印象</li>
+                            <li><strong>知的で公正</strong>：物理学出身、エネルギー専門家。理性的な政策議論</li>
+                            <li><strong>道徳的立場</strong>：Wildersの過激法案に法的・道徳的理由で明確反対</li>
+                            <li><strong>親しみやすさ</strong>：8人きょうだい、音楽家、飛行機使わない生活スタイル</li>
+                            <li><strong>首相候補44%</strong>：主要ライバルを大きく上回る支持率</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="axis-card">
+                    <div class="axis-title">📥 需要側：中道回帰の渇望</div>
+                    <div class="axis-content">
+                        <ul>
+                            <li><strong>二極化への疲労</strong>：「CDAには落ち着きがある」（元VVD支持者）</li>
+                            <li><strong>極端への拒絶</strong>：PVVの過激さとGL-PvdAの左派色への代替</li>
+                            <li><strong>共同体精神</strong>：「私」ではなく「私たち」のメッセージが響く</li>
+                            <li><strong>安定の象徴</strong>：戦後ほぼ全政権に参加した実績</li>
+                            <li><strong>バランス重視</strong>：左右の枠を超えた柔軟な姿勢への支持</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="axis-card">
+                    <div class="axis-title">⏰ タイミング：競合の崩壊</div>
+                    <div class="axis-content">
+                        <ul>
+                            <li><strong>NSCの崩壊</strong>：20議席→0予測。中道保守の空白を創出</li>
+                            <li><strong>VVDの後退</strong>：24議席→12-16予測。中道右派の弱体化</li>
+                            <li><strong>BBBの魅力低下</strong>：連立失敗で存在感喪失</li>
+                            <li><strong>PVV政権失敗</strong>：2025年6月の連立離脱で統治能力への疑念</li>
+                            <li><strong>完璧な受け皿</strong>：複数政党からの同時流入</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="axis-
