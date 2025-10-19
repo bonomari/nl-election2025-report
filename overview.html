@@ -1,153 +1,756 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>概要（Overview）</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>概要・全体俯瞰 | オランダ総選挙2025</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            background-color: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
+        h4 {
+            color: #555;
+            margin-top: 15px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            margin-top: -10px;
+            margin-bottom: 25px;
+        }
+        .nav-back {
+            background-color: #34495e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .nav-back a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav-back a:hover {
+            text-decoration: underline;
+        }
+        .period-section {
+            margin-bottom: 50px;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #95a5a6;
+            border-radius: 4px;
+        }
+        .poll-update {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .event-highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .controversy {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+        }
+        .coalition-box {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .info-box {
+            background-color: #f0f9ff;
+            border: 2px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr.highlight {
+            background-color: #fef3c7;
+        }
+        tr.warning {
+            background-color: #fee2e2;
+        }
+        ul {
+            line-height: 1.8;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .timestamp {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        .note {
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav><a href="index.html">← トップページに戻る</a></nav>
-    <h1>概要（Overview）</h1>
-    <p>このページは「最新が上」に積み上げる運用です。詳細は各政党ページを参照。</p>
-  </header>
+    <div class="container">
+        <div class="nav-back">
+            <a href="index.html">← トップページに戻る</a>
+        </div>
 
-  <main>
-    <!-- ▼ 総覧（MD取り込み） ——— 必ず main の“中”に置く -->
-    <section id="ov-ingest-master">
-      <h2>総覧</h2>
-      <!-- Obsidian内部リンク行は削除しました
-      <p>[[v01 オランダ総選挙　index]] [[2025-08-21 政策争点_政党別スタンス比較]]</p>
-      -->
-      <h1 id="2025">オランダ総選挙2025：最新動向と分析</h1>
-      <h2 id="20257">政治情勢の俯瞰（2025年7月現在）</h2>
-      <ul>
-        <li>総選挙の概要とスケジュール</li>
-        <li>注目の争点</li>
-        <li>政党勢力図（<a href="GL–PvdA.html">GL–PvdA</a>、<a href="VVD.html">VVD</a>、<a href="NSC.html">NSC</a>、<a href="PVV.html">PVV</a>など）</li>
-      </ul>
-      <h2 id="20257-1">主な政治動向タイムライン（〜2025年7月）</h2>
-      <ul>
-        <li><a href="#">2024年末〜2025年初頭の動き</a></li>
-        <li><a href="#">2025年春〜初夏：連立交渉と戦略</a></li>
-        <li><a href="#">7月時点の最新状況</a></li>
-      </ul>
-      <h2>週報アーカイブ（定点観測）</h2>
-      <ul>
-        <li><a href="weekly.html#w-2025-0722">週報：7月22日の週</a></li>
-        <li>（以下週報を追加予定）</li>
-      </ul>
-      <h2>世論調査動向</h2>
-      <ul>
-        <li>グラフ・出典元（I&amp;O、Ipsos、Peil.nlなど）</li>
-      </ul>
-      <h2>各政党の立場と動き</h2>
-      <ul>
-        <li><a href="GL–PvdA.html">GL–PvdA（緑の左派–労働党連合）</a></li>
-        <li><a href="VVD.html">VVD（自由民主党）</a></li>
-        <li><a href="NSC.html">NSC（新社会契約）</a></li>
-        <li><a href="PVV.html">PVV（自由党）</a></li>
-        <li><a href="others-cda-volt-fvd.html">その他の諸派（Volt, FvD, CDA など）</a></li>
-      </ul>
-      <h2>資料・リンク集</h2>
-      <ul>
-        <li>各政党公式サイト</li>
-        <li>関連報道（AD, NOS, RTL, Reuters 等）</li>
-        <li>元発言・X投稿など一次ソース</li>
-      </ul>
-      <hr>
-      <p><a href="https://github.com/bonomari/nl-election2025-report/">GitHubリポジトリはこちら</a></p>
-    </section>
+        <h1>概要・全体俯瞰</h1>
+        <p class="subtitle">2025年6月の連立崩壊から10月選挙直前までの政治動向を時系列で整理。最新が上の逆時系列構成。</p>
 
-    <!-- ▼ 2025年7月までの主な動き（MD取り込み） -->
-    <section id="ov-prejul">
-      <h2>2025年7月までの主な動き</h2>
+        <!-- ========================================
+             選挙の基本情報
+        ======================================== -->
+        <section>
+            <h2>選挙の基本情報</h2>
+            <div class="info-box">
+                <ul>
+                    <li><strong>投票日</strong>：2025年10月29日</li>
+                    <li><strong>定数</strong>：下院150議席（過半数76議席）</li>
+                    <li><strong>背景</strong>：2024年7月発足のSchoof内閣が2025年6月3日にPVVの連立離脱により崩壊。前倒し選挙が決定（本来は2028年3月予定）</li>
+                    <li><strong>主要争点</strong>：移民・亡命政策、住宅問題、医療・社会保障、気候・エネルギー政策、NATO・防衛支出</li>
+                </ul>
+            </div>
+        </section>
 
-      <h1 id="20257">🗓 2025年 総選挙に向けた主な政治動向（〜7月末）</h1>
-      <hr>
-      <h2 id="202412">📌 2024年12月</h2>
-      <ul>
-        <li><strong>総選挙の結果発表</strong><br>
-        極右政党<a href="PVV.html">PVV</a>（ヘールト・ウィルダース / Geert Wilders）が第1党に。中道の<a href="NSC.html">NSC</a>（ピーテル・オムツィフト / Pieter Omtzigt）、<a href="VVD.html">VVD</a>（ディラン・イェシルギュズ / Dilan Yeşilgöz）、<a href="GL–PvdA.html">GL–PvdA</a>（ロブ・イェッテン / Rob Jetten）などと連立協議が始まる。</li>
-      </ul>
-      <hr>
-      <h2 id="202513">📌 2025年1月〜3月</h2>
-      <ul>
-        <li><strong>新内閣構想、断続的な協議</strong><br>
-        <a href="PVV.html">PVV</a>主導の連立交渉は難航。<a href="NSC.html">NSC</a>と<a href="GL–PvdA.html">GL–PvdA</a>の参加に壁。結局、<strong><a href="PVV.html">PVV</a>＋<a href="VVD.html">VVD</a>の協調体制＋<a href="NSC.html">NSC</a>の外部支援</strong>という構造へ移行。</li>
-      </ul>
-      <hr>
-      <h2 id="20254">📌 2025年4月</h2>
-      <ul>
-        <li><strong>防衛支出増案の浮上（NATO関連）</strong><br>
-        ヘールト・ウィルダースがXで「国防は最大の福祉」と発言、<strong>NATO支出をGDPの5%まで引き上げる</strong>案を推進。</li>
-        <li>引用元：<a href="https://twitter.com/geertwilderspvv">https://twitter.com/geertwilderspvv</a></li>
-      </ul>
-      <hr>
-      <h2 id="20255">📌 2025年5月</h2>
-      <ul>
-        <li><p><strong>社会保障圧縮・移民制限の論争</strong><br>
-        <a href="NSC.html">NSC</a>が「バランスある財政構造を目指す」と表明、<a href="GL–PvdA.html">GL–PvdA</a>が「軍拡と福祉切り捨ては矛盾」と反論。</p></li>
-        <li><p>出典：<a href="https://www.volkskrant.nl/">Volkskrant</a></p></li>
-        <li><p><strong>窒素税（stikstofbelasting）の導入が議論に浮上</strong><br>
-        <a href="GL–PvdA.html">GL–PvdA</a>が農業圧迫を伴う形でも環境対策推進へ。<a href="VVD.html">VVD</a>は「企業と農家のバランスが必要」と慎重姿勢。</p></li>
-      </ul>
-      <hr>
-      <h2 id="20256">📌 2025年6月</h2>
-      <ul>
-        <li><p><strong><a href="NSC.html">NSC</a>：選挙マニフェスト草案を公開（非公式）</strong><br>
-        オムツィフトが「財政規律と社会的公正の両立」と主張。気候・農業・防衛すべてを漸進改革で対応。</p></li>
-        <li><p>出典：<a href="https://www.telegraaf.nl/">Telegraaf</a></p></li>
-        <li><p><strong>BoerBurgerBeweging（BBB）の存在感低下</strong><br>
-        窒素税問題で主張を強めるも、<a href="PVV.html">PVV</a>と<a href="NSC.html">NSC</a>が保守層の吸収を強化。支持率は昨年のピーク時から半減。</p></li>
-      </ul>
-      <hr>
-      <h2 id="20257-1">📌 2025年7月</h2>
-      <ul>
-        <li><p><strong>NATO支出支持、国民の半数超が賛成</strong><br>
-        NLTimes報道によると、「GDP5%支出」に56%が賛成と回答（I&amp;O調査）</p></li>
-        <li><p>出典：<a href="https://nltimes.nl/2025/07/15/majority-dutch-support-boosted-defense-spending">https://nltimes.nl/2025/07/15/majority-dutch-support-boosted-defense-spending</a></p></li>
-        <li><p><strong><a href="GL–PvdA.html">GL–PvdA</a>、ロブ・イェッテンが「EUとのバランス重視」を強調</strong><br>
-        NATO支出案を「偏った安全保障戦略」と批判</p></li>
-        <li><p><strong>ウィルダース、Xで再度挑発的投稿</strong><br>
-        「我々はEUの命令ではなく、オランダ人の安全を優先する」</p></li>
-      </ul>
-      <hr>
-      <h2 id="8">🔚 次のステップ（8月以降）</h2>
-      <ul>
-        <li>選挙マニフェスト正式発表、TV討論、候補者リスト公開が本格化</li>
-        <li>各党のウェブサイトおよびSNS発信が主戦場となる</li>
-      </ul>
-    </section>
+        <!-- ========================================
+             【2025年10月】最新の政治情勢
+        ======================================== -->
+        <section class="period-section">
+            <h2>【2025年10月】最新の政治情勢</h2>
+            <p class="note">選挙2週間前時点での世論調査、連立見通し、重大イベント</p>
 
-    <!-- ▼ 月別アップデート（既存） -->
-    <section id="ov-202508">
-      <h2>2025年8月の主な動き</h2>
-      <ul>
-        <li><strong>PVV</strong>：全国キャラバンを継続。「オランダ人のための住宅・福祉」を掲げ、SNS発信を強化。</li>
-        <li><strong>GL–PvdA</strong>：住宅・移民・気候を柱とするマニフェスト準備（または発表）。進歩派連携を訴求。</li>
-        <li><strong>VVD</strong>：支持率の低下傾向が続き、Yesilgöz党首のリーダーシップを巡る議論が拡大。</li>
-        <li><strong>NSC</strong>：候補者名簿の調整・公表を進め、中道・責任政党としての立場を再確認。</li>
-        <li><strong>CDA/Volt/FvD</strong>：CDAが上昇基調。Volt/FvDは限定的ながら存在感を維持。</li>
-      </ul>
-    </section>
+            <h3>世論調査（10月中旬）</h3>
+            <div class="poll-update">
+                <h4>議席予測の変化</h4>
+                <ul>
+                    <li><strong><a href="PVV.html">PVV（Wilders）</a></strong>: 31～35議席 — 依然最大政党だが、2023年選挙（37議席）から減少</li>
+                    <li><strong><a href="CDA.html">CDA（Bontenbal）</a></strong>: 22～26議席 — 2023年（5議席）から劇的上昇、第2党に浮上 ⬆</li>
+                    <li><strong><a href="GL-PvdA.html">GL–PvdA（Timmermans）</a></strong>: 21～25議席 — 第3党、安定した支持を維持</li>
+                    <li><strong><a href="VVD.html">VVD（Yeşilgöz）</a></strong>: 12～16議席 — 現有24議席から大幅後退 ⬇</li>
+                    <li><strong>D66</strong>: 12～15議席 — 微増傾向</li>
+                    <li><strong>JA21</strong>: 12～13議席 — 現有1議席から急伸</li>
+                    <li><strong><a href="NSC.html">NSC</a></strong>: 議席ゼロの可能性 — 2023年（20議席）から消滅の危機 ⬇⬇</li>
+                </ul>
+                <!-- 出典: Peilingwijzer 2025-10 統合調査 -->
+            </div>
 
-    <section id="ov-202507">
-      <h2>2025年7月の主な動き</h2>
-      <ul>
-        <li>PVV：AZC（難民受け入れセンター）を巡る抗議訪問（Helmond, Zwolle など）。</li>
-        <li>VVD：党内外からの批判増。支持率でトップ3から外れる調査が出る週あり。</li>
-        <li>GL–PvdA：統一マニフェストの草案を整備。</li>
-        <li>NSC：候補者名簿の骨子を整理。</li>
-        <li>CDA：世論調査で伸長。</li>
-      </ul>
-    </section>
-  </main>
+            <div class="poll-update">
+                <h4>注目トレンド</h4>
+                <ul>
+                    <li><a href="CDA.html">CDA</a>党首Henri Bontenbalが「将来の首相候補」として急速に支持拡大。冷静で公正な姿勢が評価される</li>
+                    <li><a href="VVD.html">VVD</a>党首Dilan Yeşilgözへの党内信頼度が6月の77%→8月31%に急落</li>
+                    <li><strong>有権者の50%がまだ投票先未定。特にVVDとD66の支持者が迷っている</strong></li>
+                </ul>
+                <!-- 出典: EenVandaag/Verian 2025-10-11-14 -->
+            </div>
 
-  <footer>
-    <nav><a href="index.html">← トップページに戻る</a></nav>
-    <p>© 2025 オランダ総選挙リサーチ</p>
-  </footer>
+            <h3>連立形成の見通し</h3>
+            
+            <div class="info-box">
+                <h4 style="color: #1e40af; margin-bottom: 15px;">過半数獲得の条件：76議席以上が必要</h4>
+                <p style="margin-bottom: 15px; line-height: 1.8;">
+                    オランダ下院は150議席。安定政権には最低4党が必要と予測される。<a href="PVV.html">PVV</a>は最大政党だが、<a href="CDA.html">CDA</a>・<a href="VVD.html">VVD</a>・<a href="GL-PvdA.html">GL-PvdA</a>が連立を拒否しているため、単独での政権形成は不可能。
+                </p>
+            </div>
+
+            <h4>連立形成における各党の重要性</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>層</th>
+                        <th>政党</th>
+                        <th>予測議席</th>
+                        <th>連立での役割</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td rowspan="3"><strong>最重要<br>（連立の核）</strong></td>
+                        <td><strong><a href="PVV.html">PVV</a></strong></td>
+                        <td>31-35</td>
+                        <td>最大政党だが孤立。CDA・VVD・GL-PvdAが連立拒否。少数政権または排除の可能性</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td><strong><a href="CDA.html">CDA</a></strong></td>
+                        <td>22-26</td>
+                        <td><strong>キングメーカー</strong>。左右どちらとも組める。ほぼ全ての連立シナリオに登場。PVVとの連立は拒否</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td><strong><a href="GL-PvdA.html">GL-PvdA</a></strong></td>
+                        <td>21-25</td>
+                        <td>左派の核。大連立なら必須。Timmermans党首が首相を強く希望。VVDとの連立は消極的</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>重要<br>（バランサー）</strong></td>
+                        <td><strong><a href="VVD.html">VVD</a></strong></td>
+                        <td>12-16</td>
+                        <td>中道右派。歴史的に連立経験豊富。中道右派連立（CDA・D66・BBB・JA21）を志向。PVVとの連立は拒否</td>
+                    </tr>
+                    <tr>
+                        <td><strong>D66</strong></td>
+                        <td>12-15</td>
+                        <td>中道。左右どちらとも組める柔軟性。「国民統合政府」（左右大連立）を提案。右派単独連立は拒否</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>中堅<br>（連立の補完）</strong></td>
+                        <td><strong>JA21</strong></td>
+                        <td>12-13</td>
+                        <td>右派。どの党とも連立可能と表明。VVDの右派連立構想に含まれる</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BBB</strong></td>
+                        <td>3-6</td>
+                        <td>農業票。議席少なく影響力限定的。2024-25年の連立失敗で魅力低下</td>
+                    </tr>
+                    <tr>
+                        <td><strong>その他小党</strong></td>
+                        <td>3-5議席各</td>
+                        <td>SP、PvdD、Volt、SGP、CUなど。連立には通常含まれない</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>主要な連立シナリオ</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>シナリオ</th>
+                        <th>構成政党</th>
+                        <th>予測議席</th>
+                        <th>実現可能性</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>中道右派連立</strong></td>
+                        <td><a href="CDA.html">CDA</a> + <a href="VVD.html">VVD</a> + D66 + JA21</td>
+                        <td>58-70議席</td>
+                        <td>❍ <strong>中</strong> - 76議席に届かない可能性。BBBなど追加が必要。D66が右派色を嫌う可能性</td>
+                    </tr>
+                    <tr>
+                        <td><strong>大連立（左右協力）</strong></td>
+                        <td><a href="CDA.html">CDA</a> + <a href="GL-PvdA.html">GL-PvdA</a> + <a href="VVD.html">VVD</a> + D66</td>
+                        <td>67-82議席</td>
+                        <td>❍ <strong>中</strong> - 過半数確保。VVDとGL-PvdAが互いに消極的。D66が仲介役の可能性</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CDA中心の拡大連立</strong></td>
+                        <td><a href="CDA.html">CDA</a> + <a href="VVD.html">VVD</a> + D66 + BBB + JA21</td>
+                        <td>61-76議席</td>
+                        <td>✔︎ <strong>高</strong> - Bontenbal党首が「左右の枠を超える」と表明。5党連立で過半数</td>
+                    </tr>
+                    <tr>
+                        <td><strong>左派連立</strong></td>
+                        <td><a href="GL-PvdA.html">GL-PvdA</a> + D66 + <a href="CDA.html">CDA</a> + SP + Volt</td>
+                        <td>62-74議席</td>
+                        <td>❍ <strong>低-中</strong> - 過半数届かず。CDAが左派色強い連立に参加する可能性は低い</td>
+                    </tr>
+                    <tr class="warning">
+                        <td><strong>PVV中心の連立</strong></td>
+                        <td><a href="PVV.html">PVV</a> + JA21 + BBB + FvD</td>
+                        <td>47-59議席</td>
+                        <td>✘ <strong>極低</strong> - 過半数に遠く及ばず。CDA・VVD・GL-PvdAがPVV排除で一致</td>
+                    </tr>
+                    <tr class="warning">
+                        <td><strong>PVV少数政権</strong></td>
+                        <td><a href="PVV.html">PVV</a>単独または+小党</td>
+                        <td>31-40議席</td>
+                        <td>✘ <strong>極低</strong> - Wildersは希望するが、信任不可能。政策通過できず</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="coalition-box">
+                <h4>連立交渉の見通し</h4>
+                <ul>
+                    <li><strong>長期化は必至</strong>：2023年は223日を要した。今回も3-6ヶ月の交渉が予想される</li>
+                    <li><strong>CDAがキーパーソン</strong>：Bontenbal党首の判断が連立の方向性を決める</li>
+                    <li><strong>PVV排除でコンセンサス</strong>：主要3党（CDA・VVD・GL-PvdA）がPVVとの連立拒否で一致</li>
+                    <li><strong>5党連立の可能性</strong>：過半数達成には複雑な組み合わせが必要</li>
+                    <li><strong>争点</strong>：移民政策、財政規律、気候・農業政策での妥協が焦点</li>
+                </ul>
+            </div>
+
+            <h3>重大イベント</h3>
+
+            <div class="event-highlight">
+                <h4>Wildersの選挙活動中断（10月10日）</h4>
+                <ul>
+                    <li>ベルギーでテロ組織が摘発され、Wildersが標的リストに含まれていたことが判明</li>
+                    <li>オランダ当局は「残存脅威なし」と発表したが、Wildersは選挙活動を一時中断</li>
+                    <li>他党からは「討論回避の戦略では」との疑念も浮上。ワイルダースは1ページのマニフェストのみで、閣僚の適性や連立崩壊の責任について追及を避けている可能性</li>
+                </ul>
+                <!-- 出典: NCTV声明 2025-10-10 / 各党反応 -->
+            </div>
+
+            <div class="event-highlight">
+                <h4>Meta政治広告禁止開始（10月6日）</h4>
+                <ul>
+                    <li>Facebook/Instagramでの政治広告が禁止開始</li>
+                    <li>直前の1ヶ月でFvDとD66が最も広告費を投入</li>
+                </ul>
+                <!-- 出典: Meta発表 2025-10-06 -->
+            </div>
+
+            <p class="note">→ 詳細な週次ログは <a href="weekly.html">週次観測ログ</a> をご覧ください。</p>
+        </section>
+
+        <!-- ========================================
+             【2025年9月】選挙戦本格化
+        ======================================== -->
+        <section class="period-section">
+            <h2>【2025年9月】選挙戦本格化</h2>
+
+            <h3>CDA第2党浮上（9月初旬）</h3>
+            <div class="poll-update">
+                <h4>世論調査（Ipsos I&O, 9月4日発表）</h4>
+                <ul>
+                    <li><strong><a href="PVV.html">PVV</a></strong>: 30議席（20%）</li>
+                    <li><strong><a href="CDA.html">CDA</a></strong>: 25議席（2006年以来の第2位）</li>
+                    <li><strong><a href="GL-PvdA.html">GL-PvdA</a></strong>: 23議席（微減）</li>
+                    <li><strong><a href="VVD.html">VVD</a></strong>: 15議席（現有24議席から-9）</li>
+                </ul>
+                <p class="note">CDAが「誠実で信頼できる、安定した中道政党」として評価される。Bontenbal党首の人気が主因。</p>
+                <!-- 出典: Ipsos I&O 2025-09-04 -->
+            </div>
+
+            <div class="event-highlight">
+                <h4>在外投票登録が過去最高</h4>
+                <ul>
+                    <li>在外オランダ市民135,424人が投票登録（2023年比+25%）</li>
+                    <li>世論調査専門家Tom Louwerse：「すべてが流動的。多くの有権者がまだ確信を持てていない」</li>
+                </ul>
+            </div>
+
+            <h3>ハーグ暴動（9月20日）</h3>
+            <div class="controversy">
+                <h4>移民反対デモで暴力事件</h4>
+                <ul>
+                    <li>26歳のインフルエンサー「Els de droite（右派のEls）」が組織した移民反対デモが暴徒化</li>
+                    <li>高速道路封鎖、警察車両放火、6人のジャーナリストが襲撃される</li>
+                    <li>全政党党首がデモと暴力を非難</li>
+                    <li>組織者はWildersの支持者として知られる</li>
+                </ul>
+                <p class="note">オランダだけでなく欧州全体で見られる危機の象徴的事件として報道される。</p>
+                <!-- 出典: NOS/RTL報道 2025-09-20 -->
+            </div>
+
+            <p class="note">→ 詳細は <a href="weekly.html#sept">週次観測ログ9月</a> をご覧ください。</p>
+        </section>
+
+        <!-- ========================================
+             【2025年8月】夏季休会明け
+        ======================================== -->
+        <section class="period-section">
+            <h2>【2025年8月】夏季休会明け</h2>
+
+            <h3>NSC連立離脱（8月23日）</h3>
+            <div class="event-highlight">
+                <h4>ガザ戦争に関するイスラエル制裁問題</h4>
+                <ul>
+                    <li><a href="NSC.html">NSC</a>が連立を離脱。ガザ戦争に関するイスラエル制裁問題が理由</li>
+                    <li>Caspar Veldkamp外相（NSC）が辞任。より厳しい対イスラエル措置を求めたが他の連立党から支持を得られず</li>
+                    <li>全NSC閣僚が退任、暫定首相Schoofが新閣僚任命を検討</li>
+                </ul>
+                <!-- 出典: 政府声明 2025-08-23 -->
+            </div>
+
+            <h3>VVD信頼度急落</h3>
+            <div class="poll-update">
+                <h4>世論調査（8月末発表）</h4>
+                <ul>
+                    <li><strong><a href="PVV.html">PVV</a></strong>: 33議席（依然最大政党）</li>
+                    <li><strong><a href="GL-PvdA.html">GL-PvdA</a></strong>: 26議席</li>
+                    <li><strong><a href="CDA.html">CDA</a></strong>: 23議席（急伸）</li>
+                    <li><strong><a href="VVD.html">VVD</a></strong>: 15議席（24議席から大幅減）</li>
+                    <li>Yeşilgözへの党内信頼度が31%に低下（6月は77%）</li>
+                </ul>
+                <!-- 出典: EenVandaag調査 2025-08末 -->
+            </div>
+
+            <h3>Wilders差別的ツイート問題（8月）</h3>
+            <div class="controversy">
+                <h4>ヘッドスカーフ比較画像で大炎上</h4>
+                <ul>
+                    <li>金髪の若い女性とPVV、ヘッドスカーフ着用の年配女性と労働党を比較する画像をツイート</li>
+                    <li>「選択はあなた次第 29/10」との文言（選挙日への言及）</li>
+                    <li>差別苦情ホットラインに2,500件以上の苦情、ナチスプロパガンダとの比較も</li>
+                    <li>イスラム団体も正式に苦情申し立て</li>
+                </ul>
+                <!-- 出典: X投稿 / 差別苦情ホットライン統計 2025-08 -->
+            </div>
+
+            <h3>Douwe Bob問題で正式謝罪（8月11日）</h3>
+            <div class="controversy">
+                <h4>Yeşilgözが和解</h4>
+                <ul>
+                    <li>Yeşilgözが正式に謝罪：「反ユダヤ主義と決めつけるべきではなかった。誤りだった」</li>
+                    <li>問題のツイートを削除</li>
+                    <li>Douwe Bobの名誉毀損訴訟が取り下げ（和解成立）</li>
+                    <li>和解内容は秘密保持契約により非公開</li>
+                </ul>
+                <p class="note">この問題がVVD支持率低下の主要因の一つとなった。</p>
+                <!-- 出典: 和解声明 2025-08-11 -->
+            </div>
+
+            <p class="note">→ 詳細は <a href="weekly.html#aug">週次観測ログ8月</a> をご覧ください。</p>
+        </section>
+
+        <!-- ========================================
+             【2025年7月】選挙3ヶ月前
+        ======================================== -->
+        <section class="period-section">
+            <h2>【2025年7月】選挙3ヶ月前</h2>
+
+            <h3>CDA急伸開始（7月末）</h3>
+            <div class="poll-update">
+                <h4>世論調査（Ipsos I&O, 7月30日発表）</h4>
+                <ul>
+                    <li><strong><a href="PVV.html">PVV</a></strong>: 27議席（2023年の37議席から-10）</li>
+                    <li><strong><a href="CDA.html">CDA</a></strong>: 24議席（2023年の5議席から+19、GL-PvdAと同率2位）</li>
+                    <li><strong><a href="GL-PvdA.html">GL-PvdA</a></strong>: 24議席</li>
+                    <li><strong><a href="VVD.html">VVD</a></strong>: 20議席</li>
+                    <li><strong>D66</strong>: 12議席（2023年の9議席から+3）</li>
+                    <li><strong>JA21</strong>: 7議席（2023年の1議席から+6）</li>
+                    <li><strong><a href="NSC.html">NSC</a></strong>: 議席ゼロの見込み（2023年は20議席）</li>
+                    <li><strong>BBB</strong>: 支持率半減</li>
+                </ul>
+                <!-- 出典: Ipsos I&O 2025-07-30 -->
+            </div>
+
+            <div class="event-highlight">
+                <h4>CDA躍進の背景</h4>
+                <ul>
+                    <li>Henri Bontenbal党首（42歳）が「将来の首相」として人気獲得</li>
+                    <li>「明確で公正」な姿勢が評価される</li>
+                    <li>政界入り4年の「新鮮な顔」</li>
+                    <li>論争的な亡命法案に法的・道徳的理由から反対を表明し、支持拡大</li>
+                    <li>元VVD支持者：「CDAには落ち着きがある」</li>
+                </ul>
+            </div>
+
+            <h3>VVD内部不満表面化（7月13日）</h3>
+            <div class="controversy">
+                <h4>Yeşilgöz党首への批判</h4>
+                <ul>
+                    <li>約270人のVVDメンバーによるWhatsAppグループが、Yeşilgözの「30の戦略的失敗」をリスト化</li>
+                    <li>あるメンバーは「悲観に満ちたグループ」と表現</li>
+                    <li>批判の焦点：
+                        <ul>
+                            <li>PVVへの姿勢が揺れ動いている</li>
+                            <li>Douwe Bob問題の対応</li>
+                            <li>ポピュリスト的手法</li>
+                        </ul>
+                    </li>
+                    <li>元党幹部Klaas Dijkhoff：「つながりを求めるべきだった。怒りマシンを動かすのではなく」</li>
+                    <li>ただし党幹部は「党首交代の可能性はゼロ」と断言</li>
+                </ul>
+                <!-- 出典: 報道各社 2025-07-13 / WhatsAppグループ関係者証言 -->
+            </div>
+
+            <h3>Douwe Bob事件発生（7月初旬）</h3>
+            <div class="controversy">
+                <h4>反ユダヤ主義疑惑と脅迫</h4>
+                <ul>
+                    <li><strong>6月29日</strong>：歌手Douwe Bobがアムステルダムのユダヤ系子供向けサッカー大会で演奏を拒否
+                        <ul>
+                            <li>会場に「シオニスト的なポスター」があったと主張</li>
+                            <li>政治・宗教的表現をしないという事前合意に反すると説明</li>
+                        </ul>
+                    </li>
+                    <li><strong>直後</strong>：Yeşilgözが「純粋なユダヤ人への憎悪」とXで非難</li>
+                    <li><strong>7月2日</strong>：Douwe Bobが深刻な脅迫を受け、家族とともにオランダ出国
+                        <ul>
+                            <li>警察が緊急保護を推奨</li>
+                            <li>38歳のAmsterdam Defence Force（ADF）代表Bob T.が逮捕される</li>
+                        </ul>
+                    </li>
+                    <li><strong>7月2日</strong>：Yeşilgöz、謝罪を拒否。「私の発言は正しい」</li>
+                    <li><strong>8月6日</strong>：Douwe Bobが名誉毀損で提訴</li>
+                    <li><strong>8月11日</strong>：和解・Yeşilgözが正式謝罪</li>
+                </ul>
+                <p class="note">この一連の出来事がVVD支持率に大きな打撃。「VVDがPVV-liteになっている」との批判も。</p>
+                <!-- 出典: 報道各社 2025-06-29～08-11 / 警察発表 -->
+            </div>
+
+            <p class="note">→ 詳細は <a href="weekly.html#july">週次観測ログ7月</a> をご覧ください。</p>
+        </section>
+
+        <!-- ========================================
+             【2025年6月】連立崩壊・選挙決定
+        ======================================== -->
+        <section class="period-section">
+            <h2>【2025年6月】連立崩壊・選挙決定</h2>
+
+            <h3>Schoof内閣崩壊（6月3日）</h3>
+            <div class="event-highlight">
+                <h4>Wildersが連立離脱を表明</h4>
+                <ul>
+                    <li>Wildersが「史上最も厳格な」亡命政策の実施が遅いとして10項目プランを提示：
+                        <ul>
+                            <li>亡命希望者への国境閉鎖</li>
+                            <li>犯罪で有罪判決を受けた二重国籍者の国外追放</li>
+                            <li>シリア難民の本国送還（もはや「危険な国」ではないとの判断）</li>
+                            <li>家族呼び寄せの禁止</li>
+                            <li>受け入れセンター閉鎖</li>
+                            <li>EU亡命割当の停止</li>
+                        </ul>
+                    </li>
+                    <li><a href="VVD.html">VVD</a>、<a href="NSC.html">NSC</a>、BBBが「実行不可能」「法的に無効」として拒否</li>
+                    <li>Wildersが連立から離脱、緊急会議はわずか数分で決裂</li>
+                    <li>Schoof首相が国王に内閣総辞職を提出</li>
+                    <li><strong>10月29日</strong>の前倒し選挙が決定（本来は2028年3月予定だった）</li>
+                </ul>
+                <!-- 出典: 政府声明 2025-06-03 / Wilders声明 -->
+            </div>
+
+            <div class="controversy">
+                <h4>各党の反応</h4>
+                <ul>
+                    <li><strong>Yeşilgöz（<a href="VVD.html">VVD</a>）</strong>：「2012年と同じ。またも臆病者のように逃げ出した。Wildersは自ら政権から排除された」</li>
+                    <li><strong>Nicolien van Vroonhoven（<a href="NSC.html">NSC</a>）</strong>：「この時点で政権を倒すのは無責任」</li>
+                    <li><strong>Wilders</strong>：「Schoofは不適格。最大党PVVが提案した厳格な亡命政策への署名を拒否するなら首相失格」</li>
+                    <li><strong>Timmermans（<a href="GL-PvdA.html">GL-PvdA</a>）</strong>：できるだけ早い選挙実施を要求</li>
+                </ul>
+                <p class="note">2012年にもWildersは緊縮策をめぐってRutte連立政権から離脱した前歴あり。今回で2度目。</p>
+                <!-- 出典: 各党声明 2025-06-03 -->
+            </div>
+
+            <h3>GL-PvdA正式統合へ（6月12日）</h3>
+            <div class="event-highlight">
+                <h4>左派連合の強化</h4>
+                <ul>
+                    <li>労働党（PvdA）とGroenLinksが再び統一候補リストで参加することを合意</li>
+                    <li>2026年に正式合併予定</li>
+                    <li>Frans Timmermans（元欧州委員会副委員長）が再び党首として首相を目指す</li>
+                    <li>エネルギー、住宅、公共投資に焦点</li>
+                    <li>課題：伝統的に全ての政策で一致していたわけではない両党の統合</li>
+                </ul>
+                <!-- 出典: GL-PvdA共同声明 2025-06-12 -->
+            </div>
+
+            <p class="note">→ 詳細は <a href="weekly.html#june">週次観測ログ6月</a> をご覧ください。</p>
+        </section>
+
+        <!-- ========================================
+             【2025年1〜5月】連立交渉期
+        ======================================== -->
+        <section class="period-section">
+            <h2>【2025年1〜5月】連立交渉期</h2>
+
+            <h3>2025年1月〜3月：新内閣構想の難航</h3>
+            <div class="event-highlight">
+                <ul>
+                    <li><a href="PVV.html">PVV</a>主導の連立交渉が難航。<a href="NSC.html">NSC</a>と<a href="GL-PvdA.html">GL-PvdA</a>の参加に壁</li>
+                    <li>最終的に<strong>PVV＋VVD協調体制＋NSC外部支援</strong>という構造へ</li>
+                </ul>
+            </div>
+
+            <h3>2025年4月：防衛支出増案の浮上</h3>
+            <div class="event-highlight">
+                <ul>
+                    <li>Wildersが「国防は最大の福祉」と発言</li>
+                    <li><strong>NATO支出をGDPの5%まで引き上げる</strong>案を推進（NATO関連）</li>
+                </ul>
+                <!-- 出典: Wilders X投稿 2025-04 -->
+            </div>
+
+            <h3>2025年5月：社会保障圧縮・移民制限の論争</h3>
+            <div class="controversy">
+                <ul>
+                    <li><a href="NSC.html">NSC</a>が「バランスある財政構造を目指す」と表明</li>
+                    <li><a href="GL-PvdA.html">GL-PvdA</a>が「軍拡と福祉切り捨ては矛盾」と反論</li>
+                    <li>窒素税（stikstofbelasting）の導入が議論に浮上</li>
+                    <li><a href="GL-PvdA.html">GL-PvdA</a>が農業圧迫を伴う形でも環境対策推進へ</li>
+                    <li><a href="VVD.html">VVD</a>は「企業と農家のバランスが必要」と慎重姿勢</li>
+                </ul>
+                <!-- 出典: Volkskrant / Telegraaf報道 2025-05 -->
+            </div>
+        </section>
+
+        <!-- ========================================
+             【2024年12月】2023年選挙結果
+        ======================================== -->
+        <section class="period-section">
+            <h2>【2024年12月】2023年選挙結果</h2>
+
+            <h3>2023年11月22日総選挙の結果</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong><a href="PVV.html">PVV</a>（Wilders）</strong>：37議席（第1党）</li>
+                    <li><strong><a href="GL-PvdA.html">GL-PvdA</a>連合</strong>：25議席</li>
+                    <li><strong><a href="VVD.html">VVD</a></strong>：24議席</li>
+                    <li><strong><a href="NSC.html">NSC</a>（新党）</strong>：20議席</li>
+                    <li><strong>D66</strong>：9議席</li>
+                    <li><strong><a href="CDA.html">CDA</a></strong>：5議席（歴史的低迷）</li>
+                </ul>
+            </div>
+
+            <h3>Schoof内閣の成立（2024年7月2日）</h3>
+            <div class="event-highlight">
+                <h4>223日の交渉期間を経て発足</h4>
+                <ul>
+                    <li>独立系の公務員Dick Schoofが首相（Wildersは首相就任を断念）</li>
+                    <li>4党連立：<a href="PVV.html">PVV</a>（37議席）、<a href="VVD.html">VVD</a>（24議席）、<a href="NSC.html">NSC</a>（20議席）、BBB</li>
+                    <li>実験的な構成：閣僚の50%がテクノクラート、50%が党所属</li>
+                    <li>当初から共通ビジョンの欠如が指摘されていた</li>
+                    <li>移民問題が政治議論の中心となり、グリーン移行や住宅政策が停滞</li>
+                    <li>EU関連でも問題：8億ユーロの再軍備計画への反対票（創設メンバーとして異例）、対イスラエル政策での不一致</li>
+                </ul>
+                <!-- 出典: 政府発表 2024-07-02 -->
+            </div>
+        </section>
+
+        <!-- ========================================
+             背景・歴史的文脈
+        ======================================== -->
+        <section class="period-section">
+            <h2>背景・歴史的文脈</h2>
+
+            <h3>オランダの政治システム</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong>比例代表制</strong>：得票率がそのまま議席に反映される。少数政党も議席を獲得しやすい</li>
+                    <li><strong>多党制</strong>：単独政党での過半数獲得は困難。連立政権が常態</li>
+                    <li><strong>連立交渉</strong>：選挙後の連立交渉が数ヶ月に及ぶことが一般的（2023年は223日）</li>
+                    <li><strong>政権の不安定性</strong>：連立崩壊による前倒し選挙も珍しくない</li>
+                </ul>
+            </div>
+
+            <h3>移民・亡命政策の歴史</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong>2000年代</strong>：Pim Fortuynの台頭により移民問題が政治の中心議題に</li>
+                    <li><strong>2010年代</strong>：Wildersの<a href="PVV.html">PVV</a>が移民制限を主張し続ける</li>
+                    <li><strong>2015年</strong>：欧州難民危機がオランダにも影響</li>
+                    <li><strong>2023年</strong>：PVVが「史上最も厳格な亡命政策」を掲げて第1党に</li>
+                    <li><strong>2025年</strong>：亡命政策の実施をめぐり連立崩壊</li>
+                </ul>
+            </div>
+
+            <h3>主要政党の歴史的位置づけ</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong><a href="VVD.html">VVD</a></strong>：長年の中道右派の中心。Mark Rutte首相（2010-2024）の政党。2025年は支持率低下</li>
+                    <li><strong><a href="CDA.html">CDA</a></strong>：伝統的な中道キリスト教民主政党。2023年に歴史的低迷（5議席）から2025年に劇的復活</li>
+                    <li><strong><a href="PVV.html">PVV</a></strong>：2006年創設の極右政党。反移民・反イスラムを掲げる。2023年に初の第1党</li>
+                    <li><strong><a href="GL-PvdA.html">GL-PvdA</a></strong>：緑の党と労働党の連合。2023年選挙に向けて統合。左派の中心勢力</li>
+                    <li><strong><a href="NSC.html">NSC</a></strong>：2023年にPieter Omtzigtが設立した新党。「財政規律と社会的公正」を掲げたが、2025年に崩壊の危機</li>
+                </ul>
+            </div>
+
+            <h3>2025年選挙の歴史的意義</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong>中道回帰の兆し</strong>：<a href="CDA.html">CDA</a>の急伸は、極端な政治への反動を示唆</li>
+                    <li><strong>ポピュリズムの限界</strong>：<a href="PVV.html">PVV</a>は最大政党だが連立形成不可能。統治能力の欠如が露呈</li>
+                    <li><strong>新党の試練</strong>：<a href="NSC.html">NSC</a>の急速な崩壊は、新党の脆弱性を示す</li>
+                    <li><strong>伝統政党の復権</strong>：<a href="CDA.html">CDA</a>の復活は、安定と経験を求める有権者心理を反映</li>
+                    <li><strong>複雑な連立交渉</strong>：5党連立の可能性など、オランダ政治の複雑化が進む</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ========================================
+             関連ページへのリンク
+        ======================================== -->
+        <section>
+            <h2>関連ページ</h2>
+            <div style="background-color: #34495e; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h3 style="color: white; margin-top: 0;">詳細情報</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <a href="index.html" style="background-color: white; color: #34495e; padding: 15px; border-radius: 4px; display: block; text-align: center; font-weight: 500;">トップページ</a>
+                    <a href="weekly.html" style="background-color: white; color: #34495e; padding: 15px; border-radius: 4px; display: block; text-align: center; font-weight: 500;">週次観測ログ</a>
+                </div>
+            </div>
+
+            <div style="background-color: #34495e; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                <h3 style="color: white; margin-top: 0;">主要政党</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <a href="PVV.html" style="background-color: white; color: #34495e; padding: 12px; border-radius: 4px; display: block; text-align: center;">PVV（自由党）</a>
+                    <a href="CDA.html" style="background-color: white; color: #34495e; padding: 12px; border-radius: 4px; display: block; text-align: center;">CDA</a>
+                    <a href="GL-PvdA.html" style="background-color: white; color: #34495e; padding: 12px; border-radius: 4px; display: block; text-align: center;">GL-PvdA</a>
+                    <a href="VVD.html" style="background-color: white; color: #34495e; padding: 12px; border-radius: 4px; display: block; text-align: center;">VVD</a>
+                    <a href="NSC.html" style="background-color: white; color: #34495e; padding: 12px; border-radius: 4px; display: block; text-align: center;">NSC</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             フッター
+        ======================================== -->
+        <div class="nav-back" style="margin-top: 40px;">
+            <a href="index.html">← トップページに戻る</a>
+        </div>
+
+        <p class="timestamp">最終更新：2025-10-19</p>
+    </div>
 </body>
 </html>
