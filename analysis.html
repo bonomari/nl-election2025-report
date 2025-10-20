@@ -36,6 +36,44 @@
             color: #555;
             margin-top: 25px;
         }
+        .country-comparison {
+    display: grid;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.country-card {
+    background-color: #f8f9fa;
+    border-left: 4px solid #6c757d;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.country-card.highlight-card {
+    background-color: #fff9e6;
+    border-left: 4px solid #ffc107;
+}
+
+.country-header {
+    background-color: rgba(0,0,0,0.05);
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #2c3e50;
+}
+
+.country-body {
+    padding: 15px;
+}
+
+.country-body p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.country-body p:last-child {
+    margin-bottom: 0;
+}
         .subtitle {
             color: #7f8c8d;
             font-size: 0.95em;
@@ -209,38 +247,47 @@
 
             <p>2020年代、欧州各国で極右・ポピュリスト政党が台頭していますが、その「成功」の度合いは大きく異なります：</p>
 
-            <table class="comparison-table">
-                <tr>
-                    <th>国</th>
-                    <th>政党</th>
-                    <th>状況</th>
-                </tr>
-                <tr>
-                    <td><strong>イタリア</strong></td>
-                    <td>Giorgia Meloni（フラテッリ・ディターリア）</td>
-                    <td>2022年政権獲得。現時点では連立内で「うまくやれている」。個人的資質（トランプとの関係構築能力）とタイミングが作用</td>
-                </tr>
-                <tr>
-                    <td><strong>フランス</strong></td>
-                    <td>Marine Le Pen（国民連合）</td>
-                    <td>cordon sanitaire（連立排除）で政権から排除され続ける</td>
-                </tr>
-                <tr>
-                    <td><strong>ベルギー</strong></td>
-                    <td>Vlaams Belang</td>
-                    <td>cordon sanitaireで完全孤立</td>
-                </tr>
-                <tr>
-                    <td><strong>ドイツ</strong></td>
-                    <td>AfD</td>
-                    <td>全党から連立拒否</td>
-                </tr>
-                <tr style="background-color: #fff9e6;">
-                    <td><strong>オランダ</strong></td>
-                    <td>PVV（Wilders）</td>
-                    <td>2度の連立崩壊後、完全排除。第1党でも首相就任拒否</td>
-                </tr>
-            </table>
+            <div class="country-comparison">
+    <div class="country-card">
+        <div class="country-header">🇮🇹 イタリア</div>
+        <div class="country-body">
+            <p><strong>政党:</strong> Giorgia Meloni（フラテッリ・ディターリア）</p>
+            <p><strong>状況:</strong> 2022年政権獲得。現時点では連立内で「うまくやれている」。個人的資質（トランプとの関係構築能力）とタイミングが作用</p>
+        </div>
+    </div>
+
+    <div class="country-card">
+        <div class="country-header">🇫🇷 フランス</div>
+        <div class="country-body">
+            <p><strong>政党:</strong> Marine Le Pen（国民連合）</p>
+            <p><strong>状況:</strong> cordon sanitaire（連立排除）で政権から排除され続ける</p>
+        </div>
+    </div>
+
+    <div class="country-card">
+        <div class="country-header">🇧🇪 ベルギー</div>
+        <div class="country-body">
+            <p><strong>政党:</strong> Vlaams Belang</p>
+            <p><strong>状況:</strong> cordon sanitaireで完全孤立</p>
+        </div>
+    </div>
+
+    <div class="country-card">
+        <div class="country-header">🇩🇪 ドイツ</div>
+        <div class="country-body">
+            <p><strong>政党:</strong> AfD</p>
+            <p><strong>状況:</strong> 全党から連立拒否</p>
+        </div>
+    </div>
+
+    <div class="country-card highlight-card">
+        <div class="country-header">🇳🇱 オランダ</div>
+        <div class="country-body">
+            <p><strong>政党:</strong> PVV（Wilders）</p>
+            <p><strong>状況:</strong> 2度の連立崩壊後、完全排除。第1党でも首相就任拒否</p>
+        </div>
+    </div>
+</div>
 
             <p>オランダはフランス・ベルギー・ドイツと同様、極右を連立から排除する戦略をとっています。イタリアは例外的なケースであり、Meloniの個人的資質と政治的タイミングが成功を可能にしました。</p>
 
