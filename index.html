@@ -24,6 +24,13 @@
             color: #2c3e50;
             border-bottom: 3px solid #e74c3c;
             padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        .election-date {
+            color: #e74c3c;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
         h2 {
             color: #34495e;
@@ -35,48 +42,54 @@
             color: #555;
             margin-top: 20px;
         }
-        .nav-guide {
-            background-color: #f0f9ff;
-            border: 2px solid #3b82f6;
+        .update-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 20px;
-            margin: 20px 0;
             border-radius: 8px;
-        }
-        .nav-guide h3 {
-            color: #1e40af;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .nav-guide ul {
-            line-height: 2;
-            margin: 10px 0;
-        }
-        .nav-guide a {
-            font-weight: 500;
-            color: #2563eb;
-        }
-        .info-note {
-            background-color: #ecf0f1;
-            border-left: 4px solid #3498db;
-            padding: 15px;
             margin: 20px 0;
-            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .info-note strong {
-            color: #2c3e50;
-            display: block;
-            margin-bottom: 10px;
+        .update-bar h3 {
+            margin: 0 0 10px 0;
+            color: white;
+            font-size: 1.2em;
         }
-        .info-note ul {
-            margin: 5px 0;
-            padding-left: 20px;
+        .update-bar ul {
+            margin: 10px 0 10px 20px;
+            line-height: 1.8;
         }
-        .highlight-box {
-            background-color: #fffbf0;
-            border-left: 4px solid #ff9800;
-            padding: 15px;
+        .update-bar a {
+            color: #ffd700;
+            font-weight: 600;
+        }
+        .poll-headline {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
             margin: 20px 0;
-            border-radius: 4px;
+            text-align: center;
+        }
+        .poll-headline h2 {
+            color: white;
+            margin: 0 0 15px 0;
+            border: none;
+            padding: 0;
+        }
+        .poll-numbers {
+            font-size: 1.3em;
+            font-weight: 600;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        .poll-warning {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 1.1em;
+            font-weight: 600;
         }
         table {
             width: 100%;
@@ -95,12 +108,6 @@
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
-        }
-        tr.highlight {
-            background-color: #fff9e6;
-        }
-        ul {
-            line-height: 1.8;
         }
         .note {
             font-size: 0.85em;
@@ -142,13 +149,6 @@
             background-color: #d5dbdb;
             text-decoration: none;
         }
-        .update-log {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 30px;
-            font-size: 0.9em;
-        }
         .timestamp {
             text-align: right;
             color: #7f8c8d;
@@ -161,52 +161,30 @@
 </head>
 <body>
     <div class="container">
-        <h1>オランダ総選挙2025 政治動向レポート</h1>
+        <h1>オランダ総選挙2025</h1>
+        <p class="election-date">投票日: 2025年10月29日(水) — あと9日</p>
 
-        <!-- このサイトの使い方 -->
-        <div class="nav-guide">
-            <h3>📖 このサイトの使い方</h3>
+        <div class="update-bar">
+            <h3>🆕 最新更新 (10/20)</h3>
             <ul>
-                <li><a href="overview.html"><strong>全体俯瞰</strong></a> - 2025年6月の連立崩壊から現在までの流れを時系列で把握</li>
-                <li><a href="weekly.html"><strong>週次ログ</strong></a> - 週ごとの詳細な出来事、世論調査データ、政治的動向</li>
-                <li><a href="analysis.html"><strong>政治動向分析</strong></a> - 複数視点からの分析と解釈、なぜそうなったかを考察</li>
-                <li><a href="#party-links"><strong>政党別ページ</strong></a> - 各党の政策スタンス、マニフェスト、最新動向</li>
+                <li><strong>Wilders活動再開 (10/15)</strong>: テロ脅威から復帰、討論会参加へ</li>
+                <li><strong>選挙直前週</strong>: 最終世論調査と連立形成の見通し</li>
             </ul>
+            <a href="weekly.html">→ 週次観測ログで詳細を確認</a>
         </div>
 
-        <!-- 世論調査データの所在 -->
-        <div class="info-note">
-            <strong>📊 世論調査データはどこで見られる？</strong>
-            <ul>
-                <li><a href="overview.html">全体俯瞰</a> - 月別の議席予測と主要トレンドの推移</li>
-                <li><a href="weekly.html">週次ログ</a> - 週ごとの詳細な調査結果と出典情報</li>
-                <li><a href="analysis.html">政治動向分析</a> - データの解釈と背景要因の分析</li>
-            </ul>
+        <div class="poll-headline">
+            <h2>最新世論調査 (10月中旬)</h2>
+            <div class="poll-numbers">
+                PVV 31-35 | CDA 22-26 | GL-PvdA 21-25 | VVD 12-16 | D66 12-15
+            </div>
+            <div class="poll-warning" style="background-color: #dc2626; color: white; border: none; margin-top: 20px;">
+                ⚠️ 有権者の48%が投票先未定
+            </div>
         </div>
 
-        <!-- 最新ハイライト -->
-        <h2>【最新ハイライト】10月中旬時点</h2>
-        
-        <div class="highlight-box">
-            <h3 style="margin-top: 0;">主要な動き</h3>
-            <ul>
-                <li><strong><a href="CDA.html">CDA</a>が第2党に浮上</strong> - 2023年5議席→2025年予測22-26議席と劇的回復。Bontenbal党首が「将来の首相候補」として支持拡大</li>
-                <li><strong><a href="VVD.html">VVD</a>が大幅後退</strong> - 現有24議席→予測12-16議席。Yeşilgöz党首への党内信頼度が6月77%→8月31%に急落</li>
-                <li><strong><a href="NSC.html">NSC</a>消滅の危機</strong> - 2023年20議席→2025年議席ゼロの可能性。8月の連立離脱後、支持率崩壊</li>
-                <li><strong>Wildersが選挙活動中断</strong>（10月10日）- ベルギーでのテロ脅威が判明。討論回避の戦略との疑念も（<a href="PVV.html">PVV</a>）</li>
-                <li><strong>有権者の50%が投票先未定</strong> - 特に<a href="VVD.html">VVD</a>・D66・<a href="CDA.html">CDA</a>支持者が迷っている状況</li>
-            </ul>
-        </div>
-
-        <div class="highlight-box">
-            <h3 style="margin-top: 0;">連立形成の見通し</h3>
-            <p><strong>主要3党（<a href="CDA.html">CDA</a>・<a href="VVD.html">VVD</a>・<a href="GL-PvdA.html">GL-PvdA</a>）が<a href="PVV.html">PVV</a>との連立を拒否</strong>しており、安定政権には最低4-5党の複雑な組み合わせが必要。最も可能性が高いのは<strong><a href="CDA.html">CDA</a>中心の拡大連立</strong>（<a href="CDA.html">CDA</a> + <a href="VVD.html">VVD</a> + D66 + BBB + JA21）で、Bontenbal党首が「左右の枠を超える」と表明。</p>
-            <p class="note">→ 連立シナリオの詳細な分析は <a href="overview.html#oct-coalition">全体俯瞰ページ</a> をご覧ください。</p>
-        </div>
-
-        <!-- 争点別・政党スタンス表 -->
-        <h2>争点別・主要政党のスタンス（ダイジェスト）</h2>
-        <p class="note">※ 記号：✔︎ 賛成／✘ 反対／❍ 条件付き・中立。詳細は各政党ページおよび <a href="overview.html">全体俯瞰</a> を参照。</p>
+        <h2>争点別・主要政党スタンス</h2>
+        <p class="note">各党の具体的政策を明記。詳細は <a href="overview.html">概要</a> および各党ページ参照。</p>
         
         <table>
             <thead>
@@ -214,65 +192,204 @@
                     <th>政党</th>
                     <th>移民・亡命政策</th>
                     <th>気候・エネルギー</th>
-                    <th>住宅政策</th>
-                    <th>NATO・防衛</th>
-                    <th>医療・社会保障</th>
-                    <th>2025予測議席</th>
+                    <th>財政・経済</th>
+                    <th>EU/NATO</th>
+                    <th>予測議席</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><a href="PVV.html"><strong>PVV</strong></a></td>
-                    <td>✘ 国境閉鎖、即時送還、受入停止</td>
-                    <td>✘ 気候目標反対、CO2増加容認</td>
-                    <td>❍ 家賃規制、オランダ人優先</td>
-                    <td>❍ NATO義務縮小、国境重視</td>
-                    <td>❍ 現状維持</td>
+                    <td>国境閉鎖、即時送還、受入停止</td>
+                    <td>パリ協定離脱、気候目標反対</td>
+                    <td>福祉拡大、富裕層増税</td>
+                    <td>NATO義務縮小、EU懐疑</td>
                     <td><strong>31-35</strong></td>
                 </tr>
-                <tr class="highlight">
+                <tr style="background-color: #fff9e6;">
                     <td><a href="CDA.html"><strong>CDA</strong></a></td>
-                    <td>❍ 実効的統合、人道性と法執行のバランス</td>
-                    <td>✔︎ 原子力推進、再エネ投資、EU目標支持</td>
-                    <td>✔︎ 建設促進、住宅ローン減税段階的削減</td>
-                    <td>✔︎ NATO強化、ウクライナ支援、防衛費増</td>
-                    <td>✔︎ 医療自己負担増、アクセス改善</td>
+                    <td>実効的統合、法執行と人道のバランス</td>
+                    <td>原発推進、再エネ投資、EU目標支持</td>
+                    <td>財政規律、公共投資</td>
+                    <td>NATO強化、ウクライナ支援</td>
                     <td><strong>22-26 ⬆</strong></td>
                 </tr>
                 <tr>
-                    <td><a href="GL-PvdA.html"><strong>GL-PvdA</strong></a></td>
-                    <td>✔︎ 人道的受入、EU負担分担、統合支援</td>
-                    <td>✔︎ 2030年CO2削減65%、石炭廃止、炭素税</td>
-                    <td>✔︎ 年10万戸公営住宅、家賃上限、住宅ローン減税削減</td>
-                    <td>✔︎ NATO支持、外交優先、平和的解決重視</td>
-                    <td>✔︎ 医療自己負担半減維持、保険拡大</td>
+                    <td><a href="GL–PvdA.html"><strong>GL–PvdA</strong></a></td>
+                    <td>人道的受入、EU負担分担</td>
+                    <td>2030年CO2削減65%、石炭廃止</td>
+                    <td>公共投資、富裕税、最低賃金引上</td>
+                    <td>NATO支持、外交優先</td>
                     <td><strong>21-25</strong></td>
                 </tr>
                 <tr>
                     <td><a href="VVD.html"><strong>VVD</strong></a></td>
-                    <td>❍ 管理された移民、統合重視</td>
-                    <td>✘ 追加気候措置反対</td>
-                    <td>❍ 市場主導、初回購入者減税</td>
-                    <td>✔︎ NATO強化、防衛費増、ウクライナ支援</td>
-                    <td>✘ 医療自己負担増（€440）、富裕税反対</td>
+                    <td>管理された移民、統合重視</td>
+                    <td>追加気候措置反対、市場主導</td>
+                    <td>市場重視、減税、財政規律</td>
+                    <td>NATO強化、防衛費増</td>
                     <td><strong>12-16 ⬇</strong></td>
                 </tr>
                 <tr>
+                    <td><a href="D66.html"><strong>D66</strong></a></td>
+                    <td>人道的、統合支援</td>
+                    <td>気候対策積極推進</td>
+                    <td>教育・イノベーション投資</td>
+                    <td>EU統合推進</td>
+                    <td><strong>12-15</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>JA21</strong></td>
+                    <td>厳格な移民管理</td>
+                    <td>現実的気候政策</td>
+                    <td>市場重視</td>
+                    <td>NATO支持</td>
+                    <td><strong>12-13 ⬆</strong></td>
+                </tr>
+                <tr>
                     <td><a href="NSC.html"><strong>NSC</strong></a></td>
-                    <td>❍ 迅速処理、統合プログラム</td>
-                    <td>✘ 追加措置反対</td>
-                    <td>❍ 地方自治体の裁量重視</td>
-                    <td>✔︎ EU危機管理で主導的役割</td>
-                    <td>❍ 制度改革重視</td>
+                    <td>迅速処理、統合プログラム</td>
+                    <td>追加措置反対</td>
+                    <td>制度改革重視</td>
+                    <td>EU危機管理</td>
                     <td><strong>0-1 ⬇⬇</strong></td>
                 </tr>
             </tbody>
         </table>
         
-        <div class="highlight-box">
-            <p style="margin: 0;"><strong>注目：</strong> <a href="CDA.html">CDA</a>が<strong>2023年5議席→2025年22-26議席予測</strong>と劇的回復。Bontenbal党首の道徳的立場とバランス重視が支持され、<a href="NSC.html">NSC</a>崩壊（20→0予測）と<a href="VVD.html">VVD</a>後退（24→12-16予測）の受け皿に。中道回帰の象徴として第2党予測。</p>
+        <div style="background-color: #fffbf0; border-left: 4px solid #ff9800; padding: 15px; margin: 20px 0; border-radius: 4px;">
+            <p style="margin: 0;"><strong>注目：</strong> CDAが<strong>2023年5議席→2025年22-26議席予測</strong>と劇的回復。Bontenbal党首の道徳的立場とバランス重視が支持され、NSC崩壊とVVD後退の受け皿に。</p>
         </div>
+        <h2>分析・深掘り</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 20px 0;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 10px 0; color: white; font-size: 1.1em;">📊 連立形成シナリオ</h3>
+                <p style="margin: 0 0 10px 0; font-size: 0.95em;">なぜ5党連立が必要なのか？過半数76議席への道筋</p>
+                <a href="analysis.html" style="color: #ffd700; font-weight: 600;">→ 詳細分析を読む</a>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 10px 0; color: white; font-size: 1.1em;">📈 CDA復活の謎</h3>
+                <p style="margin: 0 0 10px 0; font-size: 0.95em;">5議席→26議席。Bontenbalは何を変えたのか？</p>
+                <a href="analysis-parties.html" style="color: #ffd700; font-weight: 600;">→ 政党分析を読む</a>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="margin: 0 0 10px 0; color: white; font-size: 1.1em;">🔮 選挙後の展望</h3>
+                <p style="margin: 0 0 10px 0; font-size: 0.95em;">連立交渉は何ヶ月？Wildersの首相就任は？</p>
+                <a href="analysis.html" style="color: #ffd700; font-weight: 600;">→ 展望を読む</a>
+            </div>
+        </div>
+
+        <h2>連立形成の見通し</h2>
         
+        <div style="background-color: #f0f9ff; border: 2px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px;">
+            <h3 style="color: #1e40af; margin-top: 0;">過半数獲得の条件：76議席以上が必要</h3>
+            <p style="line-height: 1.8;">
+                オランダ下院は150議席。PVVは最大政党だが、<strong>CDA・VVD・GL-PvdAが連立を拒否</strong>しているため、単独での政権形成は不可能。安定政権には最低4-5党が必要。
+            </p>
+        </div>
+
+        <h3>各党の連立における役割</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>政党</th>
+                    <th>予測議席</th>
+                    <th>連立での位置づけ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #fef3c7;">
+                    <td><strong>CDA</strong></td>
+                    <td>22-26</td>
+                    <td><strong>キングメーカー</strong>。左右どちらとも組める。ほぼ全ての連立シナリオに登場</td>
+                </tr>
+                <tr style="background-color: #fef3c7;">
+                    <td><strong>PVV</strong></td>
+                    <td>31-35</td>
+                    <td>最大政党だが孤立。主要3党が連立拒否。少数政権または排除の可能性</td>
+                </tr>
+                <tr style="background-color: #fef3c7;">
+                    <td><strong>GL-PvdA</strong></td>
+                    <td>21-25</td>
+                    <td>左派の核。大連立なら必須。Timmermans党首が首相を強く希望</td>
+                </tr>
+                <tr>
+                    <td><strong>VVD</strong></td>
+                    <td>12-16</td>
+                    <td>中道右派。連立経験豊富。中道右派連立を志向</td>
+                </tr>
+                <tr>
+                    <td><strong>D66</strong></td>
+                    <td>12-15</td>
+                    <td>中道。「国民統合政府」（左右大連立）を提案。橋渡し役として重要</td>
+                </tr>
+                <tr>
+                    <td><strong>JA21</strong></td>
+                    <td>12-13</td>
+                    <td>右派。どの党とも連立可能と表明</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>主要な連立シナリオ</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>シナリオ</th>
+                    <th>構成政党</th>
+                    <th>予測議席</th>
+                    <th>実現可能性</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>CDA中心の拡大連立</strong></td>
+                    <td>CDA + VVD + D66 + BBB + JA21</td>
+                    <td>61-76</td>
+                    <td>✔︎ <strong>高</strong> - 5党連立で過半数。Bontenbal「左右の枠を超える」</td>
+                </tr>
+                <tr>
+                    <td><strong>大連立（左右協力）</strong></td>
+                    <td>CDA + GL-PvdA + VVD + D66</td>
+                    <td>67-82</td>
+                    <td>❍ <strong>中</strong> - 過半数確保。D66が仲介役。VVDとGL-PvdA間に距離</td>
+                </tr>
+                <tr>
+                    <td><strong>中道右派連立</strong></td>
+                    <td>CDA + VVD + D66 + JA21</td>
+                    <td>58-70</td>
+                    <td>❍ <strong>中</strong> - 76議席に届かない可能性。BBB追加必要</td>
+                </tr>
+                <tr style="background-color: #fee2e2;">
+                    <td><strong>PVV中心の連立</strong></td>
+                    <td>PVV + JA21 + BBB + FvD</td>
+                    <td>47-59</td>
+                    <td>✘ <strong>極低</strong> - 過半数に遠く及ばず。主要3党がPVV排除で一致</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="background-color: #f0f9ff; padding: 15px; border-left: 4px solid #3b82f6; margin: 20px 0; border-radius: 4px;">
+            <h4 style="color: #1e40af; margin-top: 0;">連立交渉の見通し</h4>
+            <ul style="line-height: 1.8;">
+                <li><strong>長期化は必至</strong>：2023年は223日を要した。今回も3-6ヶ月の交渉が予想</li>
+                <li><strong>CDAがキーパーソン</strong>：Bontenbal党首の判断が連立の方向性を決定</li>
+                <li><strong>PVV排除でコンセンサス</strong>：CDA・VVD・GL-PvdAがPVVとの連立拒否で一致</li>
+                <li><strong>D66の役割</strong>：「国民統合政府」構想で左右の橋渡し役を自認</li>
+            </ul>
+        </div>
+
+        <h2>主要政党</h2>
+        <div class="party-list">
+            <a href="PVV.html">PVV（自由党）</a>
+            <a href="CDA.html">CDA（キリスト教民主同盟）</a>
+            <a href="GL–PvdA.html">GL–PvdA（緑の党・労働党）</a>
+            <a href="VVD.html">VVD（自由民主国民党）</a>
+            <a href="D66.html">D66（民主66）</a>
+            <a href="NSC.html">NSC（新社会契約）</a>
+        </div>
         <p class="note">出典：各党マニフェスト、政策発表、経済政策分析局（CPB）レポート、報道を総合。詳細な根拠とソースは <a href="overview.html">全体俯瞰</a> および各政党ページを参照。</p>
 
         <!-- 主要ページ -->
@@ -293,14 +410,8 @@
         </div>
 
         <!-- 更新ログ -->
-        <div class="update-log">
-            <h3>最近の更新</h3>
-            <p><strong>2025-10-19</strong>：index.htmlを軽量化、ナビゲーション強化。詳細情報はoverview.htmlとweekly.htmlに集約</p>
-            <p><strong>2025-10-18</strong>：10月中旬の世論調査、Wilders選挙活動中断、連立見通しを更新</p>
-            <p><strong>2025-08-30</strong>：8月末時点の動向を記録</p>
-        </div>
-
-        <p class="timestamp">最終更新：2025-10-19</p>
+        
+        <p class="timestamp">最終更新：2025-10-20</p>
     </div>
 </body>
 </html>
