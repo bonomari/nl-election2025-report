@@ -1,0 +1,116 @@
+@media print {
+    /* 基本設定 */
+    body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+    
+    .container {
+        box-shadow: none !important;
+        padding: 10px !important;
+    }
+    
+    /* 背景色とグラデーションを無効化 */
+    * {
+        background-image: none !important;
+    }
+    
+    /* ヘッダー・強調ボックス */
+    .update-bar, .poll-headline, .poll-data, .event-box, 
+    .coalition-box, .event-highlight, .poll-update, .controversy {
+        background-color: white !important;
+        border: 1px solid #666 !important;
+        color: black !important;
+        page-break-inside: avoid;
+    }
+    
+    .update-bar h3, .poll-headline h2, .poll-headline p {
+        color: black !important;
+    }
+    
+    .poll-warning {
+        background-color: white !important;
+        border: 1px solid #666 !important;
+        color: black !important;
+    }
+    
+    /* リンク */
+    a {
+        color: black !important;
+        text-decoration: underline;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+    
+    /* 内部リンク（#で始まる）はURL表示しない */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    
+    /* ナビゲーション */
+    .nav-links, .nav-back {
+        background-color: white !important;
+        border: 1px solid #666 !important;
+        display: none; /* 印刷時は非表示でも可 */
+    }
+    
+    .nav-links a {
+        color: black !important;
+    }
+    
+    /* テーブル */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        page-break-inside: avoid;
+    }
+    
+    table th {
+        background-color: #e0e0e0 !important;
+        color: black !important;
+        border: 1px solid #666 !important;
+    }
+    
+    table td {
+        border: 1px solid #666 !important;
+    }
+    
+    /* 見出し */
+    h1, h2, h3, h4, h5, h6 {
+        color: black !important;
+        border-color: #666 !important;
+        page-break-after: avoid;
+    }
+    
+    /* 週次ログの週エントリ */
+    .week-entry {
+        background-color: white !important;
+        border: 1px solid #666 !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+    
+    /* ページ区切り */
+    h2 {
+        page-break-before: auto;
+    }
+    
+    /* 不要な要素を非表示 */
+    .timestamp {
+        display: none;
+    }
+    
+    /* 政党カードリスト */
+    .party-list a {
+        background-color: white !important;
+        border: 1px solid #666 !important;
+        color: black !important;
+    }
+}
