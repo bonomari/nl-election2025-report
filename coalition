@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>連立交渉 | オランダ総選挙2025</title>
+    <link rel="stylesheet" href="print.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .timeline-item {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .timeline-date {
+            font-weight: 600;
+            color: #e74c3c;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        .scenario-box {
+            background-color: #f0f9ff;
+            border: 2px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .note {
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
+        }
+        .timestamp {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        
+        /* レスポンシブデザイン対応 */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 15px; }
+            h1 { font-size: 1.5em; }
+            h2 { font-size: 1.3em; }
+            table { font-size: 0.75em; }
+            th, td { padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- グローバルナビゲーションバー -->
+    <nav style="position: sticky; top: 0; background-color: #1e40af; z-index: 1000; padding: 12px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+        <div style="max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 25px;">
+            <a href="index.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                🏠 トップ
+            </a>
+            <a href="analysis.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                📊 詳細分析
+            </a>
+            <a href="coalition.html" style="color: #ff6b6b; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 5px; background-color: rgba(255,107,107,0.15); padding: 6px 12px; border-radius: 4px;">
+                🤝 連立交渉
+            </a>
+            <a href="overview.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                📋 概要
+            </a>
+            <a href="weekly.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                📅 週報
+            </a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>🤝 連立交渉</h1>
+        <p style="color: #e74c3c; font-size: 1.1em; font-weight: 600; margin-bottom: 20px;">
+            選挙実施: 2025年10月29日 | 最終結果確定: 11月4日 | 交渉開始: 11月5日頃
+        </p>
+        
+        <div style="background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: white; padding: 25px; border-radius: 8px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.15);">
+            <h2 style="color: white; margin: 0 0 15px 0; border: none; padding: 0;">選挙結果サマリー</h2>
+            <div style="background-color: rgba(255,255,255,0.15); padding: 15px; border-radius: 6px;">
+                <div style="font-size: 1.15em; line-height: 1.8; font-weight: 600;">
+                    <strong>D66: 26議席（第1党）</strong> | <strong>PVV: 26議席（第2党）</strong><br>
+                    VVD: 22 | GL-PvdA: 20 | CDA: 18 | JA21: 9 | その他: 35
+                </div>
+                <p style="margin: 15px 0 5px 0; font-size: 0.95em;">
+                    過半数: 76議席 | 投票率: 78.4%
+                </p>
+            </div>
+        </div>
+        
+        <h2>連立交渉の焦点</h2>
+        
+        <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #92400e;">なぜ連立が困難なのか？</h3>
+            <ul style="line-height: 1.8;">
+                <li><strong>PVV（26議席）が孤立</strong> - 最大政党だが、CDA・VVD・GL-PvdAが連立拒否を表明</li>
+                <li><strong>最低4-5党が必要</strong> - 単独で過半数を取った政党がなく、複雑な組み合わせが不可避</li>
+                <li><strong>政策の隔たり</strong> - 移民政策、EU統合、財政規律で各党の立場が大きく異なる</li>
+                <li><strong>VVD-GL/PvdA対立</strong> - YeşilgözとTimmermansが互いに連立を拒否</li>
+                <li><strong>2023年の教訓</strong> - 前回は連立交渉に223日を要し、結局6ヶ月で崩壊</li>
+            </ul>
+        </div>
+
+        <h3>次期首相候補（出口調査）</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>候補者</th>
+                    <th>政党</th>
+                    <th>支持率</th>
+                    <th>強み</th>
+                    <th>弱み</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f0f9ff;">
+                    <td><strong>Rob Jetten</strong></td>
+                    <td><a href="D66.html">D66</a></td>
+                    <td><strong>15%</strong></td>
+                    <td>第1党党首、若さ（38歳）、中道橋渡し役</td>
+                    <td>経験不足、右派との関係構築が課題</td>
+                </tr>
+                <tr>
+                    <td><strong>Henri Bontenbal</strong></td>
+                    <td><a href="CDA.html">CDA</a></td>
+                    <td><strong>13%</strong></td>
+                    <td>左右どちらとも組める、道徳的立場</td>
+                    <td>「同性愛発言」炎上、議席数3位</td>
+                </tr>
+                <tr style="background-color: #fee2e2;">
+                    <td><strong>Geert Wilders</strong></td>
+                    <td><a href="PVV.html">PVV</a></td>
+                    <td><strong>12%</strong></td>
+                    <td>第2党党首、強固な支持基盤</td>
+                    <td>全主要政党が連立拒否、孤立</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="note">出典: <a href="https://www.aljazeera.com/news/2025/10/31/dutch-centrist-jetten-set-to-become-youngest-pm-after-seeing-off-far-right">Al Jazeera</a> | <a href="https://nltimes.nl/2025/10/30/jetten-likely-lead-cabinet-formation-talks-aiming-broad-political-center">NL Times</a></p>
+
+<h2>タイムライン：選挙後の動き</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">📅 10月29日（水）21:00 - 投票終了・出口調査発表</div>
+            <p><strong>出口調査結果:</strong></p>
+            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                <li><strong>Ipsos I&O:</strong> D66 23議席 | PVV 23議席 | GL-PvdA 23議席（3党同数）</li>
+                <li><strong>EenVandaag/Verian:</strong> PVV 29議席 | GL-PvdA 25議席 | D66 24議席</li>
+            </ul>
+            <p><strong>Frans Timmermans辞任:</strong> 出口調査発表直後、GL-PvdA党首が辞任を表明。「選挙結果に責任を取る」と声明。</p>
+            <p class="note">出典: <a href="https://www.euronews.com/2025/10/29/centre-left-d66-takes-lead-in-dutch-parliamentary-election-ipsos-exit-poll-says">Euronews</a></p>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">📅 10月30日（木）- 開票進行・連立交渉始動</div>
+            <p><strong>開票速報（午前）:</strong> D66が僅差でリード。PVVとの差は約15,000票。</p>
+            <p><strong>Rob Jetten（D66）声明:</strong> 「中道の幅広い連立を目指す」と表明。VVD、GL-PvdA、CDAとの連立を提案（合計86議席）。</p>
+            <p><strong>Dilan Yeşilgöz（VVD）反応:</strong> 「GL-PvdAとは組まない」と明言。中道右派連立（VVD+D66+CDA+JA21）を希望。</p>
+            <p><strong>Geert Wilders（PVV）主張:</strong> 「我々が最大政党になる」と主張。在外投票（約9万票）で逆転を期待。</p>
+            <p class="note">出典: <a href="https://nltimes.nl/2025/10/30/jetten-likely-lead-cabinet-formation-talks-aiming-broad-political-center">NL Times</a> | <a href="https://www.dutchnews.nl/2025/10/d66-or-pvv-as-biggest-final-dutch-election-votes-trickle-in/">DutchNews.nl</a></p>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">📅 11月1日（金）- Wilders「選挙不正」主張</div>
+            <p><strong>Wildersの主張:</strong> X（旧Twitter）で「選挙に不正があった」と投稿。具体的証拠は提示せず。</p>
+            <p><strong>各党の反応:</strong></p>
+            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                <li><strong>D66:</strong> 「根拠のない主張。民主主義への攻撃だ」（Jetten）</li>
+                <li><strong>VVD:</strong> 「選挙管理委員会を信頼する。証拠がなければ無責任」（Yeşilgöz）</li>
+                <li><strong>CDA:</strong> 「Wildersはまた逃げ出した。連立パートナーとして不適格」（Bontenbal）</li>
+            </ul>
+            <p><strong>選挙管理委員会:</strong> 「不正の証拠は一切ない。すべて適正に実施された」と公式声明。</p>
+            <p class="note">出典: <a href="https://en.wikipedia.org/wiki/2025_Dutch_general_election">Wikipedia</a></p>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">📅 11月4日（月）- 最終結果確定・GL-PvdA新党首選出</div>
+            <p><strong>最終結果（99.7%開票）:</strong></p>
+            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                <li><strong>D66: 26議席</strong>（16.9%、約15,000票リード）</li>
+                <li><strong>PVV: 26議席</strong>（16.8%）</li>
+                <li>在外投票でもD66がリードを維持。Wildersの逆転は実現せず</li>
+            </ul>
+            <p><strong>GL-PvdA新党首選出:</strong></p>
+            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                <li><strong>候補者:</strong> Jesse Klaver（GroenLinks前党首）、Marjolein Moorman（アムステルダム市議）</li>
+                <li><strong>選出予定:</strong> 11月4日中に党内投票で決定</li>
+                <li><strong>連立交渉への影響:</strong> 新党首の政治的立場が連立シナリオを左右する可能性</li>
+            </ul>
+            <p class="note">出典: <a href="https://en.wikipedia.org/wiki/2025_Dutch_general_election">Wikipedia</a> | <a href="https://www.dutchnews.nl/2025/10/d66-or-pvv-as-biggest-final-dutch-election-votes-trickle-in/">DutchNews.nl</a></p>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">📅 11月5日頃（火）- 連立交渉開始見込み</div>
+            <p><strong>国王の任命:</strong> 第1党D66のJettenが「informateur」（情報収集役）に任命される見込み。</p>
+            <p><strong>Informateurの役割:</strong></p>
+            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                <li>各党の連立意思を調査</li>
+                <li>可能な連立シナリオを分析</li>
+                <li>「formateur」（連立形成役）を推薦</li>
+                <li>通常2-4週間の調査期間</li>
+            </ul>
+            <p><strong>予想される展開:</strong> Jettenは自ら「formateur」となり、首相就任を目指す可能性が高い。</p>
+            <p class="note">オランダの連立交渉プロセスに基づく予測</p>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-date">📅 11月12日（火）- 新議会招集予定</div>
+            <p><strong>第1回議会:</strong> 新たに選出された150議席の議員が初めて集結。</p>
+            <p><strong>議長選出:</strong> 下院議長（Tweede Kamervoorzitter）を選出。</p>
+            <p><strong>連立交渉の本格化:</strong> 議会が始動することで、連立交渉も加速する見込み。</p>
+        </div>
+
+<h2>連立シナリオ詳細分析</h2>
+        
+        <p style="background-color: #f0f9ff; padding: 15px; border-left: 4px solid #3b82f6; border-radius: 4px;">
+            <strong>過半数の条件:</strong> 150議席中76議席以上が必要。現在の議席分布では単独または2党連立では不可能。最低4-5党の複雑な組み合わせが必須。
+        </p>
+        
+        <div class="scenario-box">
+            <h3 style="color: #1e40af; margin-top: 0;">シナリオ1: 中道大連立（Jetten提案）</h3>
+            <p><strong>構成:</strong> D66 (26) + VVD (22) + GL-PvdA (20) + CDA (18) = <strong>86議席</strong></p>
+            
+            <div style="background-color: #dbeafe; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                <h4 style="margin-top: 0;">✅ メリット</h4>
+                <ul style="line-height: 1.8;">
+                    <li><strong>安定多数:</strong> 76議席を10議席上回り、余裕のある過半数</li>
+                    <li><strong>中道重視:</strong> 極右（PVV）と極左を排除した中道連立</li>
+                    <li><strong>経験豊富:</strong> VVD、CDAは過去の連立経験が豊富</li>
+                    <li><strong>D66が橋渡し:</strong> 左派（GL-PvdA）と右派（VVD）の仲介役</li>
+                </ul>
+            </div>
+            
+            <div style="background-color: #fee2e2; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                <h4 style="margin-top: 0;">❌ デメリット・障壁</h4>
+                <ul style="line-height: 1.8;">
+                    <li><strong>VVD-GL/PvdA対立:</strong> Yeşilgözが「GL-PvdAとは組まない」と明言</li>
+                    <li><strong>政策の隔たり:</strong> 移民政策（VVDは厳格、GL-PvdAは人道的）で対立</li>
+                    <li><strong>財政政策:</strong> GL-PvdAは富裕層増税、VVDは減税志向</li>
+                    <li><strong>気候政策:</strong> GL-PvdAは2030年CO2削減65%、VVDは追加措置反対</li>
+                </ul>
+            </div>
+            
+            <p><strong>実現可能性:</strong> ❍ <strong>中</strong> - 数学的には最適だが、VVD党首の姿勢が最大の障壁。Yeşilgözの交代または妥協がない限り困難。</p>
+            <p class="note">出典: <a href="https://nltimes.nl/2025/10/30/jetten-likely-lead-cabinet-formation-talks-aiming-broad-political-center">NL Times</a></p>
+        </div>
+        
+        <div class="scenario-box" style="border-color: #f59e0b;">
+            <h3 style="color: #92400e; margin-top: 0;">シナリオ2: 中道右派連立（VVD希望）</h3>
+            <p><strong>構成:</strong> VVD (22) + D66 (26) + CDA (18) + JA21 (9) = <strong>75議席</strong></p>
+            <p><strong>BBB追加版:</strong> VVD + D66 + CDA + JA21 + BBB (4) = <strong>79議席</strong></p>
+            
+            <div style="background-color: #fef3c7; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                <h4 style="margin-top: 0;">✅ メリット</h4>
+                <ul style="line-height: 1.8;">
+                    <li><strong>VVDの希望実現:</strong> GL-PvdAを排除した中道右派連立</li>
+                    <li><strong>移民政策で一致:</strong> 全党が「管理された移民」で合意可能</li>
+                    <li><strong>財政規律:</strong> 全党が財政健全化を重視</li>
+                    <li><strong>EU実利的:</strong> EU統合に慎重、実利優先で一致</li>
+                </ul>
+            </div>
+            
+            <div style="background-color: #fee2e2; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                <h4 style="margin-top: 0;">❌ デメリット・障壁</h4>
+                <ul style="line-height: 1.8;">
+                    <li><strong>過半数ギリギリ:</strong> 75議席（BBBなし）では1議席不足、安定性に欠ける</li>
+                    <li><strong>D66の抵抗:</strong> D66は右派色の強い連立を嫌う可能性</li>
+                    <li><strong>JA21の不確実性:</strong> JA21は議席9で影響力小、交渉で何を要求するか不明</li>
+                    <li><strong>社会政策:</strong> D66はリベラル、JA21は保守的で対立</li>
+                </ul>
+            </div>
+            
+            <p><strong>実現可能性:</strong> ❍ <strong>中</strong> - BBB追加で現実的。ただしD66が右派連立を受け入れるかが鍵。5党連立の複雑さも課題。</p>
+            <p class="note">VVDの連立構想に基づく</p>
+        </div>
+        
+        <div class="scenario-box" style="border-color: #10b981;">
+            <h3 style="color: #065f46; margin-top: 0;">シナリオ3: 左派中道連立</h3>
+            <p><strong>構成:</strong> GL-PvdA (20) + D66 (26) + CDA (18) + VVD (22) = <strong>86議席</strong></p>
+            <p><strong>代替版:</strong> GL-PvdA + D66 + CDA + SP + Volt + PvdD = <strong>70-75議席</strong></p>
+            
+            <div style="background-color: #d1fae5; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                <h4 style="margin-top: 0;">✅ メリット</h4>
+                <ul style="line-height: 1.8;">
+                    <li><strong>政策的一貫性:</strong> 社会保障、気候変動で一致</li>
+                    <li><strong>GL-PvdA新党首次第:</strong> 新党首が妥協的であれば実現可能性向上</li>
+                    <li><strong>D66が橋渡し:</strong> D66は左派との連立に前向き</li>
+                </ul>
+            </div>
+            
+            <div style="background-color: #fee2e2; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                <h4 style="margin-top: 0;">❌ デメリット・障壁</h4>
+                <ul style="line-height: 1.8;">
+                    <li><strong>VVD排除版は過半数不足:</strong> 小党を寄せ集めても75議席程度</li>
+                    <li><strong>VVD含む版はシナリオ1と同じ:</strong> Yeşilgözの拒否が障壁</li>
+                    <li><strong>小党の不安定性:</strong> SP、Volt、PvdDは連立経験が少ない</li>
+                </ul>
+            </div>
+            
+            <p><strong>実現可能性:</strong> ✘ <strong>低</strong> - VVDなしでは過半数届かず、VVDを含めるとシナリオ1と同じ問題に直面。</p>
+        </div>
+        
+        <div class="scenario-box" style="border-color: #dc2626; background-color: #fef2f2;">
+            <h3 style="color: #991b1b; margin-top: 0;">シナリオ4: PVV中心の連立（Wilders希望）</h3>
+            <p><strong>構成:</strong> PVV (26) + JA21 (9) + FvD (7) + BBB (4) = <strong>46議席</strong></p>
+            
+            <div style="background-color: #fee2e2; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                <h4 style="margin-top: 0;">❌ なぜ不可能か</h4>
+                <ul style="line-height: 1.8;">
+                    <li><strong>過半数に30議席不足:</strong> 46議席では76議席に遠く及ばず</li>
+                    <li><strong>主要3党が拒否:</strong> CDA、VVD、GL-PvdAが全てPVVとの連立を明確に拒否</li>
+                    <li><strong>D66も拒否:</strong> 「PVVとは絶対に組まない」と明言</li>
+                    <li><strong>Wilders孤立:</strong> 「選挙不正」主張で信頼をさらに失墜</li>
+                    <li><strong>少数政権も不可能:</strong> 信任を得られず、政策を通過できない</li>
+                </ul>
+            </div>
+            
+            <p><strong>実現可能性:</strong> ✘ <strong>極低（事実上ゼロ）</strong> - 数学的にも政治的にも完全に不可能。Wildersは首相就任を諦めざるを得ない。</p>
+            <p class="note">出典: <a href="https://en.wikipedia.org/wiki/2025_Dutch_general_election">Wikipedia</a> | 各党の公式声明</p>
+        </div>
+
+<h2>連立交渉における各党の立場</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>政党</th>
+                    <th>議席</th>
+                    <th>連立における立場</th>
+                    <th>譲れない政策</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f0f9ff;">
+                    <td><a href="D66.html"><strong>D66</strong></a></td>
+                    <td>26</td>
+                    <td>第1党として連立交渉を主導。中道大連立を提案。PVVとの連立は拒否</td>
+                    <td>EU統合推進、リベラル社会政策、教育投資</td>
+                </tr>
+                <tr style="background-color: #fee2e2;">
+                    <td><a href="PVV.html"><strong>PVV</strong></a></td>
+                    <td>26</td>
+                    <td>完全孤立。全主要政党が連立拒否。Wildersは首相就任を断念せず</td>
+                    <td>国境閉鎖、亡命者即時送還、EU離脱志向</td>
+                </tr>
+                <tr>
+                    <td><a href="VVD.html"><strong>VVD</strong></a></td>
+                    <td>22</td>
+                    <td>中道右派連立を希望。GL-PvdAとの連立を拒否。PVVも排除</td>
+                    <td>財政規律、富裕層減税、管理された移民政策</td>
+                </tr>
+                <tr>
+                    <td><a href="GL–PvdA.html"><strong>GL-PvdA</strong></a></td>
+                    <td>20</td>
+                    <td>新党首選出待ち。VVDとの連立に消極的。大連立なら参加意欲</td>
+                    <td>気候目標達成、社会保障拡大、人道的移民政策</td>
+                </tr>
+                <tr style="background-color: #fff9e6;">
+                    <td><a href="CDA.html"><strong>CDA</strong></a></td>
+                    <td>18</td>
+                    <td>キングメーカー。左右どちらとも組める。ほぼ全てのシナリオに登場</td>
+                    <td>キリスト教的価値観、家族政策、バランス重視</td>
+                </tr>
+                <tr>
+                    <td><strong>JA21</strong></td>
+                    <td>9</td>
+                    <td>「どの党とも連立可能」と表明。中道右派連立に含まれる可能性</td>
+                    <td>厳格な移民管理、市場重視経済政策</td>
+                </tr>
+                <tr>
+                    <td><strong>BBB</strong></td>
+                    <td>4</td>
+                    <td>農業政策重視。議席少なく影響力限定的。中道右派連立の補完役</td>
+                    <td>農業保護、窒素規制緩和</td>
+                </tr>
+                <tr>
+                    <td><strong>FvD</strong></td>
+                    <td>7</td>
+                    <td>極右。主要政党は全て連立を拒否。PVVとの連携もまとまらず</td>
+                    <td>EU離脱、反ワクチン、陰謀論的主張</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>連立交渉の見通しと今後のスケジュール</h2>
+        
+        <div style="background-color: #f0f9ff; border: 2px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px;">
+            <h3 style="color: #1e40af; margin-top: 0;">今後の予定</h3>
+            <table style="margin: 0;">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">日時</th>
+                        <th>予定事項</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>11月4日（月）</strong></td>
+                        <td>最終結果確定 / GL-PvdA新党首選出</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11月5-6日頃</strong></td>
+                        <td>国王がInformateurを任命（D66のJetten有力）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11月12日（火）</strong></td>
+                        <td>新議会招集 / 議長選出</td>
+                    </tr>
+                    <tr>
+                        <td><strong>11月中旬-12月</strong></td>
+                        <td>Informateur調査期間（各党の意向確認、シナリオ分析）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>12月-2026年1月</strong></td>
+                        <td>Formateur任命 / 本格的連立交渉開始</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2026年2-4月</strong></td>
+                        <td>連立協定締結 / 新内閣成立（予測）</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin: 15px 0 0 0; line-height: 1.8;">
+                <strong>注:</strong> 2023年選挙では連立交渉に223日（約7ヶ月）を要した。今回も同様の長期化が予想される。
+            </p>
+        </div>
+        
+        <div style="background-color: #fffbf0; border-left: 4px solid #f59e0b; padding: 20px; margin: 20px 0; border-radius: 4px;">
+            <h3 style="margin-top: 0; color: #92400e;">連立交渉の3つの焦点</h3>
+            <ol style="line-height: 1.8;">
+                <li><strong>VVD-GL/PvdA関係:</strong> Yeşilgözが妥協するか、VVD党首が交代するか</li>
+                <li><strong>GL-PvdA新党首:</strong> Jesse Klaverなら左派色強化、Moormanなら妥協的</li>
+                <li><strong>CDAの判断:</strong> Bontenbalが左右どちらの連立に参加するか</li>
+            </ol>
+            <p style="margin: 15px 0 0 0;">
+                <strong>最も可能性が高いシナリオ:</strong> 中道大連立（D66+VVD+GL-PvdA+CDA）またはVVD希望の中道右派5党連立。いずれも数ヶ月の交渉を要する。
+            </p>
+        </div>
+        
+        <h2>関連ページ</h2>
+        <div style="background-color: #34495e; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <a href="index.html" style="color: white; margin-right: 20px; font-weight: 500;">トップページ</a>
+            <a href="overview.html" style="color: white; margin-right: 20px; font-weight: 500;">全体俯瞰</a>
+            <a href="weekly.html" style="color: white; margin-right: 20px; font-weight: 500;">週次観測ログ</a>
+            <a href="analysis.html" style="color: white; font-weight: 500;">詳細分析</a>
+        </div>
+        
+        <p class="note">
+            <strong>情報源:</strong> 
+            <a href="https://en.wikipedia.org/wiki/2025_Dutch_general_election">Wikipedia</a> | 
+            <a href="https://www.dutchnews.nl/2025/10/d66-or-pvv-as-biggest-final-dutch-election-votes-trickle-in/">DutchNews.nl</a> | 
+            <a href="https://nltimes.nl/2025/10/30/jetten-likely-lead-cabinet-formation-talks-aiming-broad-political-center">NL Times</a> | 
+            <a href="https://www.aljazeera.com/news/2025/10/31/dutch-centrist-jetten-set-to-become-youngest-pm-after-seeing-off-far-right">Al Jazeera</a> | 
+            <a href="https://www.euronews.com/2025/10/29/centre-left-d66-takes-lead-in-dutch-parliamentary-election-ipsos-exit-poll-says">Euronews</a>
+        </p>
+        
+        <p class="timestamp">最終更新：2025-11-09</p>
+    </div>
+</body>
+</html>
+```
+
+---
+
+## ✅ coalition.html 完成
+
+全4セクションが完了しました。
+
+**ファイル構成:**
+- セクション1: ヘッダー・ナビ・概要・選挙結果サマリー（約150行）
+- セクション2: タイムライン（10/29-11/12）（約150行）
+- セクション3: 連立シナリオ詳細分析（4シナリオ）（約150行）
+- セクション4: 各党の立場・スケジュール・フッター（約100行）
+
+**合計: 約550行**
+
+---
+
+## 📝 GitHubコミットメッセージ（日本語）
+```
+coalition.html: 連立交渉ページ新規作成
+
+- 選挙結果サマリー（D66・PVV同数26議席）
+- タイムライン: 10/29投票日から11/12新議会招集まで
+- 連立シナリオ4つの詳細分析（中道大連立、中道右派、左派中道、PVV中心）
+- 各党の連立交渉における立場と譲れない政策
+- 今後のスケジュール（2026年2-4月新内閣成立予測）
+- レスポンシブデザイン対応
+
+出典: Wikipedia, DutchNews.nl, NL Times, Al Jazeera, Euronews
