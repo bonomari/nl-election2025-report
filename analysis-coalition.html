@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>連立交渉の深掘り分析 | オランダ総選挙2025</title>
+    <link rel="stylesheet" href="print.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #8b5cf6;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            color: #8b5cf6;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #8b5cf6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+        .highlight-box h2, .highlight-box h3 {
+            color: white;
+            margin: 0 0 15px 0;
+            border: none;
+            padding: 0;
+        }
+        .info-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .success-box {
+            background-color: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .note {
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
+        }
+        a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .timestamp {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            nav div {
+                flex-wrap: wrap;
+                gap: 10px !important;
+            }
+            nav a {
+                font-size: 0.9em !important;
+                padding: 4px 8px !important;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                font-size: 0.75em;
+            }
+            th, td {
+                padding: 6px 4px;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- グローバルナビゲーションバー -->
+    <nav style="position: sticky; top: 0; background-color: #1e40af; z-index: 1000; padding: 12px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+        <div style="max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 25px;">
+            <a href="index.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                🏠 トップ
+            </a>
+            <a href="analysis.html" style="color: #ffd700; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 5px; background-color: rgba(255,215,0,0.15); padding: 6px 12px; border-radius: 4px;">
+                📊 詳細分析
+            </a>
+            <a href="coalition.html" style="color: #ff6b6b; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 5px; background-color: rgba(255,107,107,0.15); padding: 6px 12px; border-radius: 4px;">
+                🤝 連立交渉
+            </a>
+            <a href="overview.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                📋 概要
+            </a>
+            <a href="weekly.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                📅 週報
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>連立交渉の深掘り分析</h1>
+        <p class="subtitle">なぜ難航するのか？ なぜ時間がかかるのか？ Wildersの首相就任は？</p>
+
+        <div class="highlight-box">
+            <h3>この分析について</h3>
+            <p style="margin: 0; line-height: 1.8;">
+                オランダの連立交渉は、なぜこれほど複雑で時間がかかるのか？ 2023年の連立交渉は<strong>223日</strong>を要し、2025年も3-6ヶ月の長期戦が予想されます。このページでは、連立交渉の構造的な困難さと、今回の選挙結果が交渉に与える影響を深掘りします。
+            </p>
+        </div>
+
+        <h2>1. なぜ連立が難しいのか</h2>
+
+        <h3>1-1. オランダ政治の特殊性：極端な多党制</h3>
+        <div class="info-box">
+            <p><strong>2025年選挙の特徴：</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>第1党でも26議席</strong>（D66）- 全体の17.3%のみ</li>
+                <li><strong>過半数に50議席不足</strong> - 最低4-5党の連立が必須</li>
+                <li><strong>9つ以上の政党が議席獲得</strong> - 意見調整の複雑さ</li>
+                <li><strong>イデオロギーの幅が広い</strong> - 極右（PVV）から極左（GL-PvdA）まで</li>
+            </ul>
+            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
+                出典: <a href="https://en.wikipedia.org/wiki/2025_Dutch_general_election">Wikipedia - 2025 Dutch general election</a>
+            </p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>比較：他国との違い</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>イギリス:</strong> 第1党が単独過半数を獲得することが多い（2019年保守党：365/650議席）</li>
+                <li><strong>ドイツ:</strong> 第1党が通常30-40%の議席を獲得（2021年SPD：206/736議席）</li>
+                <li><strong>オランダ:</strong> 第1党でも20%未満が常態化</li>
+            </ul>
+        </div>
+
+        <h3>1-2. 2023年連立交渉：223日の教訓</h3>
+        <div class="info-box">
+            <p><strong>2023年の連立交渉タイムライン：</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>2023年11月22日:</strong> 総選挙実施。PVVが37議席で第1党</li>
+                <li><strong>2023年11月23日-2024年1月:</strong> Informateur任命、探索的協議開始</li>
+                <li><strong>2024年1月-4月:</strong> PVV・VVD・NSC・BBBの4党で交渉開始</li>
+                <li><strong>2024年5月16日:</strong> 連立協定署名（選挙から176日後）</li>
+                <li><strong>2024年6月2日:</strong> 内閣発足（選挙から193日後）</li>
+                <li><strong>2025年6月:</strong> 移民政策で連立崩壊（わずか1年で終了）</li>
+            </ul>
+            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
+                出典: <a href="https://en.wikipedia.org/wiki/Schoof_cabinet">Wikipedia - Schoof cabinet</a>
+            </p>
+        </div>
+
+        <div class="warning-box">
+            <p style="margin: 0 0 10px 0;"><strong>⚠️ 2023年連立が難航した理由：</strong></p>
+            <ol style="line-height: 1.8; margin: 10px 0 0 20px;">
+                <li><strong>PVVの孤立</strong> - 多くの政党がPVVとの連立を拒否</li>
+                <li><strong>NSCの要求</strong> - Omtzigt党首が厳格な条件を提示（移民政策、透明性）</li>
+                <li><strong>政策的隔たり</strong> - 経済政策、移民、EU統合で大きな溝</li>
+                <li><strong>首相人事</strong> - 各党が譲らず、最終的に「専門家首相」（Schoof）で妥協</li>
+                <li><strong>信頼の欠如</strong> - 2021年連立（Rutte IV）が児童手当スキャンダルで崩壊した記憶</li>
+            </ol>
+            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
+                出典: <a href="https://www.theguardian.com/world/2024/may/16/dutch-coalition-deal-geert-wilders-far-right-pvv">The Guardian - Dutch coalition deal</a>
+            </p>
+        </div>
+
+        <h3>1-3. 政党間の政策的隔たり</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>政策分野</th>
+                    <th>D66（中道リベラル）</th>
+                    <th>PVV（極右）</th>
+                    <th>隔たりの大きさ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>移民政策</strong></td>
+                    <td>人道的受入、統合支援</td>
+                    <td>国境閉鎖、即時送還</td>
+                    <td style="color: #dc2626; font-weight: 600;">極大 ⚠️⚠️⚠️</td>
+                </tr>
+                <tr>
+                    <td><strong>EU統合</strong></td>
+                    <td>積極的推進、統合深化</td>
+                    <td>EU離脱志向</td>
+                    <td style="color: #dc2626; font-weight: 600;">極大 ⚠️⚠️⚠️</td>
+                </tr>
+                <tr>
+                    <td><strong>気候変動</strong></td>
+                    <td>2050年カーボンニュートラル</td>
+                    <td>気候政策懐疑的</td>
+                    <td style="color: #dc2626; font-weight: 600;">極大 ⚠️⚠️</td>
+                </tr>
+                <tr>
+                    <td><strong>経済政策</strong></td>
+                    <td>市場経済、起業支援</td>
+                    <td>福祉拡大、富裕層増税</td>
+                    <td style="color: #f59e0b; font-weight: 600;">大 ⚠️</td>
+                </tr>
+                <tr>
+                    <td><strong>住宅政策</strong></td>
+                    <td>建設促進、社会住宅投資</td>
+                    <td>オランダ人優先、家賃規制</td>
+                    <td style="color: #f59e0b; font-weight: 600;">中 ⚠️</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">出典: 各党マニフェスト、CPB（経済政策分析局）レポート</p>
+
+        <h2>2. 5党連立が必要な理由</h2>
+
+        <h3>2-1. 数学的分析：組み合わせの限界</h3>
+        <div class="info-box">
+            <p><strong>過半数76議席を達成する組み合わせ：</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>シナリオ</th>
+                        <th>構成政党</th>
+                        <th>合計議席</th>
+                        <th>政治的実現可能性</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #d1fae5;">
+                        <td><strong>中道大連立</strong></td>
+                        <td>D66 + VVD + GL-PvdA + CDA</td>
+                        <td>86</td>
+                        <td>✔️ 高（ただしVVDが拒否中）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>中道右派5党</strong></td>
+                        <td>VVD + D66 + CDA + JA21 + BBB</td>
+                        <td>75</td>
+                        <td>⚠️ 中（過半数ぎりぎり）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>左派中道</strong></td>
+                        <td>D66 + GL-PvdA + CDA + VVD</td>
+                        <td>86</td>
+                        <td>✔️ 高（シナリオ1と同じ）</td>
+                    </tr>
+                    <tr style="background-color: #fee2e2;">
+                        <td><strong>PVV中心</strong></td>
+                        <td>PVV + VVD + CDA + JA21</td>
+                        <td>77</td>
+                        <td>✘ 極低（全党がPVV排除）</td>
+                    </tr>
+                    <tr style="background-color: #fee2e2;">
+                        <td><strong>PVV極右連合</strong></td>
+                        <td>PVV + JA21 + FvD + BBB</td>
+                        <td>46</td>
+                        <td>✘ 不可能（過半数に30議席不足）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>重要な制約条件：</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>VVDの立場:</strong> Yeşilgöz党首が「GL-PvdAとは組まない」と明言（<a href="https://nltimes.nl/2025/10/30/jetten-likely-lead-cabinet-formation-talks-aiming-broad-political-center">NL Times報道</a>）</li>
+                <li><strong>PVV排除:</strong> D66、VVD、CDA、GL-PvdAが全て連立拒否を表明</li>
+                <li><strong>NSC消滅:</strong> 2023年の「橋渡し役」が不在</li>
+                <li><strong>小政党の限界:</strong> JA21（9）、FvD（7）、BBB（4）では数が足りない</li>
+            </ul>
+        </div>
+
+        <h3>2-2. 過去の連立事例：4党以上は常態</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>内閣（期間）</th>
+                    <th>構成政党数</th>
+                    <th>交渉日数</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rutte IV (2022-2025)</td>
+                    <td>4党</td>
+                    <td>299日</td>
+                    <td>VVD・D66・CDA・ChristenUnie</td>
+                </tr>
+                <tr>
+                    <td>Schoof (2024-2025)</td>
+                    <td>4党</td>
+                    <td>193日</td>
+                    <td>PVV・VVD・NSC・BBB（1年で崩壊）</td>
+                </tr>
+                <tr>
+                    <td>Rutte III (2017-2021)</td>
+                    <td>4党</td>
+                    <td>225日</td>
+                    <td>VVD・CDA・D66・ChristenUnie</td>
+                </tr>
+                <tr>
+                    <td>Rutte II (2012-2017)</td>
+                    <td>2党</td>
+                    <td>54日</td>
+                    <td>VVD・PvdA（珍しい例外）</td>
+                </tr>
+                <tr>
+                    <td>Rutte I (2010-2012)</td>
+                    <td>2党+外部支持</td>
+                    <td>127日</td>
+                    <td>VVD・CDA、PVV外部支持</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">出典: <a href="https://en.wikipedia.org/wiki/List_of_Dutch_governments">Wikipedia - List of Dutch governments</a></p>
+
+        <div class="info-box">
+            <p><strong>傾向分析：</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>4党連立が標準化:</strong> 2010年以降、ほぼ全ての内閣が4党以上</li>
+                <li><strong>交渉期間の長期化:</strong> 平均150-250日（5-8ヶ月）</li>
+                <li><strong>2党連立の終焉:</strong> Rutte II（2012-2017）が最後の例外</li>
+                <li><strong>連立の脆弱性:</strong> 4党以上の連立は政策対立で崩壊しやすい</li>
+            </ul>
+        </div>
+
+        <h2>3. Wildersの首相就任可能性</h2>
+
+        <h3>3-1. 欧州における極右政党の事例</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>国</th>
+                    <th>極右政党</th>
+                    <th>連立参加</th>
+                    <th>首相就任</th>
+                    <th>備考</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>イタリア</strong></td>
+                    <td>Fratelli d'Italia</td>
+                    <td>✔️ 2022年〜</td>
+                    <td>✔️ Meloni首相</td>
+                    <td>第1党として連立を主導</td>
+                </tr>
+                <tr>
+                    <td><strong>オーストリア</strong></td>
+                    <td>FPÖ</td>
+                    <td>✔️ 2000年、2017年</td>
+                    <td>✘ 副首相のみ</td>
+                    <td>汚職スキャンダルで連立崩壊（2019年）</td>
+                </tr>
+                <tr>
+                    <td><strong>フィンランド</strong></td>
+                    <td>Finns Party</td>
+                    <td>✔️ 2015年、2023年〜</td>
+                    <td>✘ 副首相・閣僚</td>
+                    <td>第2党として連立参加</td>
+                </tr>
+                <tr>
+                    <td><strong>フランス</strong></td>
+                    <td>RN（旧FN）</td>
+                    <td>✘ 常に排除</td>
+                    <td>✘</td>
+                    <td>「共和国戦線」による排除継続</td>
+                </tr>
+                <tr style="background-color: #fff9e6;">
+                    <td><strong>オランダ</strong></td>
+                    <td>PVV</td>
+                    <td>△ 外部支持のみ</td>
+                    <td>✘ 実現せず</td>
+                    <td>2010年にVVD・CDAを外部支持</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="note">出典: <a href="https://www.aljazeera.com/news/2025/10/31/dutch-centrist-jetten-set-to-become-youngest-pm-after-seeing-off-far-right">Al Jazeera</a>, 欧州各国政治報道</p>
+
+        <h3>3-2. PVVの「排除の論理」</h3>
+        <div class="warning-box">
+            <p><strong>なぜPVVは排除されるのか：</strong></p>
+            <ol style="line-height: 1.8; margin: 10px 0 0 20px;">
+                <li><strong>イスラム嫌悪の公言:</strong> Wildersは「イスラムはイデオロギー、宗教ではない」と主張し、コーラン禁止を提唱</li>
+                <li><strong>EU離脱志向:</strong> オランダのEU離脱は経済的に壊滅的（<a href="https://think.ing.com/articles/dutch-election-preview-looking-for-solutions-to-structural-issues/">ING分析では年間€50-80億の損失</a>）</li>
+                <li><strong>法の支配への懸念:</strong> PVVは司法の独立性を批判し、憲法改正を主張</li>
+                <li><strong>国際的評判のリスク:</strong> Wilders首相はEU・NATOでのオランダの立場を弱める</li>
+                <li><strong>歴史的経験:</strong> 2010年の外部支持内閣が2012年に崩壊（PVVが突然撤退）</li>
+            </ol>
+            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
+                出典: <a href="https://www.theguardian.com/world/2025/oct/21/dutch-election-key-players-and-main-issues-snap-poll">The Guardian</a> | 
+                <a href="https://think.ing.com/articles/dutch-election-preview-looking-for-solutions-to-structural-issues/">ING Research</a>
+            </p>
+        </div>
+
+        <div class="info-box">
+            <p><strong>2025年選挙後の状況：</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>D66:</strong> 「PVVとの連立は絶対にない」（Jetten党首）</li>
+                <li><strong>VVD:</strong> 「PVVとの連立は困難」（Yeşilgöz党首）</li>
+                <li><strong>CDA:</strong> 「PVVとは価値観が合わない」（Bontenbal党首）</li>
+                <li><strong>GL-PvdA:</strong> 「PVVは民主主義への脅威」（Timmermans前党首）</li>
+                <li><strong>Wilders自身:</strong> 11月1日に「選挙不正」を主張し、さらに孤立を深める</li>
+            </ul>
+            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
+                出典: <a href="https://nltimes.nl/2025/10/30/jetten-likely-lead-cabinet-formation-talks-aiming-broad-political-center">NL Times</a> | 
+                <a href="https://www.dutchnews.nl/2025/10/d66-or-pvv-as-biggest-final-dutch-election-votes-trickle-in/">DutchNews.nl</a>
+            </p>
+        </div>
+
+        <h3>3-3. 結論：Wildersの首相就任は極めて困難</h3>
+        <div class="highlight-box">
+            <h3>可能性の評価</h3>
+            <table style="background-color: white; color: #333;">
+                <thead>
+                    <tr>
+                        <th>シナリオ</th>
+                        <th>実現可能性</th>
+                        <th>理由</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wilders首相、PVV主導連立</td>
+                        <td style="color: #dc2626; font-weight: 600;">1% 以下</td>
+                        <td>全主要政党が拒否</td>
+                    </tr>
+                    <tr>
+                        <td>Wilders副首相</td>
+                        <td style="color: #dc2626; font-weight: 600;">5%</td>
+                        <td>VVDが条件付きで検討する可能性</td>
+                    </tr>
+                    <tr>
+                        <td>PVV閣僚参加</td>
+                        <td style="color: #f59e0b; font-weight: 600;">10-15%</td>
+                        <td>特定の省庁（農業など）で可能性</td>
+                    </tr>
+                    <tr>
+                        <td>外部支持（2010年型）</td>
+                        <td style="color: #f59e0b; font-weight: 600;">20%</td>
+                        <td>信頼性の問題で困難</td>
+                    </tr>
+                    <tr>
+                        <td>完全排除（野党）</td>
+                        <td style="color: #059669; font-weight: 600;">70-80%</td>
+                        <td>最も可能性が高い</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4. 連立交渉の長期化要因</h2>
+
+        <h3>4-1. 2023年交渉の詳細分析</h3>
+        <div class="info-box">
+            <p><strong>2023年連立交渉が223日を要した具体的理由：</strong></p>
+            <ol style="line-height: 1.8; margin: 10px 0 0 20px;">
+                <li><strong>Informateur段階（70日）:</strong>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>複数のInformateurが任命され、探索的協議を実施</li>
+                        <li>各党の「レッドライン」（譲れない政策）を確認</li>
+                        <li>可能な連立の組み合わせを絞り込み</li>
+                    </ul>
+                </li>
+                <li><strong>Formateur段階（123日）:</strong>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>具体的な連立協定の起草開始</li>
+                        <li>移民政策で激しい対立（PVV vs NSC）</li>
+                        <li>首相人事で決裂（各党が譲らず）</li>
+                        <li>「専門家首相」案（Schoof）で妥協</li>
+                    </ul>
+                </li>
+                <li><strong>協定起草・承認（30日）:</strong>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>各党の党大会で承認取得</li>
+                        <li>閣僚人事の調整</li>
+                    </ul>
+                </li>
+            </ol>
+            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
+                出典: <a href="https://en.wikipedia.org/wiki/2023%E2%80%9324_Dutch_cabinet_formation">Wikipedia - 2023-24 Dutch cabinet formation</a>
+            </p>
+        </div>
+
+        <h3>4-2. 2025年交渉の予測</h3>
+        <div class="warning-box">
+            <p><strong>2025年が2023年より難しい理由：</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>NSC不在:</strong> 2023年に「橋渡し役」を果たしたNSCが消滅。代替政党がいない</li>
+                <li><strong>VVDの弱体化:</strong> 24→22議席。Yeşilgöz党首の交渉力低下</li>
+                <li><strong>GL-PvdA党首不在:</strong> Timmermans辞任。新党首選出まで交渉開始不可</li>
+                <li><strong>CDAの不安定性:</strong> 「同性愛発言」炎上の影響が残る</li>
+                <li><strong>5党連立の必要性:</strong> 2023年は4党、2025年は5党が必要になる可能性</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <p><strong>2025年が2023年より早い可能性：</strong></p>
+            <ul style="line-height: 1.8;">
+                <li><strong>PVV排除の合意:</strong> 全党が最初からPVV排除で一致。探索時間短縮</li>
+                <li><strong>経験の蓄積:</strong> 2023年の教訓を活かせる</li>
+                <li><strong>危機感の共有:</strong> 2025年6月の連立崩壊の記憶が新しく、「持続可能な連立」への意識が高い</li>
+                <li><strong>D66の主導権:</strong> Jettenが明確なビジョン（中道大連立）を提示</li>
+            </ul>
+        </div>
+
+        <h3>4-3. 現実的な予測</h3>
+        <div class="highlight-box">
+            <h3>連立交渉の所要期間予測</h3>
+            <table style="background-color: white; color: #333;">
+                <thead>
+                    <tr>
+                        <th>シナリオ</th>
+                        <th>期間</th>
+                        <th>可能性</th>
+                        <th>条件</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>楽観的</strong></td>
+                        <td>3-4ヶ月</td>
+                        <td>20%</td>
+                        <td>VVDがGL-PvdAとの連立を受入、政策妥協が迅速</td>
+                    </tr>
+                    <tr style="background-color: #fff9e6;">
+                        <td><strong>現実的</strong></td>
+                        <td>4-6ヶ月</td>
+                        <td>60%</td>
+                        <td>5党連立で調整に時間、住宅・移民で対立</td>
+                    </tr>
+                    <tr>
+                        <td><strong>悲観的</strong></td>
+                        <td>6-9ヶ月</td>
+                        <td>15%</td>
+                        <td>交渉決裂、やり直し、世論調査で構図変化</td>
+                    </tr>
+                    <tr style="background-color: #fee2e2;">
+                        <td><strong>最悪</strong></td>
+                        <td>9ヶ月以上</td>
+                        <td>5%</td>
+                        <td>複数回の交渉決裂、再選挙の可能性</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin: 15px 0 0 0;">
+                <strong>最も可能性が高い結果:</strong> 2026年2月-4月に新内閣成立（選挙から4-6ヶ月後）
+            </p>
+        </div>
+
+        <h2>まとめ</h2>
+        <div class="success-box">
+            <h3 style="margin-top: 0;">連立交渉の構造的困難さ</h3>
+            <ul style="line-height: 1.8;">
+                <li><strong>オランダの極端な多党制</strong>が連立交渉を複雑化</li>
+                <li><strong>5党連立が必須</strong>となり、政策調整がさらに困難に</li>
+                <li><strong>PVVの排除</strong>は確実だが、それでも過半数確保は難航</li>
+                <li><strong>4-6ヶ月の交渉期間</strong>が現実的。2026年春の内閣成立が有力</li>
+                <li><strong>Wildersの首相就任</strong>は極めて困難（可能性1%以下）</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="index.html" style="display: inline-block; background-color: #3498db; color: white; padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none;">
+                ← トップページに戻る
+            </a>
+            <a href="coalition.html" style="display: inline-block; background-color: #e74c3c; color: white; padding: 12px 24px; border-radius: 6px; font-weight: 600; text-decoration: none; margin-left: 15px;">
+                連立交渉の現況を見る →
+            </a>
+        </div>
+
+        <h2>典拠・参考資料</h2>
+        <div style="background-color: #f9fafb; padding: 20px; border-radius: 6px; margin: 20px 0;">
+            <h3 style="margin-top: 0;">選挙結果・連立交渉</h3>
+            <ul style="line-height: 1.8;">
+                <li><a href="https://en.wikipedia.org/wiki/2025_Dutch_general_election">Wikipedia - 2025 Dutch general election</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/2023%E2%80%9324_Dutch_cabinet_formation">Wikipedia - 2023-24 Dutch cabinet formation</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Schoof_cabinet">Wikipedia - Schoof cabinet</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/List_of_Dutch_governments">Wikipedia - List of Dutch governments</a></li>
+            </ul>
+            
+            <h3>報道機関</h3>
+            <ul style="line-height: 1.8;">
+                <li><a href="https://nltimes.nl/2025/10/30/jetten-likely-lead-cabinet-formation-talks-aiming-broad-political-center">NL Times - Jetten likely to lead cabinet formation talks</a></li>
+                <li><a href="https://www.dutchnews.nl/2025/10/d66-or-pvv-as-biggest-final-dutch-election-votes-trickle-in/">DutchNews.nl - D66 or PVV as biggest</a></li>
+                <li><a href="https://www.theguardian.com/world/2025/oct/21/dutch-election-key-players-and-main-issues-snap-poll">The Guardian - Dutch election: key players and main issues</a></li>
+                <li><a href="https://www.theguardian.com/world/2024/may/16/dutch-coalition-deal-geert-wilders-far-right-pvv">The Guardian - Dutch coalition deal (2024)</a></li>
+                <li><a href="https://www.aljazeera.com/news/2025/10/31/dutch-centrist-jetten-set-to-become-youngest-pm-after-seeing-off-far-right">Al Jazeera - Dutch centrist Jetten set to become youngest PM</a></li>
+            </ul>
+
+            <h3>経済分析</h3>
+            <ul style="line-height: 1.8;">
+                <li><a href="https://think.ing.com/articles/dutch-election-preview-looking-for-solutions-to-structural-issues/">ING Research - Dutch election preview</a></li>
+            </ul>
+        </div>
+
+        <p class="timestamp">最終更新：2025-11-10（連立交渉分析ページ作成）</p>
+    </div>
+</body>
+</html>
