@@ -3,82 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>週報：連立交渉期 | オランダ総選挙2025</title>
+    <title>週報アーカイブ | オランダ総選挙2025</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
             background-color: #f5f5f5;
         }
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
             background-color: white;
-        }
-        h1, h2, h3, h4 {
-            color: #2c3e50;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         h1 {
+            color: #2c3e50;
             border-bottom: 3px solid #3498db;
             padding-bottom: 10px;
         }
         h2 {
-            background-color: #ecf0f1;
-            padding: 10px;
-            border-left: 5px solid #3498db;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #2980b9;
-            margin-top: 25px;
-        }
-        h4 {
             color: #34495e;
-            margin-top: 20px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
         }
-        nav {
-            background-color: #2c3e50;
-            padding: 15px 0;
-            margin-bottom: 20px;
-        }
-        nav ul {
-            list-style-type: none;
+        .week-list {
+            list-style: none;
             padding: 0;
-            margin: 0;
-            text-align: center;
         }
-        nav li {
-            display: inline;
-            margin: 0 15px;
+        .week-list li {
+            background-color: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
+        .week-list a {
             color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .week-list a:hover {
+            text-decoration: underline;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #3498db;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
+        .summary {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.95em;
         }
         a {
             color: #3498db;
@@ -89,309 +65,86 @@
         }
         .timestamp {
             text-align: right;
-            font-style: italic;
             color: #7f8c8d;
-            margin-top: 30px;
-        }
-        .source-note {
             font-size: 0.9em;
-            color: #7f8c8d;
-            margin-top: 15px;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            nav li {
-                display: block;
-                margin: 10px 0;
-            }
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">トップページ</a></li>
-            <li><a href="coalition.html">連立交渉</a></li>
-            <li><a href="election-results.html">選挙結果</a></li>
-            <li><a href="weekly.html">週報（連立交渉期）</a></li>
-            <li><a href="weekly-election.html">週報（選挙期）</a></li>
-            <li><a href="analysis.html">分析</a></li>
-            <li><a href="overview.html">全体俯瞰</a></li>
-        </ul>
+    <!-- グローバルナビゲーションバー -->
+    <nav style="position: sticky; top: 0; background-color: #1e40af; z-index: 1000; padding: 12px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+        <div style="max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 25px;">
+            <a href="index.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                🏠 トップ
+            </a>
+            <a href="analysis.html" style="color: #ffd700; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 5px; background-color: rgba(255,215,0,0.15); padding: 6px 12px; border-radius: 4px;">
+                📊 詳細分析
+            </a>
+            <a href="coalition.html" style="color: #ff6b6b; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 5px; background-color: rgba(255,107,107,0.15); padding: 6px 12px; border-radius: 4px;">
+                🤝 連立交渉
+            </a>
+            <a href="overview.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                📋 概要
+            </a>
+            <a href="weekly.html" style="color: white; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 5px;">
+                📅 週報
+            </a>
+        </div>
     </nav>
 
     <div class="container">
-        <h1>📅 週報：連立交渉期（2025年11月〜）</h1>
+        <h1>📅 週報アーカイブ</h1>
 
         <div style="background-color: #e8f4f8; border-left: 4px solid #3498db; padding: 15px; margin: 20px 0; border-radius: 4px;">
-            <h3 style="margin-top: 0;">このページについて</h3>
-            <p>このページは、2025年10月29日の総選挙後に開始された連立交渉プロセスを週ごとに記録します。</p>
-            <p><strong>重点項目：</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>世論調査：</strong> 連立シナリオへの支持率、次期首相候補支持率、各党支持率の変化</li>
-                <li><strong>連立交渉の動き：</strong> Informateur/Formateurの動向、各党首脳会談、公式発表</li>
-                <li><strong>各党の発言・立場：</strong> 各党の声明、メディアインタビュー、議員の発言</li>
-                <li><strong>争点別の議論状況：</strong> 連立交渉で議論された政策、合意点・対立点、妥協案の模索</li>
-                <li><strong>メディア分析・識者コメント：</strong> 主要メディアの論調、専門家の見解</li>
-            </ul>
-            <p style="margin-bottom: 0;"><strong>選挙期の週報は<a href="weekly-election.html">こちら</a>をご覧ください。</strong></p>
-        </div>
-        <h2>📅 11月第2週（11月3-10日）</h2>
-
-        <h3>🔍 世論調査</h3>
-
-        <div style="background-color: #fff3cd; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p style="margin: 0;"><strong>⚠️ 注:</strong> この週は世論調査の発表がありませんでした。連立交渉の初期段階のため、各社とも調査を控えている模様です。</p>
+            <p>2025年10月29日の総選挙前後から現在までの週次レポートアーカイブです。</p>
         </div>
 
-        <h3>🤝 連立交渉の動き</h3>
+        <h2>連立交渉期（2025年11月〜）</h2>
+        <ul class="week-list">
+            <li>
+                <a href="weekly-2025-11-w2.html">11月第2週（11月3-10日）</a>
+                <div class="summary">
+                    Koolmees verkenner任命、D66勝利確定、D66+CDA 2党協議開始へ
+                </div>
+            </li>
+        </ul>
 
-        <h4>11月3日（月） - GL-PvdA新党首選出</h4>
+        <h2>選挙期（2025年6-10月）</h2>
+        <ul class="week-list">
+            <li>
+                <a href="weekly-election.html">10月22-29日（選挙週・投票日）</a>
+                <div class="summary">NOS最終討論、最終世論調査、投票日</div>
+            </li>
+            <li>
+                <a href="weekly-election.html">10月21日週（選挙直前週）</a>
+                <div class="summary">RTL討論会、CDA急落、法の支配違反警告</div>
+            </li>
+            <li>
+                <a href="weekly-election.html">10月14日週（選挙2週間前）</a>
+                <div class="summary">Wilders活動再開、RTL第1回討論会</div>
+            </li>
+            <li>
+                <a href="weekly-election.html">10月7日週 / 10月1日週</a>
+                <div class="summary">Meta広告禁止、議会選挙休会</div>
+            </li>
+            <li>
+                <a href="weekly-election.html">9月（選挙戦本格化）</a>
+                <div class="summary">ハーグ暴動、マニフェスト公開</div>
+            </li>
+            <li>
+                <a href="weekly-election.html">8月（夏季休会明け）</a>
+                <div class="summary">NSC連立離脱、Douwe Bob問題、議会再開</div>
+            </li>
+            <li>
+                <a href="weekly-election.html">7月 / 6月（連立崩壊）</a>
+                <div class="summary">Schoof内閣崩壊、選挙決定、CDA躍進</div>
+            </li>
+        </ul>
 
-        <div style="background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>Jesse Klaver（39歳）が<a href="GL-PvdA.html">GL-PvdA</a>新党首に選出</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>背景:</strong> Timmermans辞任（10/29夜）を受けて、20人の議員団が投票</li>
-                <li><strong>対抗馬なし:</strong> Marjolein Moormanが辞退し、Klaverを「圧倒的に最良の候補」と支持</li>
-                <li><strong>Klaverの経歴:</strong> 2010年から下院議員、2015年からGroenLinks党首。2017年・2021年の連立交渉に参加経験あり</li>
-                <li><strong>Klaverのコメント:</strong> 「リーダーシップとは時に脇に退くことを意味するが、状況が求めれば前に出る必要がある」</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://www.dutchnews.nl/2025/11/jesse-klaver-to-lead-groenlinks-pvda-into-coalition-talks/">DutchNews.nl</a> | 
-                <a href="https://nltimes.nl/2025/11/03/jesse-klaver-tapped-groenlinks-pvda-leader-replacing-timmermans-election-woes">NL Times</a>
-            </p>
-        </div>
-
-        <h4>11月4日（月） - Wouter Koolmees verkenner任命</h4>
-
-        <div style="background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>Wouter Koolmeesが連立交渉のverkenner（scout）に任命</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>Koolmeesの経歴:</strong> 元<a href="D66.html">D66</a>社会大臣、現NS（オランダ鉄道）CEO</li>
-                <li><strong>経験:</strong> 2021年にもverkennerとInformateurを務め、Rutte IV内閣の成立に貢献</li>
-                <li><strong>全党一致:</strong> 議会に議席を持つ全15党がKoolmeesの任命を支持</li>
-                <li><strong>タイムライン:</strong> 11月11日までに報告書提出、11月12日に新議会招集、11月13日に報告書討論</li>
-                <li><strong>議長Bosmaのコメント:</strong> 「日常政治から距離を置いた経験豊富な人物を一時的にお借りする」</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://www.dutchnews.nl/2025/11/work-starts-on-forming-a-new-dutch-coalition-government/">DutchNews.nl</a> | 
-                <a href="https://nltimes.nl/2025/11/04/geert-wilders-acknowledges-d66-victory-ns-boss-koolmees-guide-cabinet-formation">NL Times</a> | 
-                <a href="https://www.bloomberg.com/news/articles/2025-11-04/dutch-parties-to-begin-coalition-talks-after-negotiator-named">Bloomberg</a>
-            </p>
-        </div>
-
-        <h4>11月4日（月） - Wilders、D66の勝利を正式承認</h4>
-
-        <div style="background-color: #fff3cd; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>Geert WildersがJettenの勝利を祝福</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>Wildersのコメント:</strong> 「<a href="D66.html">D66</a>とJettenの勝利を祝福する。最終結果が変わるとは思わない」</li>
-                <li><strong>得票差:</strong> <a href="D66.html">D66</a>が<a href="PVV.html">PVV</a>を約28,000票（後に29,668票と確定）リード</li>
-                <li><strong>ただし:</strong> SNSでは引き続き「選挙の不正」を根拠なく主張</li>
-                <li><strong><a href="PVV.html">PVV</a>の孤立:</strong> 主要政党すべてが連立を拒否しているため、Wildersの選択肢は限定的</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://nltimes.nl/2025/11/04/geert-wilders-acknowledges-d66-victory-ns-boss-koolmees-guide-cabinet-formation">NL Times</a>
-            </p>
-        </div>
-
-        <h4>11月5日（火） - 各党首との協議開始</h4>
-
-        <div style="background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>Koolmeesが各党首と個別会談を開始</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>最初の会談:</strong> Rob Jetten（<a href="D66.html">D66</a>）と会談。Jettenは「<a href="VVD.html">VVD</a>・<a href="GL-PvdA.html">GL-PvdA</a>・<a href="CDA.html">CDA</a>との広範な多数派連立」を希望</li>
-                <li><strong>JA21の立場:</strong> Eerdmans党首は「<a href="PVV.html">PVV</a>を自動的に排除すべきでない」と主張。中道右派連立（<a href="PVV.html">PVV</a>・<a href="D66.html">D66</a>・<a href="VVD.html">VVD</a>・<a href="CDA.html">CDA</a>・BBB・SGP）を提案</li>
-                <li><strong><a href="VVD.html">VVD</a>の立場:</strong> Yeşilgöz党首は「<a href="GL-PvdA.html">GL-PvdA</a>との連立は不可能」と明言。中道右派連立（<a href="VVD.html">VVD</a>・JA21・<a href="CDA.html">CDA</a>・<a href="D66.html">D66</a>）を希望、合計75議席</li>
-                <li><strong>Klaverの姿勢:</strong> 「前提条件なし」で交渉に臨む。「オランダを前進させたい。連立内でも野党でも」</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://nltimes.nl/2025/11/05/coalition-talks-begin-ja21-pushes-pvv-inclusion-vvd-seeks-center-right-cabinet">NL Times</a>
-            </p>
-        </div>
-
-        <h4>11月6日（水） - 2党間協議</h4>
-
-        <div style="background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>Koolmeesが2組の2党間協議を実施</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>午前:</strong> Rob Jetten（<a href="D66.html">D66</a>）+ Joost Eerdmans（JA21）</li>
-                <li><strong>午後:</strong> Dilan Yeşilgöz（<a href="VVD.html">VVD</a>）+ Jesse Klaver（<a href="GL-PvdA.html">GL-PvdA</a>）</li>
-                <li><strong>Koolmeesのコメント:</strong> 「YeşilgözはKlaverとの違いは埋められないと言うが、本当にそうなのか確認するのが私の仕事だ」</li>
-                <li><strong>目的:</strong> 各党が主張する「対立」が本物なのか、認識の違いなのかを見極める</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://www.dutchnews.nl/2025/11/d66-and-ja21-vvd-and-gl-pvda-duo-coalition-talks-on-friday/">DutchNews.nl</a>
-            </p>
-        </div>
-        <h4>11月7日（木） - D66の勝利が正式確定</h4>
-
-        <div style="background-color: #d1fae5; border-left: 4px solid #10b981; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>オランダ選挙管理委員会が<a href="D66.html">D66</a>の勝利を正式に確定</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>最終得票差:</strong> <a href="D66.html">D66</a>が<a href="PVV.html">PVV</a>を29,668票リード</li>
-                <li><strong>Rob Jetten:</strong> 38歳で最年少首相候補に</li>
-                <li><strong>Jettenのコメント:</strong> 「ヨーロッパと世界に、ポジティブなキャンペーンでポピュリズムを打ち負かせることを示した」</li>
-                <li><strong>選挙管理委員会の声明:</strong> 「この選挙結果は信頼できる。集計ミスは2021年の14,000件から8,000件に減少した」</li>
-                <li><strong>Wildersの反応:</strong> 敗北を認めるも、SNSで引き続き根拠のない「不正」を主張</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://www.france24.com/en/europe/20251107-jetten-confirmed-winner-in-dutch-vote-as-coalition-talks-begin">France24</a>
-            </p>
-        </div>
-
-        <h4>11月10日（月） - 協議継続、行き詰まりの兆候</h4>
-
-        <div style="background-color: #fff3cd; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>Bontenbal（<a href="CDA.html">CDA</a>）がKoolmeesと会談、「建設的」と強調</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>Bontenbalのコメント:</strong> 「週末に多くの電話をしたが、新しい見識には至らなかった。問題は私にあるとは思わない。我々は建設的だ」</li>
-                <li><strong>行き詰まりの場所は不明:</strong> Bontenbalは「どこに行き詰まりがあるか」「どの連立が望ましいか」についてコメントを拒否</li>
-                <li><strong>今後:</strong> Jettenも同日中にKoolmeesと会談予定</li>
-                <li><strong>Koolmeesの報告書:</strong> 11月11日（火）に議会に提出予定</li>
-                <li><strong>次のステップ:</strong> 11月12日（水）に新議会招集、11月13日（木）にKoolmeesの報告書を討論</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://www.dutchnews.nl/2025/11/coalition-talks-continue-cda-says-it-is-being-constructive/">DutchNews.nl</a>
-            </p>
-        </div>
-
-        <h4>11月11日（火） - Koolmees報告書提出、D66+CDAのみで交渉開始へ</h4>
-
-        <div style="background-color: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>重要な転換：<a href="D66.html">D66</a>と<a href="CDA.html">CDA</a>の2党のみで連立交渉を開始する方針</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>Koolmeesの報告書:</strong> 夕方に議会へ提出予定</li>
-                <li><strong>理由:</strong> <a href="VVD.html">VVD</a>と<a href="GL-PvdA.html">GL-PvdA</a>の対立が解消されず、大規模な連立交渉が行き詰まり</li>
-                <li><strong>現状:</strong> <a href="D66.html">D66</a>（26議席）+ <a href="CDA.html">CDA</a>（18議席）= 44議席（過半数76に遠く及ばず）</li>
-                <li><strong>Rob JettenとHenri Bontenbal:</strong> 「迅速な進展が必要」として2党協議に同意</li>
-                <li><strong>今後の展望:</strong> 2党間で共通点を見つけた後、他党を引き入れる希望</li>
-                <li><strong>次のステップ:</strong> 11月12日（水）新議会招集、11月13日（木）報告書討論・次のリーダー選出</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://nltimes.nl/2025/11/11/coalition-negotiations-start-d66-cda-official-report-later-today">NL Times</a> | 
-                <a href="https://www.dutchnews.nl/2025/11/dutch-coalition-formation-moves-on-d66-and-cda-to-take-lead/">DutchNews.nl</a>
-            </p>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em; background-color: #fef3c7; padding: 10px; border-radius: 4px;">
-                <strong>⚠️ 注:</strong> 報告書の詳細内容、11月13日の討論結果については次週の更新で追加予定
-            </p>
-        </div>
-
-        <h3>💬 各党の発言・立場</h3>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>政党</th>
-                    <th>党首</th>
-                    <th>連立方針</th>
-                    <th>レッドライン（譲れない条件）</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong><a href="D66.html">D66</a></strong></td>
-                    <td>Rob Jetten</td>
-                    <td>広範な多数派連立（<a href="VVD.html">VVD</a>+<a href="GL-PvdA.html">GL-PvdA</a>+<a href="CDA.html">CDA</a>、86議席）<br>→行き詰まりのため<a href="CDA.html">CDA</a>との2党協議に転換</td>
-                    <td><a href="PVV.html">PVV</a>排除、安定性重視</td>
-                </tr>
-                <tr>
-                    <td><strong><a href="VVD.html">VVD</a></strong></td>
-                    <td>Dilan Yeşilgöz</td>
-                    <td>中道右派連立（<a href="D66.html">D66</a>+<a href="CDA.html">CDA</a>+JA21、75議席）</td>
-                    <td><a href="GL-PvdA.html">GL-PvdA</a>排除、住宅ローン控除維持</td>
-                </tr>
-                <tr>
-                    <td><strong><a href="GL-PvdA.html">GL-PvdA</a></strong></td>
-                    <td>Jesse Klaver</td>
-                    <td>前提条件なし、連立・野党どちらも可</td>
-                    <td>（明示せず）</td>
-                </tr>
-                <tr>
-                    <td><strong><a href="CDA.html">CDA</a></strong></td>
-                    <td>Henri Bontenbal</td>
-                    <td>（明示せず。左右どちらとも交渉可能）<br>→<a href="D66.html">D66</a>との2党協議に転換</td>
-                    <td>（明示せず）</td>
-                </tr>
-                <tr>
-                    <td><strong>JA21</strong></td>
-                    <td>Joost Eerdmans</td>
-                    <td>中道右派連立+<a href="PVV.html">PVV</a>（？）</td>
-                    <td><a href="PVV.html">PVV</a>自動排除に反対</td>
-                </tr>
-                <tr style="background-color: #fee2e2;">
-                    <td><strong><a href="PVV.html">PVV</a></strong></td>
-                    <td>Geert Wilders</td>
-                    <td>（孤立）</td>
-                    <td>全党から排除される</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>📊 争点別の議論状況</h3>
-
-        <div style="background-color: #fff3cd; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p style="margin: 0;"><strong>⚠️ 注:</strong> この週は具体的な政策協議に入っていないため、争点別の動きは確認されていません。Koolmeesの報告書（11/11）および11月13日の討論を待つ必要があります。</p>
-        </div>
-        <h3>📰 メディア分析・識者コメント</h3>
-
-        <h4>European Policy Centre分析（11月7日）</h4>
-
-        <div style="background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>「オランダは再び信頼できるEUパートナーになれるか？」</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>懸念:</strong> 過去1年で4人の移民担当大臣が交代。ブリュッセルでの交渉はほとんど成果なし</li>
-                <li><strong>評判の低下:</strong> オランダの「建設的加盟国」としての評判が傷ついている</li>
-                <li><strong>国内重視:</strong> 連立交渉中、オランダ政治は引き続き内向きになる</li>
-                <li><strong>希望:</strong> 防衛費GDP 3.5%への引き上げとウクライナ支援では広範な支持がある</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://www.epc.eu/publication/after-vote-netherlands-faces-another-coalition-and-credibility-test/">European Policy Centre</a>
-            </p>
-        </div>
-
-        <h4>Brussels Signal分析（11月5日）</h4>
-
-        <div style="background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px;">
-            <p><strong>「有権者は政治家に『責任ある行動』を期待」</strong></p>
-            <ul style="line-height: 1.8;">
-                <li><strong>世論の要求:</strong> 有権者は「責任ある行動」と「公の場での論争停止」を求めている</li>
-                <li><strong>政治的コスト:</strong> この期待が、<a href="D66.html">D66</a>と<a href="VVD.html">VVD</a>を実用的妥協に押しやる可能性がある</li>
-                <li><strong>しかし:</strong> 目に見える譲歩は政治的コストが高く、特にアイデンティティを守りたい党首にとっては困難</li>
-                <li><strong>長期化の予測:</strong> Schoof首相（暫定）は「クリスマスまで在任する可能性がある」と警告</li>
-                <li><strong>専門家コメント:</strong> 「オランダは極端な『ジグソーパズル』政治に直面している」</li>
-            </ul>
-            <p style="margin: 15px 0 0 0; font-size: 0.9em;">
-                出典: <a href="https://brusselssignal.eu/2025/11/dutch-d66-turns-to-familiar-face-to-navigate-coalition-maze/">Brussels Signal</a>
-            </p>
-        </div>
-
-        <div style="background-color: #d1fae5; border-left: 4px solid #10b981; padding: 15px; margin: 20px 0; border-radius: 4px;">
-            <h4 style="margin-top: 0;">📅 次週の注目ポイント</h4>
-            <ul style="line-height: 1.8; margin: 0;">
-                <li><strong>11月11日（火）:</strong> Koolmeesが報告書を議会に提出</li>
-                <li><strong>11月12日（水）:</strong> 新議会招集</li>
-                <li><strong>11月13日（木）:</strong> Koolmeesの報告書を討論。次のステップ（Informateur任命など）を決定</li>
-                <li><strong>予測:</strong> Koolmeesは「中道大連立（<a href="D66.html">D66</a>+<a href="VVD.html">VVD</a>+<a href="GL-PvdA.html">GL-PvdA</a>+<a href="CDA.html">CDA</a>）」または「中道右派連立（<a href="D66.html">D66</a>+<a href="VVD.html">VVD</a>+<a href="CDA.html">CDA</a>+JA21）」のどちらかを推奨する可能性</li>
-                <li><strong>焦点:</strong> <a href="VVD.html">VVD</a>と<a href="GL-PvdA.html">GL-PvdA</a>の対立を「本物の政策対立」と判断するか、「認識の違い」と判断するか</li>
-            </ul>
-        </div>
-
-        <div style="background-color: #f3e8ff; border: 2px solid #8b5cf6; padding: 20px; margin: 30px 0; border-radius: 8px;">
-            <h3 style="margin-top: 0; color: #6b21a8;">🔗 関連ページ</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
-                <a href="index.html" style="display: block; background-color: white; padding: 15px; border-radius: 6px; text-align: center; font-weight: 600;">🏠 トップページ</a>
-                <a href="coalition.html" style="display: block; background-color: white; padding: 15px; border-radius: 6px; text-align: center; font-weight: 600;">🤝 連立交渉</a>
-                <a href="election-results.html" style="display: block; background-color: white; padding: 15px; border-radius: 6px; text-align: center; font-weight: 600;">📄 選挙結果</a>
-                <a href="weekly-election.html" style="display: block; background-color: white; padding: 15px; border-radius: 6px; text-align: center; font-weight: 600;">📅 選挙期週報</a>
-                <a href="analysis.html" style="display: block; background-color: white; padding: 15px; border-radius: 6px; text-align: center; font-weight: 600;">📊 分析</a>
-                <a href="overview.html" style="display: block; background-color: white; padding: 15px; border-radius: 6px; text-align: center; font-weight: 600;">🌐 全体俯瞰</a>
-            </div>
-        </div>
-
-        <p class="timestamp">最終更新：2025-11-11（11月第2週・11月11日の動き追加）</p>
+        <p class="timestamp">最終更新：2025-11-11</p>
     </div>
 </body>
 </html>
